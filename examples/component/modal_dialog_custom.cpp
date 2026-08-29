@@ -5,14 +5,14 @@
 #include <string>  // for string, basic_string, char_traits, operator+
 #include <vector>  // for vector
 
-#include "ftxui/component/captured_mouse.hpp"  // for ftxui
-#include "ftxui/component/component.hpp"  // for Button, Renderer, Horizontal, Tab
-#include "ftxui/component/component_base.hpp"      // for ComponentBase
-#include "ftxui/component/screen_interactive.hpp"  // for ScreenInteractive
-#include "ftxui/dom/elements.hpp"  // for operator|, Element, filler, text, hbox, separator, center, vbox, bold, border, clear_under, dbox, size, GREATER_THAN, HEIGHT
+#include "andromeda/component/captured_mouse.hpp"  // for andromeda
+#include "andromeda/component/component.hpp"  // for Button, Renderer, Horizontal, Tab
+#include "andromeda/component/component_base.hpp"      // for ComponentBase
+#include "andromeda/component/screen_interactive.hpp"  // for ScreenInteractive
+#include "andromeda/dom/elements.hpp"  // for operator|, Element, filler, text, hbox, separator, center, vbox, bold, border, clear_under, dbox, size, GREATER_THAN, HEIGHT
 
 int main() {
-  using namespace ftxui;
+  using namespace andromeda;
   auto screen = ScreenInteractive::TerminalOutput();
 
   // There are two layers. One at depth = 0 and the modal window at depth = 1;
@@ -22,11 +22,11 @@ int main() {
   std::string rating = "3/5 stars";
 
   // At depth=0, two buttons. One for rating FTXUI and one for quitting.
-  auto button_rate_ftxui = Button("Rate FTXUI", [&] { depth = 1; });
+  auto button_rate_andromeda = Button("Rate FTXUI", [&] { depth = 1; });
   auto button_quit = Button("Quit", screen.ExitLoopClosure());
 
   auto depth_0_container = Container::Horizontal({
-      button_rate_ftxui,
+      button_rate_andromeda,
       button_quit,
   });
   auto depth_0_renderer = Renderer(depth_0_container, [&] {
@@ -36,7 +36,7 @@ int main() {
                text("☆☆☆ FTXUI:" + rating + " ☆☆☆") | bold,
                filler(),
                hbox({
-                   button_rate_ftxui->Render(),
+                   button_rate_andromeda->Render(),
                    filler(),
                    button_quit->Render(),
                }),

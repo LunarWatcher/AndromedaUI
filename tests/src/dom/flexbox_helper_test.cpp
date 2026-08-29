@@ -2,12 +2,12 @@
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
 #include <gtest/gtest.h>
-#include <ftxui/dom/flexbox_config.hpp>  // for FlexboxConfig, FlexboxConfig::Direction, FlexboxConfig::Direction::Column, FlexboxConfig::Direction::ColumnInversed, FlexboxConfig::Direction::Row, FlexboxConfig::Direction::RowInversed
+#include <andromeda/dom/flexbox_config.hpp>  // for FlexboxConfig, FlexboxConfig::Direction, FlexboxConfig::Direction::Column, FlexboxConfig::Direction::ColumnInversed, FlexboxConfig::Direction::Row, FlexboxConfig::Direction::RowInversed
 
-#include "ftxui/dom/flexbox_helper.hpp"
+#include "andromeda/dom/flexbox_helper.hpp"
 
 // NOLINTBEGIN
-namespace ftxui {
+namespace andromeda {
 
 TEST(FlexboxHelperTest, BasicRow) {
   flexbox_helper::Block block_10_5;
@@ -229,5 +229,5 @@ TEST(FlexboxHelperTest, BasicColumnInversed) {
   EXPECT_EQ(g.blocks[4].dim_y, 5);
 }
 
-}  // namespace ftxui
+}  // namespace andromeda
 // NOLINTEND

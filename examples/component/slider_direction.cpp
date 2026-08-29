@@ -3,18 +3,18 @@
 // the LICENSE file.
 #include <array>                                  // for array
 #include <cmath>                                  // for sin
-#include <ftxui/component/component_base.hpp>     // for ComponentBase
-#include <ftxui/component/component_options.hpp>  // for SliderOption
-#include <ftxui/dom/direction.hpp>  // for Direction, Direction::Up
-#include <ftxui/dom/elements.hpp>   // for size, GREATER_THAN, HEIGHT
-#include <ftxui/util/ref.hpp>       // for ConstRef, Ref
+#include <andromeda/component/component_base.hpp>     // for ComponentBase
+#include <andromeda/component/component_options.hpp>  // for SliderOption
+#include <andromeda/dom/direction.hpp>  // for Direction, Direction::Up
+#include <andromeda/dom/elements.hpp>   // for size, GREATER_THAN, HEIGHT
+#include <andromeda/util/ref.hpp>       // for ConstRef, Ref
 #include <memory>                   // for shared_ptr, __shared_ptr_access
 
-#include "ftxui/component/captured_mouse.hpp"  // for ftxui
-#include "ftxui/component/component.hpp"  // for Horizontal, Slider, operator|=
-#include "ftxui/component/screen_interactive.hpp"  // for ScreenInteractive
+#include "andromeda/component/captured_mouse.hpp"  // for andromeda
+#include "andromeda/component/component.hpp"  // for Horizontal, Slider, operator|=
+#include "andromeda/component/screen_interactive.hpp"  // for ScreenInteractive
 
-using namespace ftxui;
+using namespace andromeda;
 
 int main() {
   auto screen = ScreenInteractive::TerminalOutput();

@@ -2,23 +2,23 @@
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSED file.
 #include <cmath>                   // for sin, cos
-#include <ftxui/dom/elements.hpp>  // for canvas, Element, separator, hbox, operator|, border
-#include <ftxui/screen/screen.hpp>  // for Pixel
+#include <andromeda/dom/elements.hpp>  // for canvas, Element, separator, hbox, operator|, border
+#include <andromeda/screen/screen.hpp>  // for Pixel
 #include <memory>   // for allocator, shared_ptr, __shared_ptr_access
 #include <string>   // for string, basic_string
 #include <utility>  // for move
 #include <vector>   // for vector, __alloc_traits<>::value_type
 
-#include "ftxui/component/component.hpp"  // for Renderer, CatchEvent, Horizontal, Menu, Tab
-#include "ftxui/component/component_base.hpp"      // for ComponentBase
-#include "ftxui/component/event.hpp"               // for Event
-#include "ftxui/component/mouse.hpp"               // for Mouse
-#include "ftxui/component/screen_interactive.hpp"  // for ScreenInteractive
-#include "ftxui/dom/canvas.hpp"                    // for Canvas
-#include "ftxui/screen/color.hpp"  // for Color, Color::Red, Color::Blue, Color::Green, ftxui
+#include "andromeda/component/component.hpp"  // for Renderer, CatchEvent, Horizontal, Menu, Tab
+#include "andromeda/component/component_base.hpp"      // for ComponentBase
+#include "andromeda/component/event.hpp"               // for Event
+#include "andromeda/component/mouse.hpp"               // for Mouse
+#include "andromeda/component/screen_interactive.hpp"  // for ScreenInteractive
+#include "andromeda/dom/canvas.hpp"                    // for Canvas
+#include "andromeda/screen/color.hpp"  // for Color, Color::Red, Color::Blue, Color::Green, andromeda
 
 int main() {
-  using namespace ftxui;
+  using namespace andromeda;
 
   int mouse_x = 0;
   int mouse_y = 0;

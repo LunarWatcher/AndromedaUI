@@ -1,15 +1,15 @@
 #include <string>  // for string
 
-#include "ftxui/component/component.hpp"       // for Collapsible, Renderer
-#include "ftxui/component/component_base.hpp"  // for ComponentBase
-#include "ftxui/component/event.hpp"  // for Event, Event::Return, Event::ArrowDown
-#include "ftxui/dom/elements.hpp"     // for Element, text
-#include "ftxui/dom/node.hpp"         // for Render
-#include "ftxui/screen/screen.hpp"  // for Screen
+#include "andromeda/component/component.hpp"       // for Collapsible, Renderer
+#include "andromeda/component/component_base.hpp"  // for ComponentBase
+#include "andromeda/component/event.hpp"  // for Event, Event::Return, Event::ArrowDown
+#include "andromeda/dom/elements.hpp"     // for Element, text
+#include "andromeda/dom/node.hpp"         // for Render
+#include "andromeda/screen/screen.hpp"  // for Screen
 #include "gtest/gtest.h"  // for AssertionResult, Message, Test, TestPartResult, EXPECT_EQ, EXPECT_FALSE, EXPECT_TRUE, TEST
 
 // NOLINTBEGIN
-namespace ftxui {
+namespace andromeda {
 
 TEST(CollapsibleTest, Basic) {
   auto child = Renderer([] { return text("child"); });
@@ -47,7 +47,7 @@ TEST(CollapsibleTest, Basic) {
   EXPECT_EQ(show, false);
 }
 
-}  // namespace ftxui
+}  // namespace andromeda
 // NOLINTEND
 
 // Copyright 2022 Arthur Sonzogni. All rights reserved.

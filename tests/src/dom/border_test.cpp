@@ -4,12 +4,12 @@
 #include <gtest/gtest.h>
 #include <string>  // for allocator, string
 
-#include "ftxui/dom/elements.hpp"  // for text, operator|, Element, borderStyled, borderWith, window, border, borderDouble, borderEmpty, borderHeavy, borderLight, borderRounded, DOUBLE
-#include "ftxui/dom/node.hpp"      // for Render
-#include "ftxui/screen/screen.hpp"  // for Screen, Pixel
+#include "andromeda/dom/elements.hpp"  // for text, operator|, Element, borderStyled, borderWith, window, border, borderDouble, borderEmpty, borderHeavy, borderLight, borderRounded, DOUBLE
+#include "andromeda/dom/node.hpp"      // for Render
+#include "andromeda/screen/screen.hpp"  // for Screen, Pixel
 
 // NOLINTBEGIN
-namespace ftxui {
+namespace andromeda {
 
 TEST(BorderTest, Default) {
   auto element = text("text") | border;
@@ -103,5 +103,5 @@ TEST(BorderTest, Window) {
             "╰────────╯");
 }
 
-}  // namespace ftxui
+}  // namespace andromeda
 // NOLINTEND

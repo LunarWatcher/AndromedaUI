@@ -3,20 +3,20 @@
 // the LICENSE file.
 #include <array>                      // for array
 #include <cstddef>                    // for size_t
-#include <ftxui/component/mouse.hpp>  // for Mouse, Mouse::Left, Mouse::Pressed, Mouse::Released
-#include <ftxui/dom/direction.hpp>  // for Direction, Direction::Down, Direction::Left, Direction::Right, Direction::Up
-#include <ftxui/dom/elements.hpp>   // for frame
+#include <andromeda/component/mouse.hpp>  // for Mouse, Mouse::Left, Mouse::Pressed, Mouse::Released
+#include <andromeda/dom/direction.hpp>  // for Direction, Direction::Down, Direction::Left, Direction::Right, Direction::Up
+#include <andromeda/dom/elements.hpp>   // for frame
 #include <string>                   // for string, to_string
 
-#include "ftxui/component/component.hpp"  // for Slider, Vertical, operator|=
-#include "ftxui/component/component_base.hpp"  // for ComponentBase
-#include "ftxui/component/event.hpp"           // for Event, Event::ArrowDown
-#include "ftxui/dom/node.hpp"                  // for Render
-#include "ftxui/screen/screen.hpp"             // for Screen
+#include "andromeda/component/component.hpp"  // for Slider, Vertical, operator|=
+#include "andromeda/component/component_base.hpp"  // for ComponentBase
+#include "andromeda/component/event.hpp"           // for Event, Event::ArrowDown
+#include "andromeda/dom/node.hpp"                  // for Render
+#include "andromeda/screen/screen.hpp"             // for Screen
 #include "gtest/gtest.h"  // for AssertionResult, Message, TestPartResult, Test, EXPECT_EQ, EXPECT_TRUE, EXPECT_FALSE, TEST
 
 // NOLINTBEGIN
-namespace ftxui {
+namespace andromeda {
 
 namespace {
 Event MousePressed(int x, int y) {
@@ -226,5 +226,5 @@ TEST(SliderTest, Focus) {
   EXPECT_FALSE(container->OnEvent(Event::ArrowDown));
 }
 
-}  // namespace ftxui
+}  // namespace andromeda
 // NOLINTEND

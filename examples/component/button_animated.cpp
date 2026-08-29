@@ -4,15 +4,15 @@
 #include <memory>  // for shared_ptr, __shared_ptr_access
 #include <string>  // for operator+, to_string
 
-#include "ftxui/component/captured_mouse.hpp"  // for ftxui
-#include "ftxui/component/component.hpp"  // for Button, Horizontal, Renderer
-#include "ftxui/component/component_base.hpp"      // for ComponentBase
-#include "ftxui/component/component_options.hpp"   // for ButtonOption
-#include "ftxui/component/screen_interactive.hpp"  // for ScreenInteractive
-#include "ftxui/dom/elements.hpp"  // for gauge, separator, text, vbox, operator|, Element, border
-#include "ftxui/screen/color.hpp"  // for Color, Color::Blue, Color::Green, Color::Red
+#include "andromeda/component/captured_mouse.hpp"  // for andromeda
+#include "andromeda/component/component.hpp"  // for Button, Horizontal, Renderer
+#include "andromeda/component/component_base.hpp"      // for ComponentBase
+#include "andromeda/component/component_options.hpp"   // for ButtonOption
+#include "andromeda/component/screen_interactive.hpp"  // for ScreenInteractive
+#include "andromeda/dom/elements.hpp"  // for gauge, separator, text, vbox, operator|, Element, border
+#include "andromeda/screen/color.hpp"  // for Color, Color::Blue, Color::Green, Color::Red
 
-using namespace ftxui;
+using namespace andromeda;
 
 int main() {
   int value = 50;

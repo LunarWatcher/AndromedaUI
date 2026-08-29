@@ -1,8 +1,8 @@
-#include "ftxui/component/captured_mouse.hpp"      // for ftxui
-#include "ftxui/component/component.hpp"           // for Slider
-#include "ftxui/component/screen_interactive.hpp"  // for ScreenInteractive
+#include "andromeda/component/captured_mouse.hpp"      // for andromeda
+#include "andromeda/component/component.hpp"           // for Slider
+#include "andromeda/component/screen_interactive.hpp"  // for ScreenInteractive
 
-using namespace ftxui;
+using namespace andromeda;
 
 int main() {
   auto screen = ScreenInteractive::TerminalOutput();

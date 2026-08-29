@@ -1,16 +1,16 @@
 // Copyright 2020 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#include <ftxui/dom/elements.hpp>  // for text, bgcolor, hbox, operator|, Elements, Fit, vbox, Element
-#include <ftxui/screen/color_info.hpp>  // for ColorInfo
-#include <ftxui/screen/screen.hpp>      // for Full, Screen
+#include <andromeda/dom/elements.hpp>  // for text, bgcolor, hbox, operator|, Elements, Fit, vbox, Element
+#include <andromeda/screen/color_info.hpp>  // for ColorInfo
+#include <andromeda/screen/screen.hpp>      // for Full, Screen
 #include <utility>                      // for move
 #include <vector>                       // for vector, allocator
 
-#include "ftxui/dom/node.hpp"      // for Render
-#include "ftxui/screen/color.hpp"  // for Color, Color::Palette256, ftxui
+#include "andromeda/dom/node.hpp"      // for Render
+#include "andromeda/screen/color.hpp"  // for Color, Color::Palette256, andromeda
 
-using namespace ftxui;
+using namespace andromeda;
 #include "./color_info_sorted_2d.ipp"  // for ColorInfoSorted2D
 
 int main() {

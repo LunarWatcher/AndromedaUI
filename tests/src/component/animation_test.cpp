@@ -6,9 +6,9 @@
 #include <functional>  // for function
 #include <vector>      // for allocator, vector
 
-#include "ftxui/component/animation.hpp"  // for Function, BackIn, BackInOut, BackOut, BounceIn, BounceInOut, BounceOut, CircularIn, CircularInOut, CircularOut, CubicIn, CubicInOut, CubicOut, ElasticIn, ElasticInOut, ElasticOut, ExponentialIn, ExponentialInOut, ExponentialOut, Linear, QuadraticIn, QuadraticInOut, QuadraticOut, QuarticIn, QuarticInOut, QuarticOut, QuinticIn, QuinticInOut, QuinticOut, SineIn, SineInOut, SineOut
+#include "andromeda/component/animation.hpp"  // for Function, BackIn, BackInOut, BackOut, BounceIn, BounceInOut, BounceOut, CircularIn, CircularInOut, CircularOut, CubicIn, CubicInOut, CubicOut, ElasticIn, ElasticInOut, ElasticOut, ExponentialIn, ExponentialInOut, ExponentialOut, Linear, QuadraticIn, QuadraticInOut, QuadraticOut, QuarticIn, QuarticInOut, QuarticOut, QuinticIn, QuinticInOut, QuinticOut, SineIn, SineInOut, SineOut
 
-namespace ftxui {
+namespace andromeda {
 
 TEST(AnimationTest, StartAndEnd) {
   const std::vector<animation::easing::Function> functions = {
@@ -35,4 +35,4 @@ TEST(AnimationTest, StartAndEnd) {
   }
 }
 
-}  // namespace ftxui
+}  // namespace andromeda

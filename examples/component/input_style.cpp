@@ -1,20 +1,20 @@
 // Copyright 2020 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#include <ftxui/dom/linear_gradient.hpp>  // for LinearGradient
-#include <ftxui/screen/color.hpp>  // for Color, Color::White, Color::Red, Color::Blue, Color::Black, Color::GrayDark, ftxui
+#include <andromeda/dom/linear_gradient.hpp>  // for LinearGradient
+#include <andromeda/screen/color.hpp>  // for Color, Color::White, Color::Red, Color::Blue, Color::Black, Color::GrayDark, andromeda
 #include <functional>              // for function
 #include <string>                  // for allocator, string
 #include <utility>                 // for move
 
-#include "ftxui/component/component.hpp"  // for Input, Horizontal, Vertical, operator|
-#include "ftxui/component/component_base.hpp"     // for Component
-#include "ftxui/component/component_options.hpp"  // for InputState, InputOption
-#include "ftxui/component/screen_interactive.hpp"  // for ScreenInteractive
-#include "ftxui/dom/elements.hpp"  // for operator|=, Element, bgcolor, operator|, separatorEmpty, color, borderEmpty, separator, text, center, dim, hbox, vbox, border, borderDouble, borderRounded
+#include "andromeda/component/component.hpp"  // for Input, Horizontal, Vertical, operator|
+#include "andromeda/component/component_base.hpp"     // for Component
+#include "andromeda/component/component_options.hpp"  // for InputState, InputOption
+#include "andromeda/component/screen_interactive.hpp"  // for ScreenInteractive
+#include "andromeda/dom/elements.hpp"  // for operator|=, Element, bgcolor, operator|, separatorEmpty, color, borderEmpty, separator, text, center, dim, hbox, vbox, border, borderDouble, borderRounded
 
 int main() {
-  using namespace ftxui;
+  using namespace andromeda;
 
   InputOption style_1 = InputOption::Default();
 

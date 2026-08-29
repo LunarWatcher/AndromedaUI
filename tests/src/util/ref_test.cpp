@@ -2,12 +2,12 @@
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
 
-#include "ftxui/util/ref.hpp"
+#include "andromeda/util/ref.hpp"
 
 #include <gtest/gtest.h>
-#include "ftxui/component/component.hpp"
+#include "andromeda/component/component.hpp"
 
-namespace ftxui {
+namespace andromeda {
 namespace {
 class Adapter : public ConstStringListRef::Adapter {
  public:
@@ -64,4 +64,4 @@ TEST(ConstStringListRef, UniquePtrAdapter) {
   auto menu = Menu(std::move(a), &selected);
 }
 
-}  // namespace ftxui
+}  // namespace andromeda

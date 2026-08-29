@@ -3,13 +3,13 @@
 // the LICENSE file.
 #include <string>  // for allocator, string
 
-#include "ftxui/dom/elements.hpp"   // for operator|, text, bold, Element
-#include "ftxui/dom/node.hpp"       // for Render
-#include "ftxui/screen/screen.hpp"  // for Screen, Pixel
+#include "andromeda/dom/elements.hpp"   // for operator|, text, bold, Element
+#include "andromeda/dom/node.hpp"       // for Render
+#include "andromeda/screen/screen.hpp"  // for Screen, Pixel
 #include "gtest/gtest.h"  // for Test, AssertionResult, EXPECT_TRUE, Message, TEST, TestPartResult
 
 // NOLINTBEGIN
-namespace ftxui {
+namespace andromeda {
 
 TEST(BoldTest, Basic) {
   auto element = text("text") | bold;
@@ -18,5 +18,5 @@ TEST(BoldTest, Basic) {
   EXPECT_TRUE(screen.PixelAt(0, 0).bold);
 }
 
-}  // namespace ftxui
+}  // namespace andromeda
 // NOLINTEND

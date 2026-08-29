@@ -3,13 +3,13 @@
 // the LICENSE file.
 #include <memory>  // for shared_ptr, allocator, __shared_ptr_access
 
-#include "ftxui/component/captured_mouse.hpp"  // for ftxui
-#include "ftxui/component/component.hpp"  // for Renderer, ResizableSplitBottom, ResizableSplitLeft, ResizableSplitRight, ResizableSplitTop
-#include "ftxui/component/component_base.hpp"      // for ComponentBase
-#include "ftxui/component/screen_interactive.hpp"  // for ScreenInteractive
-#include "ftxui/dom/elements.hpp"  // for Element, operator|, text, center, border
+#include "andromeda/component/captured_mouse.hpp"  // for andromeda
+#include "andromeda/component/component.hpp"  // for Renderer, ResizableSplitBottom, ResizableSplitLeft, ResizableSplitRight, ResizableSplitTop
+#include "andromeda/component/component_base.hpp"      // for ComponentBase
+#include "andromeda/component/screen_interactive.hpp"  // for ScreenInteractive
+#include "andromeda/dom/elements.hpp"  // for Element, operator|, text, center, border
 
-using namespace ftxui;
+using namespace andromeda;
 
 int main() {
   auto screen = ScreenInteractive::Fullscreen();

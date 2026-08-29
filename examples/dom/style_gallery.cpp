@@ -1,15 +1,15 @@
 // Copyright 2020 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#include <ftxui/dom/elements.hpp>  // for text, operator|, Element, bgcolor, color, blink, bold, dim, inverted, underlined, Fit, hbox
-#include <ftxui/screen/screen.hpp>  // for Full, Screen
+#include <andromeda/dom/elements.hpp>  // for text, operator|, Element, bgcolor, color, blink, bold, dim, inverted, underlined, Fit, hbox
+#include <andromeda/screen/screen.hpp>  // for Full, Screen
 #include <memory>                   // for allocator
 
-#include "ftxui/dom/node.hpp"      // for Render
-#include "ftxui/screen/color.hpp"  // for Color, Color::Blue, ftxui
+#include "andromeda/dom/node.hpp"      // for Render
+#include "andromeda/screen/color.hpp"  // for Color, Color::Blue, andromeda
 
 int main() {
-  using namespace ftxui;
+  using namespace andromeda;
   // clang-format off
   auto document =
     hbox({

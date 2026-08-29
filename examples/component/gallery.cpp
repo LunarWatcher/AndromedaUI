@@ -6,13 +6,13 @@
 #include <string>      // for string, basic_string
 #include <vector>      // for vector
 
-#include "ftxui/component/captured_mouse.hpp"  // for ftxui
-#include "ftxui/component/component.hpp"  // for Slider, Checkbox, Vertical, Renderer, Button, Input, Menu, Radiobox, Toggle
-#include "ftxui/component/component_base.hpp"  // for ComponentBase
-#include "ftxui/component/screen_interactive.hpp"  // for Component, ScreenInteractive
-#include "ftxui/dom/elements.hpp"  // for separator, operator|, Element, size, xflex, text, WIDTH, hbox, vbox, EQUAL, border, GREATER_THAN
+#include "andromeda/component/captured_mouse.hpp"  // for andromeda
+#include "andromeda/component/component.hpp"  // for Slider, Checkbox, Vertical, Renderer, Button, Input, Menu, Radiobox, Toggle
+#include "andromeda/component/component_base.hpp"  // for ComponentBase
+#include "andromeda/component/screen_interactive.hpp"  // for Component, ScreenInteractive
+#include "andromeda/dom/elements.hpp"  // for separator, operator|, Element, size, xflex, text, WIDTH, hbox, vbox, EQUAL, border, GREATER_THAN
 
-using namespace ftxui;
+using namespace andromeda;
 
 // Display a component nicely with a title on the left.
 Component Wrap(std::string name, Component component) {

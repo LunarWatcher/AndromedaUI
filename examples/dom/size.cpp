@@ -1,17 +1,17 @@
 // Copyright 2020 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#include <ftxui/dom/elements.hpp>  // for operator|, text, Element, hcenter, Fit, hbox, size, window, Elements, bold, dim, EQUAL, WIDTH
-#include <ftxui/screen/screen.hpp>  // for Screen
+#include <andromeda/dom/elements.hpp>  // for operator|, text, Element, hcenter, Fit, hbox, size, window, Elements, bold, dim, EQUAL, WIDTH
+#include <andromeda/screen/screen.hpp>  // for Screen
 #include <memory>                   // for allocator, shared_ptr
 #include <string>                   // for string, to_string
 #include <utility>                  // for move
 
-#include "ftxui/dom/node.hpp"      // for Render
-#include "ftxui/screen/color.hpp"  // for ftxui
+#include "andromeda/dom/node.hpp"      // for Render
+#include "andromeda/screen/color.hpp"  // for andromeda
 
 int main() {
-  using namespace ftxui;
+  using namespace andromeda;
   auto make_box = [](const std::string& title) {
     return window(text(title) | hcenter | bold,
                   text("content") | hcenter | dim);

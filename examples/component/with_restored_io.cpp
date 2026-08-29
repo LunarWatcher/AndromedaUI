@@ -6,14 +6,14 @@
 #include <memory>    // for shared_ptr, __shared_ptr_access, allocator
 #include <string>    // for getline, string
 
-#include "ftxui/component/captured_mouse.hpp"  // for ftxui
-#include "ftxui/component/component.hpp"  // for Button, Horizontal, Renderer
-#include "ftxui/component/component_base.hpp"      // for ComponentBase
-#include "ftxui/component/screen_interactive.hpp"  // for ScreenInteractive
-#include "ftxui/dom/elements.hpp"  // for operator|, filler, Element, borderEmpty, hbox, size, paragraph, vbox, LESS_THAN, border, center, HEIGHT, WIDTH
+#include "andromeda/component/captured_mouse.hpp"  // for andromeda
+#include "andromeda/component/component.hpp"  // for Button, Horizontal, Renderer
+#include "andromeda/component/component_base.hpp"      // for ComponentBase
+#include "andromeda/component/screen_interactive.hpp"  // for ScreenInteractive
+#include "andromeda/dom/elements.hpp"  // for operator|, filler, Element, borderEmpty, hbox, size, paragraph, vbox, LESS_THAN, border, center, HEIGHT, WIDTH
 
 int main() {
-  using namespace ftxui;
+  using namespace andromeda;
 
   auto screen = ScreenInteractive::Fullscreen();
 

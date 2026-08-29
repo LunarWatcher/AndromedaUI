@@ -4,14 +4,14 @@
 #include <string>  // for string, allocator, basic_string
 #include <vector>  // for vector
 
-#include "ftxui/component/captured_mouse.hpp"  // for ftxui
-#include "ftxui/component/component.hpp"  // for operator|, Maybe, Checkbox, Radiobox, Renderer, Vertical
-#include "ftxui/component/component_base.hpp"      // for Component
-#include "ftxui/component/screen_interactive.hpp"  // for ScreenInteractive
-#include "ftxui/dom/elements.hpp"  // for Element, border, color, operator|, text
-#include "ftxui/screen/color.hpp"  // for Color, Color::Red
+#include "andromeda/component/captured_mouse.hpp"  // for andromeda
+#include "andromeda/component/component.hpp"  // for operator|, Maybe, Checkbox, Radiobox, Renderer, Vertical
+#include "andromeda/component/component_base.hpp"      // for Component
+#include "andromeda/component/screen_interactive.hpp"  // for ScreenInteractive
+#include "andromeda/dom/elements.hpp"  // for Element, border, color, operator|, text
+#include "andromeda/screen/color.hpp"  // for Color, Color::Red
 
-using namespace ftxui;
+using namespace andromeda;
 
 int main() {
   std::vector<std::string> entries = {

@@ -3,18 +3,18 @@
 // the LICENSE file.
 #include <string>  // for string
 
-#include "ftxui/component/component.hpp"       // for Input
-#include "ftxui/component/component_base.hpp"  // for ComponentBase, Component
-#include "ftxui/component/component_options.hpp"  // for InputOption
-#include "ftxui/component/event.hpp"  // for Event, Event::ArrowRightCtrl, Event::ArrowLeftCtrl, Event::ArrowLeft, Event::ArrowRight, Event::ArrowDown, Event::ArrowUp, Event::Delete, Event::Backspace, Event::Return, Event::End, Event::Home
-#include "ftxui/component/mouse.hpp"  // for Mouse, Mouse::Button, Mouse::Left, Mouse::Motion, Mouse::Pressed
-#include "ftxui/dom/elements.hpp"   // for Fit
-#include "ftxui/dom/node.hpp"       // for Render
-#include "ftxui/screen/screen.hpp"  // for Fixed, Screen, Pixel
-#include "ftxui/util/ref.hpp"       // for Ref
+#include "andromeda/component/component.hpp"       // for Input
+#include "andromeda/component/component_base.hpp"  // for ComponentBase, Component
+#include "andromeda/component/component_options.hpp"  // for InputOption
+#include "andromeda/component/event.hpp"  // for Event, Event::ArrowRightCtrl, Event::ArrowLeftCtrl, Event::ArrowLeft, Event::ArrowRight, Event::ArrowDown, Event::ArrowUp, Event::Delete, Event::Backspace, Event::Return, Event::End, Event::Home
+#include "andromeda/component/mouse.hpp"  // for Mouse, Mouse::Button, Mouse::Left, Mouse::Motion, Mouse::Pressed
+#include "andromeda/dom/elements.hpp"   // for Fit
+#include "andromeda/dom/node.hpp"       // for Render
+#include "andromeda/screen/screen.hpp"  // for Fixed, Screen, Pixel
+#include "andromeda/util/ref.hpp"       // for Ref
 #include "gtest/gtest.h"  // for AssertionResult, Message, TestPartResult, EXPECT_EQ, EXPECT_TRUE, Test, EXPECT_FALSE, TEST
 
-namespace ftxui {
+namespace andromeda {
 
 TEST(InputTest, Init) {
   std::string content;
@@ -781,4 +781,4 @@ TEST(InputTest, InsertMode) {
   EXPECT_EQ(content, "axyz\nefgX");
 }
 
-}  // namespace ftxui
+}  // namespace andromeda

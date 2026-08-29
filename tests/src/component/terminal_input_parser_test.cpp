@@ -1,18 +1,18 @@
 // Copyright 2020 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#include <ftxui/component/mouse.hpp>  // for Mouse, Mouse::Left, Mouse::Middle, Mouse::Pressed, Mouse::Released, Mouse::Right
-#include <ftxui/component/task.hpp>   // for Task
+#include <andromeda/component/mouse.hpp>  // for Mouse, Mouse::Left, Mouse::Middle, Mouse::Pressed, Mouse::Released, Mouse::Right
+#include <andromeda/component/task.hpp>   // for Task
 #include <initializer_list>           // for initializer_list
 #include <memory>                     // for allocator, unique_ptr
 
-#include "ftxui/component/event.hpp"  // for Event, Event::Return, Event::ArrowDown, Event::ArrowLeft, Event::ArrowRight, Event::ArrowUp, Event::Backspace, Event::End, Event::Home, Event::Custom, Event::Delete, Event::F1, Event::F10, Event::F11, Event::F12, Event::F2, Event::F3, Event::F4, Event::F5, Event::F6, Event::F7, Event::F8, Event::F9, Event::PageDown, Event::PageUp, Event::Tab, Event::TabReverse, Event::Escape
-#include "ftxui/component/receiver.hpp"  // for MakeReceiver, ReceiverImpl
-#include "ftxui/component/terminal_input_parser.hpp"
+#include "andromeda/component/event.hpp"  // for Event, Event::Return, Event::ArrowDown, Event::ArrowLeft, Event::ArrowRight, Event::ArrowUp, Event::Backspace, Event::End, Event::Home, Event::Custom, Event::Delete, Event::F1, Event::F10, Event::F11, Event::F12, Event::F2, Event::F3, Event::F4, Event::F5, Event::F6, Event::F7, Event::F8, Event::F9, Event::PageDown, Event::PageUp, Event::Tab, Event::TabReverse, Event::Escape
+#include "andromeda/component/receiver.hpp"  // for MakeReceiver, ReceiverImpl
+#include "andromeda/component/terminal_input_parser.hpp"
 #include "gtest/gtest.h"  // for AssertionResult, Test, Message, TestPartResult, EXPECT_EQ, EXPECT_TRUE, TEST, EXPECT_FALSE
 
 // NOLINTBEGIN
-namespace ftxui {
+namespace andromeda {
 
 // Test char |c| to are trivially converted into |Event::Character(c)|.
 TEST(Event, Character) {
@@ -510,5 +510,5 @@ TEST(Event, DeviceControlString) {
   EXPECT_FALSE(event_receiver->Receive(&received));
 }
 
-}  // namespace ftxui
+}  // namespace andromeda
    // NOLINTEND

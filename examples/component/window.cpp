@@ -1,11 +1,11 @@
 // Copyright 2023 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#include <ftxui/component/component.hpp>
-#include <ftxui/component/screen_interactive.hpp>
+#include <andromeda/component/component.hpp>
+#include <andromeda/component/screen_interactive.hpp>
 #include <string>
 
-using namespace ftxui;
+using namespace andromeda;
 
 Component DummyWindowContent() {
   class Impl : public ComponentBase {

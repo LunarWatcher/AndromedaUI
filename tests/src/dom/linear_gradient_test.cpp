@@ -2,15 +2,15 @@
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
 #include <gtest/gtest.h>  // for Test, EXPECT_EQ, Message, TestPartResult, TestInfo (ptr only), TEST
-#include <ftxui/dom/linear_gradient.hpp>  // for LinearGradient::Stop, LinearGradient
+#include <andromeda/dom/linear_gradient.hpp>  // for LinearGradient::Stop, LinearGradient
 
-#include "ftxui/dom/elements.hpp"  // for operator|, text, bgcolor, color, Element
-#include "ftxui/dom/node.hpp"      // for Render
-#include "ftxui/screen/color.hpp"   // for Color, Color::RedLight, Color::Red
-#include "ftxui/screen/screen.hpp"  // for Screen, Pixel
+#include "andromeda/dom/elements.hpp"  // for operator|, text, bgcolor, color, Element
+#include "andromeda/dom/node.hpp"      // for Render
+#include "andromeda/screen/color.hpp"   // for Color, Color::RedLight, Color::Red
+#include "andromeda/screen/screen.hpp"  // for Screen, Pixel
 
 // NOLINTBEGIN
-namespace ftxui {
+namespace andromeda {
 
 TEST(ColorTest, API_default) {
   LinearGradient gradient;
@@ -86,5 +86,5 @@ TEST(ColorTest, GradientBackground) {
   EXPECT_EQ(screen.PixelAt(4, 0).background_color, gradient_end);
 }
 
-}  // namespace ftxui
+}  // namespace andromeda
 // NOLINTEND

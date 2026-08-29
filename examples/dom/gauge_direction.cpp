@@ -2,17 +2,17 @@
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
 #include <chrono>                  // for operator""s, chrono_literals
-#include <ftxui/dom/elements.hpp>  // for filler, operator|, separator, text, border, Element, vbox, vtext, hbox, center, gaugeDown, gaugeLeft, gaugeRight, gaugeUp
-#include <ftxui/screen/screen.hpp>  // for Screen
+#include <andromeda/dom/elements.hpp>  // for filler, operator|, separator, text, border, Element, vbox, vtext, hbox, center, gaugeDown, gaugeLeft, gaugeRight, gaugeUp
+#include <andromeda/screen/screen.hpp>  // for Screen
 #include <iostream>                 // for cout, endl, ostream
 #include <string>  // for allocator, operator+, operator<<, string, to_string
 #include <thread>  // for sleep_for
 
-#include "ftxui/dom/node.hpp"      // for Render
-#include "ftxui/screen/color.hpp"  // for ftxui
+#include "andromeda/dom/node.hpp"      // for Render
+#include "andromeda/screen/color.hpp"  // for andromeda
 
 int main() {
-  using namespace ftxui;
+  using namespace andromeda;
   using namespace std::chrono_literals;
 
   std::string reset_position;

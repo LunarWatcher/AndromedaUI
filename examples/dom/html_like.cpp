@@ -2,18 +2,18 @@
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
 #include <chrono>                   // for operator""s, chrono_literals
-#include <ftxui/screen/screen.hpp>  // for Screen
+#include <andromeda/screen/screen.hpp>  // for Screen
 #include <iostream>                 // for cout, ostream
 #include <string>                   // for allocator, operator<<, string
 #include <thread>                   // for sleep_for
 
-#include "ftxui/dom/elements.hpp"  // for paragraph, text, operator|, Element, border, Fit, color, hflow, spinner, vbox, bold, dim, underlined
-#include "ftxui/dom/node.hpp"      // for Render
-#include "ftxui/screen/box.hpp"    // for ftxui
-#include "ftxui/screen/color.hpp"  // for Color, Color::Red
+#include "andromeda/dom/elements.hpp"  // for paragraph, text, operator|, Element, border, Fit, color, hflow, spinner, vbox, bold, dim, underlined
+#include "andromeda/dom/node.hpp"      // for Render
+#include "andromeda/screen/box.hpp"    // for andromeda
+#include "andromeda/screen/color.hpp"  // for Color, Color::Red
 
 int main() {
-  using namespace ftxui;
+  using namespace andromeda;
   using namespace std::chrono_literals;
 
   auto img1 = []() { return text("img") | border; };

@@ -5,13 +5,13 @@
 #include <string>  // for string, basic_string
 #include <vector>  // for vector
 
-#include "ftxui/component/captured_mouse.hpp"  // for ftxui
-#include "ftxui/component/component.hpp"       // for Toggle, Renderer, Vertical
-#include "ftxui/component/component_base.hpp"  // for ComponentBase
-#include "ftxui/component/screen_interactive.hpp"  // for Component, ScreenInteractive
-#include "ftxui/dom/elements.hpp"  // for text, hbox, vbox, Element
+#include "andromeda/component/captured_mouse.hpp"  // for andromeda
+#include "andromeda/component/component.hpp"       // for Toggle, Renderer, Vertical
+#include "andromeda/component/component_base.hpp"  // for ComponentBase
+#include "andromeda/component/screen_interactive.hpp"  // for Component, ScreenInteractive
+#include "andromeda/dom/elements.hpp"  // for text, hbox, vbox, Element
 
-using namespace ftxui;
+using namespace andromeda;
 
 int main() {
   std::vector<std::string> toggle_1_entries = {

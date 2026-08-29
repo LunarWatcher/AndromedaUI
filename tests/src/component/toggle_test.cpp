@@ -5,15 +5,15 @@
 #include <string>      // for string, basic_string
 #include <vector>      // for vector
 
-#include "ftxui/component/component.hpp"          // for Menu, Toggle
-#include "ftxui/component/component_base.hpp"     // for ComponentBase
-#include "ftxui/component/component_options.hpp"  // for MenuOption
-#include "ftxui/component/event.hpp"  // for Event, Event::ArrowLeft, Event::ArrowRight, Event::Return, Event::Tab, Event::TabReverse
-#include "ftxui/util/ref.hpp"         // for Ref
+#include "andromeda/component/component.hpp"          // for Menu, Toggle
+#include "andromeda/component/component_base.hpp"     // for ComponentBase
+#include "andromeda/component/component_options.hpp"  // for MenuOption
+#include "andromeda/component/event.hpp"  // for Event, Event::ArrowLeft, Event::ArrowRight, Event::Return, Event::Tab, Event::TabReverse
+#include "andromeda/util/ref.hpp"         // for Ref
 #include "gtest/gtest.h"  // for AssertionResult, Message, TestPartResult, EXPECT_EQ, Test, EXPECT_TRUE, EXPECT_FALSE, TEST
 
 // NOLINTBEGIN
-namespace ftxui {
+namespace andromeda {
 
 TEST(ToggleTest, leftRightArrow) {
   std::vector<std::string> entries = {"On", "Off"};
@@ -179,5 +179,5 @@ TEST(ToggleTest, RemoveEntries) {
   EXPECT_EQ(focused_entry, 1);
 }
 
-}  // namespace ftxui
+}  // namespace andromeda
 // NOLINTEND

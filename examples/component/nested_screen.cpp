@@ -4,13 +4,13 @@
 #include <memory>  // for allocator, shared_ptr, __shared_ptr_access
 #include <string>  // for operator+, string, char_traits, basic_string
 
-#include "ftxui/component/captured_mouse.hpp"  // for ftxui
-#include "ftxui/component/component.hpp"       // for Button, Vertical, Renderer
-#include "ftxui/component/component_base.hpp"  // for ComponentBase
-#include "ftxui/component/screen_interactive.hpp"  // for ScreenInteractive
-#include "ftxui/dom/elements.hpp"  // for separator, text, Element, operator|, vbox, border
+#include "andromeda/component/captured_mouse.hpp"  // for andromeda
+#include "andromeda/component/component.hpp"       // for Button, Vertical, Renderer
+#include "andromeda/component/component_base.hpp"  // for ComponentBase
+#include "andromeda/component/screen_interactive.hpp"  // for ScreenInteractive
+#include "andromeda/dom/elements.hpp"  // for separator, text, Element, operator|, vbox, border
 
-using namespace ftxui;
+using namespace andromeda;
 
 void Nested(std::string path) {
   auto screen = ScreenInteractive::FitComponent();

@@ -3,16 +3,16 @@
 // the LICENSE file.
 #include <stdio.h>                 // for getchar
 #include <cmath>                   // for cos
-#include <ftxui/dom/elements.hpp>  // for Fit, canvas, operator|, border, Element
-#include <ftxui/screen/screen.hpp>  // for Pixel, Screen
+#include <andromeda/dom/elements.hpp>  // for Fit, canvas, operator|, border, Element
+#include <andromeda/screen/screen.hpp>  // for Pixel, Screen
 #include <vector>                   // for vector, allocator
 
-#include "ftxui/dom/canvas.hpp"  // for Canvas
-#include "ftxui/dom/node.hpp"    // for Render
-#include "ftxui/screen/color.hpp"  // for Color, Color::Red, Color::Blue, Color::Green, ftxui
+#include "andromeda/dom/canvas.hpp"  // for Canvas
+#include "andromeda/dom/node.hpp"    // for Render
+#include "andromeda/screen/color.hpp"  // for Color, Color::Red, Color::Blue, Color::Green, andromeda
 
 int main() {
-  using namespace ftxui;
+  using namespace andromeda;
 
   auto c = Canvas(100, 100);
 

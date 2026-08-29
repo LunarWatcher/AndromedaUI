@@ -4,14 +4,14 @@
 #include <memory>  // for allocator, shared_ptr, __shared_ptr_access
 #include <string>  // for char_traits, operator+, to_string
 
-#include "ftxui/component/captured_mouse.hpp"  // for ftxui
-#include "ftxui/component/component.hpp"       // for Slider, Renderer, Vertical
-#include "ftxui/component/component_base.hpp"  // for ComponentBase
-#include "ftxui/component/screen_interactive.hpp"  // for ScreenInteractive
-#include "ftxui/dom/elements.hpp"  // for separator, operator|, Element, size, text, vbox, xflex, bgcolor, hbox, GREATER_THAN, WIDTH, border, HEIGHT, LESS_THAN
-#include "ftxui/screen/color.hpp"  // for Color
+#include "andromeda/component/captured_mouse.hpp"  // for andromeda
+#include "andromeda/component/component.hpp"       // for Slider, Renderer, Vertical
+#include "andromeda/component/component_base.hpp"  // for ComponentBase
+#include "andromeda/component/screen_interactive.hpp"  // for ScreenInteractive
+#include "andromeda/dom/elements.hpp"  // for separator, operator|, Element, size, text, vbox, xflex, bgcolor, hbox, GREATER_THAN, WIDTH, border, HEIGHT, LESS_THAN
+#include "andromeda/screen/color.hpp"  // for Color
 
-using namespace ftxui;
+using namespace andromeda;
 
 Element ColorTile(int red, int green, int blue) {
   return text("") | size(WIDTH, GREATER_THAN, 14) |

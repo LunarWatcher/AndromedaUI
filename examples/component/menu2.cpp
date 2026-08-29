@@ -6,15 +6,15 @@
 #include <string>      // for string, basic_string, operator+, to_string
 #include <vector>      // for vector
 
-#include "ftxui/component/captured_mouse.hpp"  // for ftxui
-#include "ftxui/component/component.hpp"       // for Menu, Horizontal, Renderer
-#include "ftxui/component/component_base.hpp"  // for ComponentBase
-#include "ftxui/component/component_options.hpp"  // for MenuOption
-#include "ftxui/component/screen_interactive.hpp"  // for Component, ScreenInteractive
-#include "ftxui/dom/elements.hpp"  // for text, separator, bold, hcenter, vbox, hbox, gauge, Element, operator|, border
+#include "andromeda/component/captured_mouse.hpp"  // for andromeda
+#include "andromeda/component/component.hpp"       // for Menu, Horizontal, Renderer
+#include "andromeda/component/component_base.hpp"  // for ComponentBase
+#include "andromeda/component/component_options.hpp"  // for MenuOption
+#include "andromeda/component/screen_interactive.hpp"  // for Component, ScreenInteractive
+#include "andromeda/dom/elements.hpp"  // for text, separator, bold, hcenter, vbox, hbox, gauge, Element, operator|, border
 
 int main() {
-  using namespace ftxui;
+  using namespace andromeda;
   auto screen = ScreenInteractive::TerminalOutput();
 
   std::vector<std::string> left_menu_entries = {

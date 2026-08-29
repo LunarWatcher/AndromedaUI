@@ -1,11 +1,11 @@
 // Copyright 2022 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#include "ftxui/screen/color.hpp"
+#include "andromeda/screen/color.hpp"
 #include <gtest/gtest.h>
-#include "ftxui/screen/terminal.hpp"
+#include "andromeda/screen/terminal.hpp"
 
-namespace ftxui {
+namespace andromeda {
 
 TEST(ColorTest, PrintTransparent) {
   Terminal::SetColorSupport(Terminal::Color::TrueColor);
@@ -43,7 +43,7 @@ TEST(ColorTest, FallbackTo16) {
 
 TEST(ColorTest, Litterals) {
   Terminal::SetColorSupport(Terminal::Color::TrueColor);
-  using namespace ftxui::literals;
+  using namespace andromeda::literals;
   EXPECT_EQ(Color(0xABCDEF_rgb).Print(false), "38;2;171;205;239");
 }
 
@@ -83,4 +83,4 @@ TEST(ColorTest, HSV) {
   EXPECT_EQ(Color::HSV(0, 255, 255).Print(false), "38;2;255;0;0");
 }
 
-}  // namespace ftxui
+}  // namespace andromeda

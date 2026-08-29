@@ -4,17 +4,17 @@
 #include <gtest/gtest.h>
 #include <csignal>  // for raise, SIGABRT, SIGFPE, SIGILL, SIGINT, SIGSEGV, SIGTERM
 
-#include "ftxui/component/component.hpp"  // for Input, Renderer, Vertical
-#include "ftxui/component/event.hpp"      // for Event
-#include "ftxui/component/loop.hpp"       // for Loop
-#include "ftxui/component/mouse.hpp"  // for Mouse, Mouse::Left, Mouse::Pressed, Mouse::Released
-#include "ftxui/component/screen_interactive.hpp"
-#include "ftxui/dom/elements.hpp"   // for text
-#include "ftxui/dom/node.hpp"       // for Render
-#include "ftxui/screen/screen.hpp"  // for Screen
+#include "andromeda/component/component.hpp"  // for Input, Renderer, Vertical
+#include "andromeda/component/event.hpp"      // for Event
+#include "andromeda/component/loop.hpp"       // for Loop
+#include "andromeda/component/mouse.hpp"  // for Mouse, Mouse::Left, Mouse::Pressed, Mouse::Released
+#include "andromeda/component/screen_interactive.hpp"
+#include "andromeda/dom/elements.hpp"   // for text
+#include "andromeda/dom/node.hpp"       // for Render
+#include "andromeda/screen/screen.hpp"  // for Screen
 
 // NOLINTBEGIN
-namespace ftxui {
+namespace andromeda {
 
 namespace {
 Event MousePressed(int x, int y) {
@@ -218,5 +218,5 @@ TEST(SelectionTest, HBoxSaturatedSelection) {
             "         ");
 }
 
-}  // namespace ftxui
+}  // namespace andromeda
 // NOLINTEND

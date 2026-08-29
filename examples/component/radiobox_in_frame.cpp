@@ -5,13 +5,13 @@
 #include <string>  // for string, basic_string, operator+, to_string
 #include <vector>  // for vector
 
-#include "ftxui/component/captured_mouse.hpp"      // for ftxui
-#include "ftxui/component/component.hpp"           // for Radiobox, Renderer
-#include "ftxui/component/component_base.hpp"      // for ComponentBase
-#include "ftxui/component/screen_interactive.hpp"  // for ScreenInteractive
-#include "ftxui/dom/elements.hpp"  // for operator|, Element, size, border, frame, HEIGHT, LESS_THAN
+#include "andromeda/component/captured_mouse.hpp"      // for andromeda
+#include "andromeda/component/component.hpp"           // for Radiobox, Renderer
+#include "andromeda/component/component_base.hpp"      // for ComponentBase
+#include "andromeda/component/screen_interactive.hpp"  // for ScreenInteractive
+#include "andromeda/dom/elements.hpp"  // for operator|, Element, size, border, frame, HEIGHT, LESS_THAN
 
-using namespace ftxui;
+using namespace andromeda;
 
 int main() {
   std::vector<std::string> entries;

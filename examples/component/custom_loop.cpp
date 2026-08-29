@@ -3,19 +3,19 @@
 // the LICENSE file.
 #include <stdlib.h>                   // for EXIT_SUCCESS
 #include <chrono>                     // for milliseconds
-#include <ftxui/component/event.hpp>  // for Event
-#include <ftxui/component/mouse.hpp>  // for ftxui
-#include <ftxui/dom/elements.hpp>  // for text, separator, Element, operator|, vbox, border
+#include <andromeda/component/event.hpp>  // for Event
+#include <andromeda/component/mouse.hpp>  // for andromeda
+#include <andromeda/dom/elements.hpp>  // for text, separator, Element, operator|, vbox, border
 #include <memory>                  // for allocator, shared_ptr
 #include <string>                  // for operator+, to_string
 #include <thread>                  // for sleep_for
 
-#include "ftxui/component/component.hpp"  // for CatchEvent, Renderer, operator|=
-#include "ftxui/component/loop.hpp"       // for Loop
-#include "ftxui/component/screen_interactive.hpp"  // for ScreenInteractive
+#include "andromeda/component/component.hpp"  // for CatchEvent, Renderer, operator|=
+#include "andromeda/component/loop.hpp"       // for Loop
+#include "andromeda/component/screen_interactive.hpp"  // for ScreenInteractive
 
 int main() {
-  using namespace ftxui;
+  using namespace andromeda;
   auto screen = ScreenInteractive::FitComponent();
 
   // Create a component counting the number of frames drawn and event handled.
@@ -25,13 +25,13 @@ int main() {
   auto component = Renderer([&] {
     frame_count++;
     return vbox({
-               text("This demonstrates using a custom ftxui::Loop. It "),
+               text("This demonstrates using a custom andromeda::Loop. It "),
                text("runs at 100 iterations per seconds. The FTXUI events "),
                text("are all processed once per iteration and a new frame "),
                text("is rendered as needed"),
                separator(),
-               text("ftxui event count: " + std::to_string(event_count)),
-               text("ftxui frame count: " + std::to_string(frame_count)),
+               text("andromeda event count: " + std::to_string(event_count)),
+               text("andromeda frame count: " + std::to_string(frame_count)),
                text("Custom loop count: " + std::to_string(custom_loop_count)),
            }) |
            border;

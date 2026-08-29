@@ -3,8 +3,8 @@
 // the LICENSE file.
 #include <chrono>                  // for operator""s, chrono_literals
 #include <cmath>                   // for sin
-#include <ftxui/dom/elements.hpp>  // for graph, operator|, separator, color, Element, vbox, flex, inverted, operator|=, Fit, hbox, size, border, GREATER_THAN, HEIGHT
-#include <ftxui/screen/screen.hpp>  // for Full, Screen
+#include <andromeda/dom/elements.hpp>  // for graph, operator|, separator, color, Element, vbox, flex, inverted, operator|=, Fit, hbox, size, border, GREATER_THAN, HEIGHT
+#include <andromeda/screen/screen.hpp>  // for Full, Screen
 #include <functional>               // for ref, reference_wrapper
 #include <iostream>                 // for cout, ostream
 #include <memory>                   // for shared_ptr
@@ -13,8 +13,8 @@
 #include <utility>                  // for ignore
 #include <vector>                   // for vector
 
-#include "ftxui/dom/node.hpp"  // for Render
-#include "ftxui/screen/color.hpp"  // for Color, Color::BlueLight, Color::RedLight, Color::YellowLight, ftxui
+#include "andromeda/dom/node.hpp"  // for Render
+#include "andromeda/screen/color.hpp"  // for Color, Color::BlueLight, Color::RedLight, Color::YellowLight, andromeda
 
 class Graph {
  public:
@@ -43,7 +43,7 @@ std::vector<int> triangle(int width, int height) {
 }
 
 int main() {
-  using namespace ftxui;
+  using namespace andromeda;
   using namespace std::chrono_literals;
 
   Graph my_graph;

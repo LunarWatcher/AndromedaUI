@@ -1,16 +1,16 @@
 // Copyright 2020 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#include <ftxui/dom/elements.hpp>  // for operator|, Elements, Fit, bgcolor, color, hbox, text, vbox, Element
-#include <ftxui/screen/screen.hpp>  // for Full, Screen
+#include <andromeda/dom/elements.hpp>  // for operator|, Elements, Fit, bgcolor, color, hbox, text, vbox, Element
+#include <andromeda/screen/screen.hpp>  // for Full, Screen
 #include <memory>                   // for allocator
 #include <utility>                  // for move
 
-#include "ftxui/dom/node.hpp"      // for Render
-#include "ftxui/screen/color.hpp"  // for Color, ftxui
+#include "andromeda/dom/node.hpp"      // for Render
+#include "andromeda/screen/color.hpp"  // for Color, andromeda
 
 int main() {
-  using namespace ftxui;
+  using namespace andromeda;
 
   int saturation = 255;
   Elements array;

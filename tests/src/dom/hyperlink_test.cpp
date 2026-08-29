@@ -4,11 +4,11 @@
 #include <gtest/gtest.h>  // for Test, EXPECT_EQ, Message, TestPartResult, TestInfo (ptr only), TEST
 #include <string>  // for allocator, string
 
-#include "ftxui/dom/elements.hpp"  // for text, hyperlink, operator|, Element, hbox
-#include "ftxui/dom/node.hpp"      // for Render
-#include "ftxui/screen/screen.hpp"  // for Screen, Pixel
+#include "andromeda/dom/elements.hpp"  // for text, hyperlink, operator|, Element, hbox
+#include "andromeda/dom/node.hpp"      // for Render
+#include "andromeda/screen/screen.hpp"  // for Screen, Pixel
 
-namespace ftxui {
+namespace andromeda {
 
 TEST(HyperlinkTest, Basic) {
   auto element = hbox({
@@ -39,4 +39,4 @@ TEST(HyperlinkTest, Basic) {
             "\x1B]8;;\x1B\\");
 }
 
-}  // namespace ftxui
+}  // namespace andromeda

@@ -3,14 +3,14 @@
 // the LICENSE file.
 #include <gtest/gtest.h>  // for Test, TestInfo (ptr only), TEST, EXPECT_EQ, Message, TestPartResult
 #include <csignal>  // for raise, SIGABRT, SIGFPE, SIGILL, SIGINT, SIGSEGV, SIGTERM
-#include <ftxui/component/event.hpp>  // for Event, Event::Custom
+#include <andromeda/component/event.hpp>  // for Event, Event::Custom
 #include <tuple>                      // for _Swallow_assign, ignore
 
-#include "ftxui/component/component.hpp"  // for Renderer
-#include "ftxui/component/screen_interactive.hpp"
-#include "ftxui/dom/elements.hpp"  // for text, Element
+#include "andromeda/component/component.hpp"  // for Renderer
+#include "andromeda/component/screen_interactive.hpp"
+#include "andromeda/dom/elements.hpp"  // for text, Element
 
-namespace ftxui {
+namespace andromeda {
 
 namespace {
 bool TestSignal(int signal) {
@@ -131,4 +131,4 @@ TEST(ScreenInteractive, CtrlC_NotForced) {
   ASSERT_GE(ctrl_c_count, 50);
 }
 
-}  // namespace ftxui
+}  // namespace andromeda

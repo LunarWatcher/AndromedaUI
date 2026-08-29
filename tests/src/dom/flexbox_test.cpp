@@ -4,13 +4,13 @@
 #include <gtest/gtest.h>
 #include <string>  // for allocator
 
-#include "ftxui/dom/elements.hpp"        // for text, flexbox
-#include "ftxui/dom/flexbox_config.hpp"  // for FlexboxConfig, FlexboxConfig::Direction, FlexboxConfig::AlignContent, FlexboxConfig::JustifyContent, FlexboxConfig::Direction::Column, FlexboxConfig::AlignItems, FlexboxConfig::JustifyContent::SpaceAround, FlexboxConfig::AlignContent::Center, FlexboxConfig::AlignContent::FlexEnd, FlexboxConfig::AlignContent::SpaceAround, FlexboxConfig::AlignContent::SpaceBetween, FlexboxConfig::AlignContent::SpaceEvenly, FlexboxConfig::AlignItems::Center, FlexboxConfig::AlignItems::FlexEnd, FlexboxConfig::Direction::ColumnInversed, FlexboxConfig::Direction::Row, FlexboxConfig::Direction::RowInversed, FlexboxConfig::JustifyContent::Center, FlexboxConfig::JustifyContent::SpaceBetween
-#include "ftxui/dom/node.hpp"            // for Render
-#include "ftxui/screen/screen.hpp"       // for Screen
+#include "andromeda/dom/elements.hpp"        // for text, flexbox
+#include "andromeda/dom/flexbox_config.hpp"  // for FlexboxConfig, FlexboxConfig::Direction, FlexboxConfig::AlignContent, FlexboxConfig::JustifyContent, FlexboxConfig::Direction::Column, FlexboxConfig::AlignItems, FlexboxConfig::JustifyContent::SpaceAround, FlexboxConfig::AlignContent::Center, FlexboxConfig::AlignContent::FlexEnd, FlexboxConfig::AlignContent::SpaceAround, FlexboxConfig::AlignContent::SpaceBetween, FlexboxConfig::AlignContent::SpaceEvenly, FlexboxConfig::AlignItems::Center, FlexboxConfig::AlignItems::FlexEnd, FlexboxConfig::Direction::ColumnInversed, FlexboxConfig::Direction::Row, FlexboxConfig::Direction::RowInversed, FlexboxConfig::JustifyContent::Center, FlexboxConfig::JustifyContent::SpaceBetween
+#include "andromeda/dom/node.hpp"            // for Render
+#include "andromeda/screen/screen.hpp"       // for Screen
 
 // NOLINTBEGIN
-namespace ftxui {
+namespace andromeda {
 
 TEST(FlexboxTest, BasicRow) {
   auto root = flexbox(
@@ -457,5 +457,5 @@ TEST(FlexboxTest, Focus) {
             "-");
 }
 
-}  // namespace ftxui
+}  // namespace andromeda
 // NOLINTEND

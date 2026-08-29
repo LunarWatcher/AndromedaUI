@@ -4,12 +4,12 @@
 #include <gtest/gtest.h>
 #include <string>  // for allocator, string
 
-#include "ftxui/dom/elements.hpp"  // for text, vbox, separator, separatorDouble, separatorEmpty, separatorHeavy, separatorLight, separatorStyled, DOUBLE
-#include "ftxui/dom/node.hpp"      // for Render
-#include "ftxui/screen/screen.hpp"  // for Screen, Pixel
+#include "andromeda/dom/elements.hpp"  // for text, vbox, separator, separatorDouble, separatorEmpty, separatorHeavy, separatorLight, separatorStyled, DOUBLE
+#include "andromeda/dom/node.hpp"      // for Render
+#include "andromeda/screen/screen.hpp"  // for Screen, Pixel
 
 // NOLINTBEGIN
-namespace ftxui {
+namespace andromeda {
 
 TEST(SeparatorTest, Default) {
   auto element = vbox({
@@ -125,5 +125,5 @@ TEST(SeparatorTest, WithPixel) {
             "down");
 }
 
-}  // namespace ftxui
+}  // namespace andromeda
 // NOLINTEND

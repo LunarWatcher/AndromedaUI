@@ -7,12 +7,12 @@
 #include <string>     // for string, allocator, basic_string
 #include <vector>     // for vector
 
-#include "ftxui/dom/elements.hpp"  // for vtext, operator|, vbox, Element, flex_grow, flex_shrink
-#include "ftxui/dom/node.hpp"       // for Render
-#include "ftxui/screen/screen.hpp"  // for Screen
+#include "andromeda/dom/elements.hpp"  // for vtext, operator|, vbox, Element, flex_grow, flex_shrink
+#include "andromeda/dom/node.hpp"       // for Render
+#include "andromeda/screen/screen.hpp"  // for Screen
 
 // NOLINTBEGIN
-namespace ftxui {
+namespace andromeda {
 namespace {
 
 std::string rotate(std::string str) {
@@ -368,5 +368,5 @@ TEST(VBoxText, FlexGrow_NoFlex_FlewShrink) {
   }
 }
 
-}  // namespace ftxui
+}  // namespace andromeda
 // NOLINTEND

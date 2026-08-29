@@ -4,12 +4,12 @@
 #include <gtest/gtest.h>
 #include <string>  // for allocator
 
-#include "ftxui/dom/elements.hpp"  // for filler, operator|, text, border, dbox, hbox, vbox, Element
-#include "ftxui/dom/node.hpp"       // for Render
-#include "ftxui/screen/screen.hpp"  // for Screen
+#include "andromeda/dom/elements.hpp"  // for filler, operator|, text, border, dbox, hbox, vbox, Element
+#include "andromeda/dom/node.hpp"       // for Render
+#include "andromeda/screen/screen.hpp"  // for Screen
 
 // NOLINTBEGIN
-namespace ftxui {
+namespace andromeda {
 
 TEST(DBoxTest, Basic) {
   auto root = dbox({
@@ -32,5 +32,5 @@ TEST(DBoxTest, Basic) {
             "╰────╯  ");
 }
 
-}  // namespace ftxui
+}  // namespace andromeda
 // NOLINTEND

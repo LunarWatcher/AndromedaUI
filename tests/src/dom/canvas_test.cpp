@@ -5,15 +5,15 @@
 #include <cstdint>  // for uint32_t
 #include <string>   // for allocator, string
 
-#include "ftxui/dom/canvas.hpp"    // for Canvas
-#include "ftxui/dom/elements.hpp"  // for canvas
-#include "ftxui/dom/node.hpp"      // for Render
-#include "ftxui/screen/color.hpp"  // for Color, Color::Black, Color::Blue, Color::Red, Color::White, Color::Yellow, Color::Cyan, Color::Green
-#include "ftxui/screen/screen.hpp"    // for Screen
-#include "ftxui/screen/terminal.hpp"  // for SetColorSupport, Color, TrueColor
+#include "andromeda/dom/canvas.hpp"    // for Canvas
+#include "andromeda/dom/elements.hpp"  // for canvas
+#include "andromeda/dom/node.hpp"      // for Render
+#include "andromeda/screen/color.hpp"  // for Color, Color::Black, Color::Blue, Color::Red, Color::White, Color::Yellow, Color::Cyan, Color::Green
+#include "andromeda/screen/screen.hpp"    // for Screen
+#include "andromeda/screen/terminal.hpp"  // for SetColorSupport, Color, TrueColor
 
 // NOLINTBEGIN
-namespace ftxui {
+namespace andromeda {
 
 namespace {
 uint32_t Hash(const std::string s) {
@@ -104,5 +104,5 @@ TEST(CanvasTest, GoldText) {
   EXPECT_EQ(Hash(screen.ToString()), 1074960375);
 }
 
-}  // namespace ftxui
+}  // namespace andromeda
 // NOLINTEND

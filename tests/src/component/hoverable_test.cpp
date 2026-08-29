@@ -1,19 +1,19 @@
 // Copyright 2021 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#include <ftxui/dom/elements.hpp>  // for Element, text
+#include <andromeda/dom/elements.hpp>  // for Element, text
 #include <string>                  // for string
 
-#include "ftxui/component/component.hpp"  // for Hoverable, Horizontal, operator|=, Renderer
-#include "ftxui/component/component_base.hpp"  // for ComponentBase, Component
-#include "ftxui/component/event.hpp"           // for Event
-#include "ftxui/component/mouse.hpp"  // for Mouse, Mouse::Left, Mouse::Released
-#include "ftxui/dom/node.hpp"         // for Render
-#include "ftxui/screen/screen.hpp"    // for Screen
+#include "andromeda/component/component.hpp"  // for Hoverable, Horizontal, operator|=, Renderer
+#include "andromeda/component/component_base.hpp"  // for ComponentBase, Component
+#include "andromeda/component/event.hpp"           // for Event
+#include "andromeda/component/mouse.hpp"  // for Mouse, Mouse::Left, Mouse::Released
+#include "andromeda/dom/node.hpp"         // for Render
+#include "andromeda/screen/screen.hpp"    // for Screen
 #include "gtest/gtest.h"  // for AssertionResult, Message, TestPartResult, EXPECT_FALSE, EXPECT_EQ, Test, EXPECT_TRUE, TEST
 
 // NOLINTBEGIN
-namespace ftxui {
+namespace andromeda {
 
 namespace {
 Event HoverEvent(int x, int y) {
@@ -189,5 +189,5 @@ TEST(HoverableTest, Coverage) {
 }
 
 }  // namespace
-}  // namespace ftxui
+}  // namespace andromeda
 // NOLINTEND

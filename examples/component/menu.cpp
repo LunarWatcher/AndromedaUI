@@ -6,13 +6,13 @@
 #include <string>    // for string, basic_string, allocator
 #include <vector>    // for vector
 
-#include "ftxui/component/captured_mouse.hpp"      // for ftxui
-#include "ftxui/component/component.hpp"           // for Menu
-#include "ftxui/component/component_options.hpp"   // for MenuOption
-#include "ftxui/component/screen_interactive.hpp"  // for ScreenInteractive
+#include "andromeda/component/captured_mouse.hpp"      // for andromeda
+#include "andromeda/component/component.hpp"           // for Menu
+#include "andromeda/component/component_options.hpp"   // for MenuOption
+#include "andromeda/component/screen_interactive.hpp"  // for ScreenInteractive
 
 int main() {
-  using namespace ftxui;
+  using namespace andromeda;
   auto screen = ScreenInteractive::TerminalOutput();
 
   std::vector<std::string> entries = {

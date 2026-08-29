@@ -1,14 +1,14 @@
 // Copyright 2020 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#include <ftxui/component/captured_mouse.hpp>  // for ftxui
+#include <andromeda/component/captured_mouse.hpp>  // for andromeda
 #include <string>  // for allocator, operator+, char_traits, string
 
-#include "ftxui/component/component.hpp"           // for Renderer, Vertical
-#include "ftxui/component/screen_interactive.hpp"  // for ScreenInteractive, Component
-#include "ftxui/dom/elements.hpp"  // for text, Decorator, focus, focusCursorBar, focusCursorBarBlinking, focusCursorBlock, focusCursorBlockBlinking, focusCursorUnderline, focusCursorUnderlineBlinking, hbox, Element
+#include "andromeda/component/component.hpp"           // for Renderer, Vertical
+#include "andromeda/component/screen_interactive.hpp"  // for ScreenInteractive, Component
+#include "andromeda/dom/elements.hpp"  // for text, Decorator, focus, focusCursorBar, focusCursorBarBlinking, focusCursorBlock, focusCursorBlockBlinking, focusCursorUnderline, focusCursorUnderlineBlinking, hbox, Element
 
-using namespace ftxui;
+using namespace andromeda;
 
 Component Instance(std::string label, Decorator focusCursor) {
   return Renderer([=](bool focused) {

@@ -169,7 +169,6 @@ ftxui_check_coverage(component)
 
 include(cmake/iwyu.cmake)
 include(cmake/ftxui_export.cmake)
-include(cmake/ftxui_package.cmake)
 
 add_subdirectory(examples)
 

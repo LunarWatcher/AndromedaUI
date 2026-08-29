@@ -3,19 +3,19 @@
 // the LICENSE file.
 #include <string>  // for string
 
-#include "ftxui/component/animation.hpp"          // for Duration, Params
-#include "ftxui/component/component.hpp"          // for Button, Horizontal
-#include "ftxui/component/component_base.hpp"     // for ComponentBase
-#include "ftxui/component/component_options.hpp"  // for ButtonOption
-#include "ftxui/component/event.hpp"  // for Event, Event::Return, Event::ArrowLeft, Event::ArrowRight
-#include "ftxui/component/mouse.hpp"  // for Mouse, Mouse::Left, Mouse::Pressed
-#include "ftxui/dom/node.hpp"         // for Render
-#include "ftxui/screen/screen.hpp"    // for Screen
-#include "ftxui/screen/terminal.hpp"  // for SetColorSupport, Color, TrueColor
+#include "andromeda/component/animation.hpp"          // for Duration, Params
+#include "andromeda/component/component.hpp"          // for Button, Horizontal
+#include "andromeda/component/component_base.hpp"     // for ComponentBase
+#include "andromeda/component/component_options.hpp"  // for ButtonOption
+#include "andromeda/component/event.hpp"  // for Event, Event::Return, Event::ArrowLeft, Event::ArrowRight
+#include "andromeda/component/mouse.hpp"  // for Mouse, Mouse::Left, Mouse::Pressed
+#include "andromeda/dom/node.hpp"         // for Render
+#include "andromeda/screen/screen.hpp"    // for Screen
+#include "andromeda/screen/terminal.hpp"  // for SetColorSupport, Color, TrueColor
 #include "gtest/gtest.h"  // for AssertionResult, Message, TestPartResult, EXPECT_EQ, Test, EXPECT_FALSE, EXPECT_TRUE, TEST
 
 // NOLINTBEGIN
-namespace ftxui {
+namespace andromeda {
 
 namespace {
 
@@ -190,5 +190,5 @@ TEST(ButtonTest, Animation) {
   }
 }
 
-}  // namespace ftxui
+}  // namespace andromeda
 // NOLINTEND

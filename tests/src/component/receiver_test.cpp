@@ -4,11 +4,11 @@
 #include <thread>   // for thread
 #include <utility>  // for move
 
-#include "ftxui/component/receiver.hpp"
+#include "andromeda/component/receiver.hpp"
 #include "gtest/gtest.h"  // for AssertionResult, Message, Test, TestPartResult, EXPECT_EQ, EXPECT_TRUE, EXPECT_FALSE, TEST
 
 // NOLINTBEGIN
-namespace ftxui {
+namespace andromeda {
 
 TEST(Receiver, Basic) {
   auto receiver = MakeReceiver<char>();
@@ -77,5 +77,5 @@ TEST(Receiver, BasicWithThread) {
   t23.join();
 }
 
-}  // namespace ftxui
+}  // namespace andromeda
 // NOLINTEND

@@ -2,15 +2,15 @@
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
 #include <stdio.h>                 // for getchar
-#include <ftxui/dom/elements.hpp>  // for operator|, Element, size, text, hcenter, Fit, vflow, window, EQUAL, bold, border, dim, HEIGHT, WIDTH
-#include <ftxui/screen/screen.hpp>  // for Full, Screen
+#include <andromeda/dom/elements.hpp>  // for operator|, Element, size, text, hcenter, Fit, vflow, window, EQUAL, bold, border, dim, HEIGHT, WIDTH
+#include <andromeda/screen/screen.hpp>  // for Full, Screen
 #include <string>  // for allocator, char_traits, operator+, to_string, string
 
-#include "ftxui/dom/node.hpp"      // for Render
-#include "ftxui/screen/color.hpp"  // for ftxui
+#include "andromeda/dom/node.hpp"      // for Render
+#include "andromeda/screen/color.hpp"  // for andromeda
 
 int main() {
-  using namespace ftxui;
+  using namespace andromeda;
   auto make_box = [](int dimx, int dimy) {
     std::string title = std::to_string(dimx) + "x" + std::to_string(dimy);
     return window(text(title) | hcenter | bold,

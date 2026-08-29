@@ -4,11 +4,11 @@
 #include <string>  // for string, allocator, basic_string
 #include <vector>  // for vector
 
-#include "ftxui/component/captured_mouse.hpp"      // for ftxui
-#include "ftxui/component/component.hpp"           // for Radiobox
-#include "ftxui/component/screen_interactive.hpp"  // for ScreenInteractive
+#include "andromeda/component/captured_mouse.hpp"      // for andromeda
+#include "andromeda/component/component.hpp"           // for Radiobox
+#include "andromeda/component/screen_interactive.hpp"  // for ScreenInteractive
 
-using namespace ftxui;
+using namespace andromeda;
 
 int main() {
   std::vector<std::string> radiobox_list = {

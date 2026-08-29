@@ -3,12 +3,12 @@
 // the LICENSE file.
 #include <gtest/gtest.h>
 
-#include "ftxui/dom/elements.hpp"   // for spinner
-#include "ftxui/dom/node.hpp"       // for Render
-#include "ftxui/screen/screen.hpp"  // for Screen
+#include "andromeda/dom/elements.hpp"   // for spinner
+#include "andromeda/dom/node.hpp"       // for Render
+#include "andromeda/screen/screen.hpp"  // for Screen
 
 // NOLINTBEGIN
-namespace ftxui {
+namespace andromeda {
 
 TEST(SpinnerTest, Spinner1) {
   auto element = spinner(1, 0);
@@ -38,5 +38,5 @@ TEST(SpinnerTest, Spinner4) {
   EXPECT_EQ(screen.ToString(), ".   ");
 }
 
-}  // namespace ftxui
+}  // namespace andromeda
 // NOLINTEND

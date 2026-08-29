@@ -3,15 +3,15 @@
 // the LICENSE file.
 #include <string>  // for operator+, to_string
 
-#include "ftxui/component/captured_mouse.hpp"  // for ftxui
-#include "ftxui/component/component.hpp"  // for Button, Vertical, Renderer, Horizontal, operator|
-#include "ftxui/component/component_base.hpp"      // for Component
-#include "ftxui/component/component_options.hpp"   // for ButtonOption
-#include "ftxui/component/screen_interactive.hpp"  // for ScreenInteractive
-#include "ftxui/dom/elements.hpp"  // for Element, separator, text, border
-#include "ftxui/screen/color.hpp"  // for Color, Color::Blue, Color::Green, Color::Red
+#include "andromeda/component/captured_mouse.hpp"  // for andromeda
+#include "andromeda/component/component.hpp"  // for Button, Vertical, Renderer, Horizontal, operator|
+#include "andromeda/component/component_base.hpp"      // for Component
+#include "andromeda/component/component_options.hpp"   // for ButtonOption
+#include "andromeda/component/screen_interactive.hpp"  // for ScreenInteractive
+#include "andromeda/dom/elements.hpp"  // for Element, separator, text, border
+#include "andromeda/screen/color.hpp"  // for Color, Color::Blue, Color::Green, Color::Red
 
-using namespace ftxui;
+using namespace andromeda;
 
 int main() {
   int value = 0;

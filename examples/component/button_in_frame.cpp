@@ -4,15 +4,15 @@
 #include <memory>  // for allocator, __shared_ptr_access, shared_ptr
 #include <string>  // for to_string, operator+
 
-#include "ftxui/component/captured_mouse.hpp"  // for ftxui
-#include "ftxui/component/component.hpp"       // for Button, Renderer, Vertical
-#include "ftxui/component/component_base.hpp"  // for ComponentBase
-#include "ftxui/component/component_options.hpp"   // for ButtonOption
-#include "ftxui/component/screen_interactive.hpp"  // for ScreenInteractive
-#include "ftxui/dom/elements.hpp"  // for operator|, text, Element, hbox, separator, size, vbox, border, frame, vscroll_indicator, HEIGHT, LESS_THAN
-#include "ftxui/screen/color.hpp"  // for Color, Color::Default, Color::GrayDark, Color::White
+#include "andromeda/component/captured_mouse.hpp"  // for andromeda
+#include "andromeda/component/component.hpp"       // for Button, Renderer, Vertical
+#include "andromeda/component/component_base.hpp"  // for ComponentBase
+#include "andromeda/component/component_options.hpp"   // for ButtonOption
+#include "andromeda/component/screen_interactive.hpp"  // for ScreenInteractive
+#include "andromeda/dom/elements.hpp"  // for operator|, text, Element, hbox, separator, size, vbox, border, frame, vscroll_indicator, HEIGHT, LESS_THAN
+#include "andromeda/screen/color.hpp"  // for Color, Color::Default, Color::GrayDark, Color::White
 
-using namespace ftxui;
+using namespace andromeda;
 
 int main() {
   int counter = 0;

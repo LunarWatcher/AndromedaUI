@@ -5,13 +5,13 @@
 #include <string>   // for allocator, to_string, string
 #include <utility>  // for move
 
-#include "ftxui/dom/elements.hpp"  // for operator|, Element, operator|=, text, vbox, Elements, border, select, frame, vscroll_indicator
-#include "ftxui/dom/node.hpp"      // for Render
-#include "ftxui/screen/color.hpp"  // for Color, Color::Red
-#include "ftxui/screen/screen.hpp"  // for Screen
+#include "andromeda/dom/elements.hpp"  // for operator|, Element, operator|=, text, vbox, Elements, border, select, frame, vscroll_indicator
+#include "andromeda/dom/node.hpp"      // for Render
+#include "andromeda/screen/color.hpp"  // for Color, Color::Red
+#include "andromeda/screen/screen.hpp"  // for Screen
 
 // NOLINTBEGIN
-namespace ftxui {
+namespace andromeda {
 
 namespace {
 Element MakeVerticalList(int focused_index, int n) {
@@ -367,5 +367,5 @@ TEST(ScrollIndicator, HorizontalFlexbox) {
 
 }  // namespace
 
-}  // namespace ftxui
+}  // namespace andromeda
 // NOLINTEND

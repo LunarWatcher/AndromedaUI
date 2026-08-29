@@ -2,21 +2,21 @@
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
 #include <gtest/gtest.h>  // for Test, EXPECT_EQ, Message, TestPartResult, TestInfo (ptr only), TEST
-#include <ftxui/dom/direction.hpp>  // for Direction, Direction::Down, Direction::Left, Direction::Right, Direction::Up
+#include <andromeda/dom/direction.hpp>  // for Direction, Direction::Down, Direction::Left, Direction::Right, Direction::Up
 #include <string>                   // for string, basic_string
 #include <vector>                   // for vector
 
-#include "ftxui/component/animation.hpp"          // for Duration, Params
-#include "ftxui/component/component.hpp"          // for Menu
-#include "ftxui/component/component_base.hpp"     // for ComponentBase
-#include "ftxui/component/component_options.hpp"  // for MenuOption
-#include "ftxui/component/event.hpp"  // for Event, Event::ArrowDown, Event::ArrowLeft, Event::ArrowRight, Event::ArrowUp, Event::Return
-#include "ftxui/dom/node.hpp"         // for Render
-#include "ftxui/screen/screen.hpp"    // for Screen
-#include "ftxui/util/ref.hpp"         // for Ref
+#include "andromeda/component/animation.hpp"          // for Duration, Params
+#include "andromeda/component/component.hpp"          // for Menu
+#include "andromeda/component/component_base.hpp"     // for ComponentBase
+#include "andromeda/component/component_options.hpp"  // for MenuOption
+#include "andromeda/component/event.hpp"  // for Event, Event::ArrowDown, Event::ArrowLeft, Event::ArrowRight, Event::ArrowUp, Event::Return
+#include "andromeda/dom/node.hpp"         // for Render
+#include "andromeda/screen/screen.hpp"    // for Screen
+#include "andromeda/util/ref.hpp"         // for Ref
 
 // NOLINTBEGIN
-namespace ftxui {
+namespace andromeda {
 
 using namespace std::chrono_literals;
 
@@ -271,5 +271,5 @@ TEST(MenuTest, MenuEntryIndex) {
   }
 }
 
-}  // namespace ftxui
+}  // namespace andromeda
 // NOLINTEND

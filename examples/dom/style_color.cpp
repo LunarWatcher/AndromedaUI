@@ -1,16 +1,16 @@
 // Copyright 2020 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#include <ftxui/dom/linear_gradient.hpp>  // for LinearGradient
-#include <ftxui/screen/screen.hpp>        // for Full, Screen
+#include <andromeda/dom/linear_gradient.hpp>  // for LinearGradient
+#include <andromeda/screen/screen.hpp>        // for Full, Screen
 #include <memory>                         // for allocator
 
-#include "ftxui/dom/elements.hpp"  // for text, bgcolor, color, vbox, filler, Fit, hbox
-#include "ftxui/dom/node.hpp"      // for Render
-#include "ftxui/screen/color.hpp"  // for Color, operator""_rgb, Color::Black, Color::Blue, Color::BlueLight, Color::Cyan, Color::CyanLight, Color::DeepSkyBlue4, Color::Default, Color::GrayDark, Color::GrayLight, Color::Green, Color::GreenLight, Color::Magenta, Color::MagentaLight, Color::Red, Color::RedLight, Color::SkyBlue1, Color::White, Color::Yellow, Color::YellowLight, ftxui
+#include "andromeda/dom/elements.hpp"  // for text, bgcolor, color, vbox, filler, Fit, hbox
+#include "andromeda/dom/node.hpp"      // for Render
+#include "andromeda/screen/color.hpp"  // for Color, operator""_rgb, Color::Black, Color::Blue, Color::BlueLight, Color::Cyan, Color::CyanLight, Color::DeepSkyBlue4, Color::Default, Color::GrayDark, Color::GrayLight, Color::Green, Color::GreenLight, Color::Magenta, Color::MagentaLight, Color::Red, Color::RedLight, Color::SkyBlue1, Color::White, Color::Yellow, Color::YellowLight, andromeda
 
 int main() {
-  using namespace ftxui;
+  using namespace andromeda;
   auto document = hbox({
       vbox({
           color(Color::Default, text("Default")),

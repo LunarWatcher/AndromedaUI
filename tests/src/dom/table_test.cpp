@@ -3,13 +3,13 @@
 // the LICENSE file.
 #include <gtest/gtest.h>
 
-#include "ftxui/dom/elements.hpp"  // for LIGHT, flex, center, EMPTY, DOUBLE
-#include "ftxui/dom/node.hpp"      // for Render
-#include "ftxui/dom/table.hpp"
-#include "ftxui/screen/screen.hpp"  // for Screen
+#include "andromeda/dom/elements.hpp"  // for LIGHT, flex, center, EMPTY, DOUBLE
+#include "andromeda/dom/node.hpp"      // for Render
+#include "andromeda/dom/table.hpp"
+#include "andromeda/screen/screen.hpp"  // for Screen
 
 // NOLINTBEGIN
-namespace ftxui {
+namespace andromeda {
 
 TEST(TableTest, Empty) {
   auto table = Table();
@@ -745,5 +745,5 @@ TEST(TableTest, Issue912) {
   });
 }
 
-}  // namespace ftxui
+}  // namespace andromeda
 // NOLINTEND

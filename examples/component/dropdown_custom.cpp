@@ -4,12 +4,12 @@
 #include <string>  // for basic_string, string, allocator
 #include <vector>  // for vector
 
-#include "ftxui/component/captured_mouse.hpp"  // for ftxui
-#include "ftxui/component/component.hpp"  // for Dropdown, Horizontal, Vertical
-#include "ftxui/component/screen_interactive.hpp"  // for ScreenInteractive
+#include "andromeda/component/captured_mouse.hpp"  // for andromeda
+#include "andromeda/component/component.hpp"  // for Dropdown, Horizontal, Vertical
+#include "andromeda/component/screen_interactive.hpp"  // for ScreenInteractive
 
 int main() {
-  using namespace ftxui;
+  using namespace andromeda;
 
   std::vector<std::string> entries = {
       "tribute",     "clearance", "ally",        "bend",        "electronics",

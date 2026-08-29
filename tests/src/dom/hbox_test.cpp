@@ -6,12 +6,12 @@
 #include <string>   // for allocator, basic_string, string
 #include <vector>   // for vector
 
-#include "ftxui/dom/elements.hpp"  // for text, operator|, Element, flex_grow, flex_shrink, hbox
-#include "ftxui/dom/node.hpp"       // for Render
-#include "ftxui/screen/screen.hpp"  // for Screen
+#include "andromeda/dom/elements.hpp"  // for text, operator|, Element, flex_grow, flex_shrink, hbox
+#include "andromeda/dom/node.hpp"       // for Render
+#include "andromeda/screen/screen.hpp"  // for Screen
 
 // NOLINTBEGIN
-namespace ftxui {
+namespace andromeda {
 
 TEST(HBoxTest, NoFlex_NoFlex_NoFlex) {
   auto root = hbox({
@@ -358,5 +358,5 @@ TEST(HBoxTest, FlexGrow_NoFlex_FlewShrink) {
   }
 }
 
-}  // namespace ftxui
+}  // namespace andromeda
 // NOLINTEND

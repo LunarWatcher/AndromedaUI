@@ -3,12 +3,12 @@
 // the LICENSE file.
 #include <gtest/gtest.h>
 
-#include "ftxui/dom/elements.hpp"   // for gauge, gaugeUp
-#include "ftxui/dom/node.hpp"       // for Render
-#include "ftxui/screen/screen.hpp"  // for Screen
+#include "andromeda/dom/elements.hpp"   // for gauge, gaugeUp
+#include "andromeda/dom/node.hpp"       // for Render
+#include "andromeda/screen/screen.hpp"  // for Screen
 
 // NOLINTBEGIN
-namespace ftxui {
+namespace andromeda {
 
 TEST(GaugeTest, ZeroHorizontal) {
   auto root = gauge(0);
@@ -98,5 +98,5 @@ TEST(GaugeTest, OneVertical) {
       screen.ToString());
 }
 
-}  // namespace ftxui
+}  // namespace andromeda
 // NOLINTEND

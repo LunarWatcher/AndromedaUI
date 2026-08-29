@@ -2,15 +2,15 @@
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
 #include <gtest/gtest.h>
-#include <ftxui/dom/elements.hpp>  // for Element, operator|, text, border
+#include <andromeda/dom/elements.hpp>  // for Element, operator|, text, border
 
-#include "ftxui/component/component.hpp"       // for Renderer, Modal
-#include "ftxui/component/component_base.hpp"  // for ComponentBase
-#include "ftxui/dom/node.hpp"                  // for Render
-#include "ftxui/screen/screen.hpp"             // for Screen
+#include "andromeda/component/component.hpp"       // for Renderer, Modal
+#include "andromeda/component/component_base.hpp"  // for ComponentBase
+#include "andromeda/dom/node.hpp"                  // for Render
+#include "andromeda/screen/screen.hpp"             // for Screen
 
 // NOLINTBEGIN
-namespace ftxui {
+namespace andromeda {
 
 TEST(ModalTest, Basic) {
   auto main = Renderer([] { return text("main") | border; });
@@ -41,5 +41,5 @@ TEST(ModalTest, Basic) {
             "╰────────╯");
 }
 
-}  // namespace ftxui
+}  // namespace andromeda
 // NOLINTEND

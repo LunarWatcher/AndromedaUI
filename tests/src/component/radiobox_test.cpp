@@ -1,21 +1,21 @@
 // Copyright 2020 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#include <ftxui/dom/elements.hpp>   // for yframe
-#include <ftxui/dom/node.hpp>       // for Render
-#include <ftxui/screen/screen.hpp>  // for Screen
+#include <andromeda/dom/elements.hpp>   // for yframe
+#include <andromeda/dom/node.hpp>       // for Render
+#include <andromeda/screen/screen.hpp>  // for Screen
 #include <string>                   // for string, basic_string
 #include <vector>                   // for vector
 
-#include "ftxui/component/component.hpp"       // for Radiobox, operator|
-#include "ftxui/component/component_base.hpp"  // for ComponentBase, Component
-#include "ftxui/component/component_options.hpp"  // for RadioboxOption
-#include "ftxui/component/event.hpp"  // for Event, Event::Return, Event::ArrowDown, Event::End, Event::Home, Event::Tab, Event::TabReverse, Event::PageDown, Event::PageUp, Event::ArrowUp
-#include "ftxui/util/ref.hpp"         // for Ref
+#include "andromeda/component/component.hpp"       // for Radiobox, operator|
+#include "andromeda/component/component_base.hpp"  // for ComponentBase, Component
+#include "andromeda/component/component_options.hpp"  // for RadioboxOption
+#include "andromeda/component/event.hpp"  // for Event, Event::Return, Event::ArrowDown, Event::End, Event::Home, Event::Tab, Event::TabReverse, Event::PageDown, Event::PageUp, Event::ArrowUp
+#include "andromeda/util/ref.hpp"         // for Ref
 #include "gtest/gtest.h"  // for AssertionResult, Message, TestPartResult, EXPECT_EQ, EXPECT_TRUE, Test, EXPECT_FALSE, TEST
 
 // NOLINTBEGIN
-namespace ftxui {
+namespace andromeda {
 
 TEST(RadioboxTest, NavigationArrow) {
   int selected = 0;
@@ -305,5 +305,5 @@ TEST(RadioboxTest, RemoveEntries) {
   EXPECT_EQ(focused_entry, 1);
 }
 
-}  // namespace ftxui
+}  // namespace andromeda
 // NOLINTEND

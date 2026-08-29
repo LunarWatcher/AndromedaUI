@@ -4,12 +4,12 @@
 #include <gtest/gtest.h>
 #include <string>  // for allocator, string
 
-#include "ftxui/dom/elements.hpp"   // for text, operator|, border, Element
-#include "ftxui/dom/node.hpp"       // for Render
-#include "ftxui/screen/screen.hpp"  // for Screen
+#include "andromeda/dom/elements.hpp"   // for text, operator|, border, Element
+#include "andromeda/dom/node.hpp"       // for Render
+#include "andromeda/screen/screen.hpp"  // for Screen
 
 // NOLINTBEGIN
-namespace ftxui {
+namespace andromeda {
 
 TEST(TextTest, ScreenHeightSmaller) {
   auto element = text("test");
@@ -121,5 +121,5 @@ TEST(TextTest, CombiningCharactersWithSpace) {
   EXPECT_EQ(t, screen.ToString());
 }
 
-}  // namespace ftxui
+}  // namespace andromeda
 // NOLINTEND

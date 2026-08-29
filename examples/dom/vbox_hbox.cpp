@@ -2,15 +2,15 @@
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
 #include <stdio.h>                  // for getchar
-#include <ftxui/dom/elements.hpp>   // for filler, text, hbox, vbox
-#include <ftxui/screen/screen.hpp>  // for Full, Screen
+#include <andromeda/dom/elements.hpp>   // for filler, text, hbox, vbox
+#include <andromeda/screen/screen.hpp>  // for Full, Screen
 #include <memory>                   // for allocator
 
-#include "ftxui/dom/node.hpp"      // for Render
-#include "ftxui/screen/color.hpp"  // for ftxui
+#include "andromeda/dom/node.hpp"      // for Render
+#include "andromeda/screen/color.hpp"  // for andromeda
 
 int main() {
-  using namespace ftxui;
+  using namespace andromeda;
   auto document =  //
       vbox({
           hbox({

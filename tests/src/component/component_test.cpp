@@ -3,11 +3,11 @@
 // the LICENSE file.
 #include <memory>  // for shared_ptr, __shared_ptr_access, allocator, __shared_ptr_access<>::element_type, make_shared
 
-#include "ftxui/component/component.hpp"       // for Make
-#include "ftxui/component/component_base.hpp"  // for ComponentBase, Component
+#include "andromeda/component/component.hpp"       // for Make
+#include "andromeda/component/component_base.hpp"  // for ComponentBase, Component
 #include "gtest/gtest.h"  // for Message, TestPartResult, EXPECT_EQ, Test, AssertionResult, TEST, EXPECT_FALSE
 
-namespace ftxui {
+namespace andromeda {
 
 namespace {
 Component Make() {
@@ -172,4 +172,4 @@ TEST(ComponentTest, NonFocusableAreNotFocused) {
   EXPECT_EQ(child->ActiveChild(), nullptr);
 }
 
-}  // namespace ftxui
+}  // namespace andromeda

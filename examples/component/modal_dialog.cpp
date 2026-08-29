@@ -1,16 +1,16 @@
 // Copyright 2022 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#include <ftxui/component/component_options.hpp>  // for ButtonOption
-#include <ftxui/component/mouse.hpp>              // for ftxui
+#include <andromeda/component/component_options.hpp>  // for ButtonOption
+#include <andromeda/component/mouse.hpp>              // for andromeda
 #include <functional>                             // for function
 #include <memory>                                 // for allocator, shared_ptr
 
-#include "ftxui/component/component.hpp"  // for Button, operator|=, Renderer, Vertical, Modal
-#include "ftxui/component/screen_interactive.hpp"  // for ScreenInteractive, Component
-#include "ftxui/dom/elements.hpp"  // for operator|, separator, text, size, Element, vbox, border, GREATER_THAN, WIDTH, center, HEIGHT
+#include "andromeda/component/component.hpp"  // for Button, operator|=, Renderer, Vertical, Modal
+#include "andromeda/component/screen_interactive.hpp"  // for ScreenInteractive, Component
+#include "andromeda/dom/elements.hpp"  // for operator|, separator, text, size, Element, vbox, border, GREATER_THAN, WIDTH, center, HEIGHT
 
-using namespace ftxui;
+using namespace andromeda;
 
 auto button_style = ButtonOption::Animated();
 

@@ -6,18 +6,18 @@
 #include <memory>    // for allocator, shared_ptr, __shared_ptr_access
 #include <string>  // for char_traits, to_string, operator+, string, basic_string
 
-#include "ftxui/component/captured_mouse.hpp"  // for ftxui
-#include "ftxui/component/component.hpp"  // for MenuEntry, Renderer, Vertical
-#include "ftxui/component/component_base.hpp"      // for ComponentBase
-#include "ftxui/component/component_options.hpp"   // for MenuEntryOption
-#include "ftxui/component/screen_interactive.hpp"  // for ScreenInteractive
-#include "ftxui/dom/elements.hpp"  // for operator|, Element, separator, text, hbox, size, frame, color, vbox, HEIGHT, LESS_THAN, bold, border, inverted
-#include "ftxui/screen/color.hpp"  // for Color, Color::Blue, Color::Cyan, Color::Green, Color::Red, Color::Yellow
+#include "andromeda/component/captured_mouse.hpp"  // for andromeda
+#include "andromeda/component/component.hpp"  // for MenuEntry, Renderer, Vertical
+#include "andromeda/component/component_base.hpp"      // for ComponentBase
+#include "andromeda/component/component_options.hpp"   // for MenuEntryOption
+#include "andromeda/component/screen_interactive.hpp"  // for ScreenInteractive
+#include "andromeda/dom/elements.hpp"  // for operator|, Element, separator, text, hbox, size, frame, color, vbox, HEIGHT, LESS_THAN, bold, border, inverted
+#include "andromeda/screen/color.hpp"  // for Color, Color::Blue, Color::Cyan, Color::Green, Color::Red, Color::Yellow
 
-using namespace ftxui;
+using namespace andromeda;
 
 // Define a special style for some menu entry.
-MenuEntryOption Colored(ftxui::Color c) {
+MenuEntryOption Colored(andromeda::Color c) {
   MenuEntryOption option;
   option.transform = [c](EntryState state) {
     state.label = (state.active ? "> " : "  ") + state.label;

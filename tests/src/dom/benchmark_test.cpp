@@ -3,12 +3,12 @@
 // the LICENSE file.
 #include <benchmark/benchmark.h>
 
-#include "ftxui/dom/elements.hpp"  // for gauge, separator, operator|, text, Element, hbox, vbox, blink, border, inverted
-#include "ftxui/dom/node.hpp"      // for Render
-#include "ftxui/screen/screen.hpp"  // for Screen
+#include "andromeda/dom/elements.hpp"  // for gauge, separator, operator|, text, Element, hbox, vbox, blink, border, inverted
+#include "andromeda/dom/node.hpp"      // for Render
+#include "andromeda/screen/screen.hpp"  // for Screen
 
 // NOLINTBEGIN
-namespace ftxui {
+namespace andromeda {
 
 static void BencharkBasic(benchmark::State& state) {
   while (state.KeepRunning()) {
@@ -82,5 +82,5 @@ BENCHMARK(BenchmarkStyle)
         benchmark::CreateDenseRange(10, 200, 20),  // Screen width.
     });
 
-}  // namespace ftxui
+}  // namespace andromeda
 // NOLINTEND

@@ -1,18 +1,18 @@
 // Copyright 2020 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#include <ftxui/dom/elements.hpp>  // for color, Fit, LIGHT, align_right, bold, DOUBLE
-#include <ftxui/dom/table.hpp>      // for Table, TableSelection
-#include <ftxui/screen/screen.hpp>  // for Screen
+#include <andromeda/dom/elements.hpp>  // for color, Fit, LIGHT, align_right, bold, DOUBLE
+#include <andromeda/dom/table.hpp>      // for Table, TableSelection
+#include <andromeda/screen/screen.hpp>  // for Screen
 #include <iostream>                 // for endl, cout, ostream
 #include <string>                   // for basic_string, allocator, string
 #include <vector>                   // for vector
 
-#include "ftxui/dom/node.hpp"  // for Render
-#include "ftxui/screen/color.hpp"  // for Color, Color::Blue, Color::Cyan, Color::White, ftxui
+#include "andromeda/dom/node.hpp"  // for Render
+#include "andromeda/screen/color.hpp"  // for Color, Color::Blue, Color::Cyan, Color::White, andromeda
 
 int main() {
-  using namespace ftxui;
+  using namespace andromeda;
 
   auto table = Table({
       {"Version", "Marketing name", "Release date", "API level", "Runtime"},
