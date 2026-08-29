@@ -1,13 +1,13 @@
 #include <algorithm>
 #include <cmath>
-#include <ftxui/screen/color_info.hpp>  // for ftxui::ColorInfo
+#include <andromeda/screen/color_info.hpp>  // for andromeda::ColorInfo
 
-std::vector<std::vector<ftxui::ColorInfo>> ColorInfoSorted2D() {
+std::vector<std::vector<andromeda::ColorInfo>> ColorInfoSorted2D() {
   // Acquire the color information for the palette256.
-  std::vector<ftxui::ColorInfo> info_gray;
-  std::vector<ftxui::ColorInfo> info_color;
+  std::vector<andromeda::ColorInfo> info_gray;
+  std::vector<andromeda::ColorInfo> info_color;
   for (int i = 16; i < 256; ++i) {
-    ftxui::ColorInfo info = GetColorInfo(ftxui::Color::Palette256(i));
+    andromeda::ColorInfo info = GetColorInfo(andromeda::Color::Palette256(i));
     if (info.saturation == 0)
       info_gray.push_back(info);
     else
@@ -17,10 +17,10 @@ std::vector<std::vector<ftxui::ColorInfo>> ColorInfoSorted2D() {
   // Sort info_color by hue.
   std::sort(
       info_color.begin(), info_color.end(),
-      [](const ftxui::ColorInfo& A, const ftxui::ColorInfo& B) { return A.hue < B.hue; });
+      [](const andromeda::ColorInfo& A, const andromeda::ColorInfo& B) { return A.hue < B.hue; });
 
   // Make 8 colums, one gray and seven colored.
-  std::vector<std::vector<ftxui::ColorInfo>> info_columns(8);
+  std::vector<std::vector<andromeda::ColorInfo>> info_columns(8);
   info_columns[0] = info_gray;
   for (size_t i = 0; i < info_color.size(); ++i) {
     info_columns[1 + 7 * i / info_color.size()].push_back(info_color[i]);
@@ -29,7 +29,7 @@ std::vector<std::vector<ftxui::ColorInfo>> ColorInfoSorted2D() {
   // Minimize discontinuities for every columns.
   for (auto& column : info_columns) {
     std::sort(column.begin(), column.end(),
-              [](const ftxui::ColorInfo& A, const ftxui::ColorInfo& B) {
+              [](const andromeda::ColorInfo& A, const andromeda::ColorInfo& B) {
                 return A.value < B.value;
               });
     for (int i = 0; i < int(column.size()) - 1; ++i) {

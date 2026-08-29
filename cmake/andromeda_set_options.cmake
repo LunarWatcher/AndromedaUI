@@ -1,9 +1,9 @@
 find_program(CLANG_TIDY_EXE NAMES "clang-tidy" DOC "Path to clang-tidy executable" )
 
-function(ftxui_set_options library)
+function(andromeda_set_options library)
   set_target_properties(${library} PROPERTIES VERSION ${PROJECT_VERSION})
-  if (NOT ${library} MATCHES "ftxui-*")
-    set_target_properties(${library} PROPERTIES OUTPUT_NAME "ftxui-${library}")
+  if (NOT ${library} MATCHES "andromeda-*")
+    set_target_properties(${library} PROPERTIES OUTPUT_NAME "andromeda-${library}")
   endif()
 
   if (FTXUI_CLANG_TIDY)

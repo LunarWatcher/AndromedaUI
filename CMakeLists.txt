@@ -27,119 +27,119 @@ endif()
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-include(cmake/ftxui_message.cmake)
+include(cmake/andromeda_message.cmake)
 
 add_library(screen
-  include/ftxui/screen/box.hpp
-  include/ftxui/screen/color.hpp
-  include/ftxui/screen/color_info.hpp
-  include/ftxui/screen/image.hpp
-  include/ftxui/screen/pixel.hpp
-  include/ftxui/screen/screen.hpp
-  include/ftxui/screen/string.hpp
-  src/ftxui/screen/box.cpp
-  src/ftxui/screen/color.cpp
-  src/ftxui/screen/color_info.cpp
-  src/ftxui/screen/image.cpp
-  src/ftxui/screen/screen.cpp
-  src/ftxui/screen/string.cpp
-  src/ftxui/screen/terminal.cpp
-  src/ftxui/screen/util.hpp
+  include/andromeda/screen/box.hpp
+  include/andromeda/screen/color.hpp
+  include/andromeda/screen/color_info.hpp
+  include/andromeda/screen/image.hpp
+  include/andromeda/screen/pixel.hpp
+  include/andromeda/screen/screen.hpp
+  include/andromeda/screen/string.hpp
+  src/andromeda/screen/box.cpp
+  src/andromeda/screen/color.cpp
+  src/andromeda/screen/color_info.cpp
+  src/andromeda/screen/image.cpp
+  src/andromeda/screen/screen.cpp
+  src/andromeda/screen/string.cpp
+  src/andromeda/screen/terminal.cpp
+  src/andromeda/screen/util.hpp
 )
 
 add_library(dom
-  include/ftxui/dom/canvas.hpp
-  include/ftxui/dom/direction.hpp
-  include/ftxui/dom/elements.hpp
-  include/ftxui/dom/flexbox_config.hpp
-  include/ftxui/dom/node.hpp
-  include/ftxui/dom/requirement.hpp
-  include/ftxui/dom/selection.hpp
-  include/ftxui/dom/take_any_args.hpp
-  src/ftxui/dom/automerge.cpp
-  src/ftxui/dom/selection_style.cpp
-  src/ftxui/dom/blink.cpp
-  src/ftxui/dom/bold.cpp
-  src/ftxui/dom/border.cpp
-  src/ftxui/dom/box_helper.cpp
-  src/ftxui/dom/box_helper.hpp
-  src/ftxui/dom/canvas.cpp
-  src/ftxui/dom/clear_under.cpp
-  src/ftxui/dom/color.cpp
-  src/ftxui/dom/composite_decorator.cpp
-  src/ftxui/dom/dbox.cpp
-  src/ftxui/dom/dim.cpp
-  src/ftxui/dom/flex.cpp
-  src/ftxui/dom/flexbox.cpp
-  src/ftxui/dom/flexbox_config.cpp
-  src/ftxui/dom/flexbox_helper.cpp
-  src/ftxui/dom/flexbox_helper.hpp
-  src/ftxui/dom/focus.cpp
-  src/ftxui/dom/frame.cpp
-  src/ftxui/dom/gauge.cpp
-  src/ftxui/dom/graph.cpp
-  src/ftxui/dom/gridbox.cpp
-  src/ftxui/dom/hbox.cpp
-  src/ftxui/dom/hyperlink.cpp
-  src/ftxui/dom/inverted.cpp
-  src/ftxui/dom/italic.cpp
-  src/ftxui/dom/linear_gradient.cpp
-  src/ftxui/dom/node.cpp
-  src/ftxui/dom/node_decorator.cpp
-  src/ftxui/dom/paragraph.cpp
-  src/ftxui/dom/reflect.cpp
-  src/ftxui/dom/scroll_indicator.cpp
-  src/ftxui/dom/selection.cpp
-  src/ftxui/dom/separator.cpp
-  src/ftxui/dom/size.cpp
-  src/ftxui/dom/spinner.cpp
-  src/ftxui/dom/strikethrough.cpp
-  src/ftxui/dom/table.cpp
-  src/ftxui/dom/text.cpp
-  src/ftxui/dom/underlined.cpp
-  src/ftxui/dom/underlined_double.cpp
-  src/ftxui/dom/util.cpp
-  src/ftxui/dom/vbox.cpp
+  include/andromeda/dom/canvas.hpp
+  include/andromeda/dom/direction.hpp
+  include/andromeda/dom/elements.hpp
+  include/andromeda/dom/flexbox_config.hpp
+  include/andromeda/dom/node.hpp
+  include/andromeda/dom/requirement.hpp
+  include/andromeda/dom/selection.hpp
+  include/andromeda/dom/take_any_args.hpp
+  src/andromeda/dom/automerge.cpp
+  src/andromeda/dom/selection_style.cpp
+  src/andromeda/dom/blink.cpp
+  src/andromeda/dom/bold.cpp
+  src/andromeda/dom/border.cpp
+  src/andromeda/dom/box_helper.cpp
+  src/andromeda/dom/box_helper.hpp
+  src/andromeda/dom/canvas.cpp
+  src/andromeda/dom/clear_under.cpp
+  src/andromeda/dom/color.cpp
+  src/andromeda/dom/composite_decorator.cpp
+  src/andromeda/dom/dbox.cpp
+  src/andromeda/dom/dim.cpp
+  src/andromeda/dom/flex.cpp
+  src/andromeda/dom/flexbox.cpp
+  src/andromeda/dom/flexbox_config.cpp
+  src/andromeda/dom/flexbox_helper.cpp
+  src/andromeda/dom/flexbox_helper.hpp
+  src/andromeda/dom/focus.cpp
+  src/andromeda/dom/frame.cpp
+  src/andromeda/dom/gauge.cpp
+  src/andromeda/dom/graph.cpp
+  src/andromeda/dom/gridbox.cpp
+  src/andromeda/dom/hbox.cpp
+  src/andromeda/dom/hyperlink.cpp
+  src/andromeda/dom/inverted.cpp
+  src/andromeda/dom/italic.cpp
+  src/andromeda/dom/linear_gradient.cpp
+  src/andromeda/dom/node.cpp
+  src/andromeda/dom/node_decorator.cpp
+  src/andromeda/dom/paragraph.cpp
+  src/andromeda/dom/reflect.cpp
+  src/andromeda/dom/scroll_indicator.cpp
+  src/andromeda/dom/selection.cpp
+  src/andromeda/dom/separator.cpp
+  src/andromeda/dom/size.cpp
+  src/andromeda/dom/spinner.cpp
+  src/andromeda/dom/strikethrough.cpp
+  src/andromeda/dom/table.cpp
+  src/andromeda/dom/text.cpp
+  src/andromeda/dom/underlined.cpp
+  src/andromeda/dom/underlined_double.cpp
+  src/andromeda/dom/util.cpp
+  src/andromeda/dom/vbox.cpp
 )
 
 add_library(component
-  include/ftxui/component/animation.hpp
-  include/ftxui/component/captured_mouse.hpp
-  include/ftxui/component/component.hpp
-  include/ftxui/component/component_base.hpp
-  include/ftxui/component/component_options.hpp
-  include/ftxui/component/event.hpp
-  include/ftxui/component/loop.hpp
-  include/ftxui/component/mouse.hpp
-  include/ftxui/component/receiver.hpp
-  include/ftxui/component/screen_interactive.hpp
-  include/ftxui/component/task.hpp
-  src/ftxui/component/animation.cpp
-  src/ftxui/component/button.cpp
-  src/ftxui/component/catch_event.cpp
-  src/ftxui/component/checkbox.cpp
-  src/ftxui/component/collapsible.cpp
-  src/ftxui/component/component.cpp
-  src/ftxui/component/component_options.cpp
-  src/ftxui/component/container.cpp
-  src/ftxui/component/dropdown.cpp
-  src/ftxui/component/event.cpp
-  src/ftxui/component/hoverable.cpp
-  src/ftxui/component/input.cpp
-  src/ftxui/component/loop.cpp
-  src/ftxui/component/maybe.cpp
-  src/ftxui/component/menu.cpp
-  src/ftxui/component/modal.cpp
-  src/ftxui/component/radiobox.cpp
-  src/ftxui/component/radiobox.cpp
-  src/ftxui/component/renderer.cpp
-  src/ftxui/component/resizable_split.cpp
-  src/ftxui/component/screen_interactive.cpp
-  src/ftxui/component/slider.cpp
-  src/ftxui/component/terminal_input_parser.cpp
-  src/ftxui/component/terminal_input_parser.hpp
-  src/ftxui/component/util.cpp
-  src/ftxui/component/window.cpp
+  include/andromeda/component/animation.hpp
+  include/andromeda/component/captured_mouse.hpp
+  include/andromeda/component/component.hpp
+  include/andromeda/component/component_base.hpp
+  include/andromeda/component/component_options.hpp
+  include/andromeda/component/event.hpp
+  include/andromeda/component/loop.hpp
+  include/andromeda/component/mouse.hpp
+  include/andromeda/component/receiver.hpp
+  include/andromeda/component/screen_interactive.hpp
+  include/andromeda/component/task.hpp
+  src/andromeda/component/animation.cpp
+  src/andromeda/component/button.cpp
+  src/andromeda/component/catch_event.cpp
+  src/andromeda/component/checkbox.cpp
+  src/andromeda/component/collapsible.cpp
+  src/andromeda/component/component.cpp
+  src/andromeda/component/component_options.cpp
+  src/andromeda/component/container.cpp
+  src/andromeda/component/dropdown.cpp
+  src/andromeda/component/event.cpp
+  src/andromeda/component/hoverable.cpp
+  src/andromeda/component/input.cpp
+  src/andromeda/component/loop.cpp
+  src/andromeda/component/maybe.cpp
+  src/andromeda/component/menu.cpp
+  src/andromeda/component/modal.cpp
+  src/andromeda/component/radiobox.cpp
+  src/andromeda/component/radiobox.cpp
+  src/andromeda/component/renderer.cpp
+  src/andromeda/component/resizable_split.cpp
+  src/andromeda/component/screen_interactive.cpp
+  src/andromeda/component/slider.cpp
+  src/andromeda/component/terminal_input_parser.cpp
+  src/andromeda/component/terminal_input_parser.hpp
+  src/andromeda/component/util.cpp
+  src/andromeda/component/window.cpp
 )
 
 target_link_libraries(dom
@@ -157,18 +157,13 @@ if (NOT EMSCRIPTEN)
   )
 endif()
 
-include(cmake/ftxui_set_options.cmake)
-ftxui_set_options(screen)
-ftxui_set_options(dom)
-ftxui_set_options(component)
-
-include(cmake/ftxui_coverage.cmake)
-ftxui_check_coverage(screen)
-ftxui_check_coverage(dom)
-ftxui_check_coverage(component)
+include(cmake/andromeda_set_options.cmake)
+andromeda_set_options(screen)
+andromeda_set_options(dom)
+andromeda_set_options(component)
 
 include(cmake/iwyu.cmake)
-include(cmake/ftxui_export.cmake)
+include(cmake/andromeda_export.cmake)
 
 add_subdirectory(examples)
 
