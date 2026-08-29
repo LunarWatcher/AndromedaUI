@@ -1,7 +1,8 @@
 // Copyright 2023 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#include <gtest/gtest.h>  // for Test, EXPECT_EQ, Message, TestPartResult, TestInfo (ptr only), TEST
+#include <catch2/catch_test_macros.hpp>  // for Test, EXPECT_EQ, Message, TestPartResult, TestInfo (ptr only), TEST
+#include <migrate/GTestCompat.hpp>
 #include <string>  // for allocator, string
 
 #include "andromeda/dom/elements.hpp"  // for text, hyperlink, operator|, Element, hbox

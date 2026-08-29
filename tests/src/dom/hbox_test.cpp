@@ -1,7 +1,8 @@
 // Copyright 2020 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#include <gtest/gtest.h>  // for Test, TestInfo (ptr only), EXPECT_EQ, Message, TEST, TestPartResult
+#include <catch2/catch_test_macros.hpp>  // for Test, TestInfo (ptr only), EXPECT_EQ, Message, TEST, TestPartResult
+#include <migrate/GTestCompat.hpp>
 #include <cstddef>  // for size_t
 #include <string>   // for allocator, basic_string, string
 #include <vector>   // for vector

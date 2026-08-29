@@ -5,7 +5,8 @@
 #include "andromeda/component/component.hpp"  // for Horizontal, Vertical, Button, Tab
 #include "andromeda/component/component_base.hpp"  // for ComponentBase, Component
 #include "andromeda/component/event.hpp"  // for Event, Event::Tab, Event::TabReverse, Event::ArrowDown, Event::ArrowLeft, Event::ArrowRight, Event::ArrowUp
-#include "gtest/gtest.h"  // for AssertionResult, Message, TestPartResult, EXPECT_EQ, EXPECT_FALSE, Test, EXPECT_TRUE, TEST
+#include "catch2/catch_test_macros.hpp"  // for AssertionResult, Message, TestPartResult, EXPECT_EQ, REQUIRE_FALSE, Test, EXPECT_TRUE, TEST
+#include <migrate/GTestCompat.hpp>
 
 namespace andromeda {
 
@@ -180,48 +181,48 @@ TEST(ContainerTest, SetActiveChild) {
   container->Add(c2);
 
   EXPECT_EQ(container->ActiveChild(), c0);
-  EXPECT_TRUE(c0->Focused());
-  EXPECT_TRUE(c0->Active());
-  EXPECT_FALSE(c1->Focused());
-  EXPECT_FALSE(c1->Active());
-  EXPECT_FALSE(c2->Focused());
-  EXPECT_FALSE(c2->Active());
+  REQUIRE(true == c0->Focused());
+  REQUIRE(true == c0->Active());
+  REQUIRE_FALSE(c1->Focused());
+  REQUIRE_FALSE(c1->Active());
+  REQUIRE_FALSE(c2->Focused());
+  REQUIRE_FALSE(c2->Active());
 
   container->SetActiveChild(c0);
   EXPECT_EQ(container->ActiveChild(), c0);
-  EXPECT_TRUE(c0->Focused());
-  EXPECT_TRUE(c0->Active());
-  EXPECT_FALSE(c1->Focused());
-  EXPECT_FALSE(c1->Active());
-  EXPECT_FALSE(c2->Focused());
-  EXPECT_FALSE(c2->Active());
+  REQUIRE(true == c0->Focused());
+  REQUIRE(true == c0->Active());
+  REQUIRE_FALSE(c1->Focused());
+  REQUIRE_FALSE(c1->Active());
+  REQUIRE_FALSE(c2->Focused());
+  REQUIRE_FALSE(c2->Active());
 
   container->SetActiveChild(c1);
   EXPECT_EQ(container->ActiveChild(), c1);
-  EXPECT_FALSE(c0->Focused());
-  EXPECT_FALSE(c0->Active());
-  EXPECT_TRUE(c1->Focused());
-  EXPECT_TRUE(c1->Active());
-  EXPECT_FALSE(c2->Focused());
-  EXPECT_FALSE(c2->Active());
+  REQUIRE_FALSE(c0->Focused());
+  REQUIRE_FALSE(c0->Active());
+  REQUIRE(true == c1->Focused());
+  REQUIRE(true == c1->Active());
+  REQUIRE_FALSE(c2->Focused());
+  REQUIRE_FALSE(c2->Active());
 
   container->SetActiveChild(c2);
   EXPECT_EQ(container->ActiveChild(), c2);
-  EXPECT_FALSE(c0->Focused());
-  EXPECT_FALSE(c0->Active());
-  EXPECT_FALSE(c1->Focused());
-  EXPECT_FALSE(c1->Active());
-  EXPECT_TRUE(c2->Focused());
-  EXPECT_TRUE(c2->Active());
+  REQUIRE_FALSE(c0->Focused());
+  REQUIRE_FALSE(c0->Active());
+  REQUIRE_FALSE(c1->Focused());
+  REQUIRE_FALSE(c1->Active());
+  REQUIRE(true == c2->Focused());
+  REQUIRE(true == c2->Active());
 
   container->SetActiveChild(c0);
   EXPECT_EQ(container->ActiveChild(), c0);
-  EXPECT_TRUE(c0->Focused());
-  EXPECT_TRUE(c0->Active());
-  EXPECT_FALSE(c1->Focused());
-  EXPECT_FALSE(c1->Active());
-  EXPECT_FALSE(c2->Focused());
-  EXPECT_FALSE(c2->Active());
+  REQUIRE(true == c0->Focused());
+  REQUIRE(true == c0->Active());
+  REQUIRE_FALSE(c1->Focused());
+  REQUIRE_FALSE(c1->Active());
+  REQUIRE_FALSE(c2->Focused());
+  REQUIRE_FALSE(c2->Active());
 }
 
 TEST(ContainerTest, TakeFocus) {
@@ -246,64 +247,64 @@ TEST(ContainerTest, TakeFocus) {
   c2->Add(c22);
   c2->Add(c23);
 
-  EXPECT_TRUE(c->Focused());
-  EXPECT_TRUE(c1->Focused());
-  EXPECT_FALSE(c2->Focused());
-  EXPECT_TRUE(c11->Focused());
-  EXPECT_FALSE(c12->Focused());
-  EXPECT_FALSE(c13->Focused());
-  EXPECT_FALSE(c21->Focused());
-  EXPECT_FALSE(c22->Focused());
-  EXPECT_FALSE(c23->Focused());
-  EXPECT_TRUE(c->Active());
-  EXPECT_TRUE(c1->Active());
-  EXPECT_FALSE(c2->Active());
-  EXPECT_TRUE(c11->Active());
-  EXPECT_FALSE(c12->Active());
-  EXPECT_FALSE(c13->Active());
-  EXPECT_TRUE(c21->Active());
-  EXPECT_FALSE(c22->Active());
-  EXPECT_FALSE(c23->Active());
+  REQUIRE(true == c->Focused());
+  REQUIRE(true == c1->Focused());
+  REQUIRE_FALSE(c2->Focused());
+  REQUIRE(true == c11->Focused());
+  REQUIRE_FALSE(c12->Focused());
+  REQUIRE_FALSE(c13->Focused());
+  REQUIRE_FALSE(c21->Focused());
+  REQUIRE_FALSE(c22->Focused());
+  REQUIRE_FALSE(c23->Focused());
+  REQUIRE(true == c->Active());
+  REQUIRE(true == c1->Active());
+  REQUIRE_FALSE(c2->Active());
+  REQUIRE(true == c11->Active());
+  REQUIRE_FALSE(c12->Active());
+  REQUIRE_FALSE(c13->Active());
+  REQUIRE(true == c21->Active());
+  REQUIRE_FALSE(c22->Active());
+  REQUIRE_FALSE(c23->Active());
 
   c22->TakeFocus();
-  EXPECT_TRUE(c->Focused());
-  EXPECT_FALSE(c1->Focused());
-  EXPECT_TRUE(c2->Focused());
-  EXPECT_FALSE(c11->Focused());
-  EXPECT_FALSE(c12->Focused());
-  EXPECT_FALSE(c13->Focused());
-  EXPECT_FALSE(c21->Focused());
-  EXPECT_TRUE(c22->Focused());
-  EXPECT_FALSE(c23->Focused());
-  EXPECT_TRUE(c->Active());
-  EXPECT_FALSE(c1->Active());
-  EXPECT_TRUE(c2->Active());
-  EXPECT_TRUE(c11->Active());
-  EXPECT_FALSE(c12->Active());
-  EXPECT_FALSE(c13->Active());
-  EXPECT_FALSE(c21->Active());
-  EXPECT_TRUE(c22->Active());
-  EXPECT_FALSE(c23->Active());
+  REQUIRE(true == c->Focused());
+  REQUIRE_FALSE(c1->Focused());
+  REQUIRE(true == c2->Focused());
+  REQUIRE_FALSE(c11->Focused());
+  REQUIRE_FALSE(c12->Focused());
+  REQUIRE_FALSE(c13->Focused());
+  REQUIRE_FALSE(c21->Focused());
+  REQUIRE(true == c22->Focused());
+  REQUIRE_FALSE(c23->Focused());
+  REQUIRE(true == c->Active());
+  REQUIRE_FALSE(c1->Active());
+  REQUIRE(true == c2->Active());
+  REQUIRE(true == c11->Active());
+  REQUIRE_FALSE(c12->Active());
+  REQUIRE_FALSE(c13->Active());
+  REQUIRE_FALSE(c21->Active());
+  REQUIRE(true == c22->Active());
+  REQUIRE_FALSE(c23->Active());
 
   c1->TakeFocus();
-  EXPECT_TRUE(c->Focused());
-  EXPECT_TRUE(c1->Focused());
-  EXPECT_FALSE(c2->Focused());
-  EXPECT_TRUE(c11->Focused());
-  EXPECT_FALSE(c12->Focused());
-  EXPECT_FALSE(c13->Focused());
-  EXPECT_FALSE(c21->Focused());
-  EXPECT_FALSE(c22->Focused());
-  EXPECT_FALSE(c23->Focused());
-  EXPECT_TRUE(c->Active());
-  EXPECT_TRUE(c1->Active());
-  EXPECT_FALSE(c2->Active());
-  EXPECT_TRUE(c11->Active());
-  EXPECT_FALSE(c12->Active());
-  EXPECT_FALSE(c13->Active());
-  EXPECT_FALSE(c21->Active());
-  EXPECT_TRUE(c22->Active());
-  EXPECT_FALSE(c23->Active());
+  REQUIRE(true == c->Focused());
+  REQUIRE(true == c1->Focused());
+  REQUIRE_FALSE(c2->Focused());
+  REQUIRE(true == c11->Focused());
+  REQUIRE_FALSE(c12->Focused());
+  REQUIRE_FALSE(c13->Focused());
+  REQUIRE_FALSE(c21->Focused());
+  REQUIRE_FALSE(c22->Focused());
+  REQUIRE_FALSE(c23->Focused());
+  REQUIRE(true == c->Active());
+  REQUIRE(true == c1->Active());
+  REQUIRE_FALSE(c2->Active());
+  REQUIRE(true == c11->Active());
+  REQUIRE_FALSE(c12->Active());
+  REQUIRE_FALSE(c13->Active());
+  REQUIRE_FALSE(c21->Active());
+  REQUIRE(true == c22->Active());
+  REQUIRE_FALSE(c23->Active());
 }
 
 TEST(ContainerTest, TabFocusable) {
@@ -318,20 +319,20 @@ TEST(ContainerTest, TabFocusable) {
       &selected);
 
   selected = 0;
-  EXPECT_TRUE(c->Focusable());
-  EXPECT_TRUE(c->Focused());
+  REQUIRE(true == c->Focusable());
+  REQUIRE(true == c->Focused());
 
   selected = 1;
-  EXPECT_FALSE(c->Focusable());
-  EXPECT_FALSE(c->Focused());
+  REQUIRE_FALSE(c->Focusable());
+  REQUIRE_FALSE(c->Focused());
 
   selected = 2;
-  EXPECT_TRUE(c->Focusable());
-  EXPECT_TRUE(c->Focused());
+  REQUIRE(true == c->Focusable());
+  REQUIRE(true == c->Focused());
 
   selected = 3;
-  EXPECT_FALSE(c->Focusable());
-  EXPECT_FALSE(c->Focused());
+  REQUIRE_FALSE(c->Focusable());
+  REQUIRE_FALSE(c->Focused());
 }
 
 }  // namespace andromeda

@@ -10,7 +10,8 @@
 #include "andromeda/component/component_options.hpp"  // for MenuOption
 #include "andromeda/component/event.hpp"  // for Event, Event::ArrowLeft, Event::ArrowRight, Event::Return, Event::Tab, Event::TabReverse
 #include "andromeda/util/ref.hpp"         // for Ref
-#include "gtest/gtest.h"  // for AssertionResult, Message, TestPartResult, EXPECT_EQ, Test, EXPECT_TRUE, EXPECT_FALSE, TEST
+#include "catch2/catch_test_macros.hpp"  // for AssertionResult, Message, TestPartResult, EXPECT_EQ, Test, EXPECT_TRUE, REQUIRE_FALSE, TEST
+#include <migrate/GTestCompat.hpp>
 
 // NOLINTBEGIN
 namespace andromeda {
@@ -95,23 +96,23 @@ TEST(ToggleTest, OnChange) {
 
   auto toggle = Menu(&entries, &selected, option);
 
-  EXPECT_FALSE(toggle->OnEvent(Event::ArrowLeft));  // Reached far left.
+  REQUIRE_FALSE(toggle->OnEvent(Event::ArrowLeft));  // Reached far left.
   EXPECT_EQ(counter, 0);
 
-  EXPECT_TRUE(toggle->OnEvent(Event::ArrowRight));  // [0] -> [1]
+  REQUIRE(true == toggle->OnEvent(Event::ArrowRight));  // [0] -> [1]
   EXPECT_EQ(counter, 1);
-  EXPECT_TRUE(toggle->OnEvent(Event::ArrowRight));  // [1] -> [2]
+  REQUIRE(true == toggle->OnEvent(Event::ArrowRight));  // [1] -> [2]
   EXPECT_EQ(counter, 2);
 
-  EXPECT_FALSE(toggle->OnEvent(Event::ArrowRight));  // Reached far right.
+  REQUIRE_FALSE(toggle->OnEvent(Event::ArrowRight));  // Reached far right.
   EXPECT_EQ(counter, 2);
 
-  EXPECT_TRUE(toggle->OnEvent(Event::ArrowLeft));  // [2] -> [1]
+  REQUIRE(true == toggle->OnEvent(Event::ArrowLeft));  // [2] -> [1]
   EXPECT_EQ(counter, 3);
-  EXPECT_TRUE(toggle->OnEvent(Event::ArrowLeft));  // [1] -> [0]
+  REQUIRE(true == toggle->OnEvent(Event::ArrowLeft));  // [1] -> [0]
   EXPECT_EQ(counter, 4);
 
-  EXPECT_FALSE(toggle->OnEvent(Event::ArrowLeft));  // Reached far left.
+  REQUIRE_FALSE(toggle->OnEvent(Event::ArrowLeft));  // Reached far left.
   EXPECT_EQ(counter, 4);
 }
 
@@ -124,30 +125,30 @@ TEST(ToggleTest, OnEnter) {
   option.on_enter = [&] { counter++; };
   auto toggle = Menu(&entries, &selected, option);
 
-  EXPECT_FALSE(toggle->OnEvent(Event::ArrowLeft));  // Reached far left.
-  EXPECT_TRUE(toggle->OnEvent(Event::Return));
+  REQUIRE_FALSE(toggle->OnEvent(Event::ArrowLeft));  // Reached far left.
+  REQUIRE(true == toggle->OnEvent(Event::Return));
   EXPECT_EQ(counter, 1);
 
-  EXPECT_TRUE(toggle->OnEvent(Event::ArrowRight));  // [0] -> [1]
-  EXPECT_TRUE(toggle->OnEvent(Event::Return));
+  REQUIRE(true == toggle->OnEvent(Event::ArrowRight));  // [0] -> [1]
+  REQUIRE(true == toggle->OnEvent(Event::Return));
   EXPECT_EQ(counter, 2);
-  EXPECT_TRUE(toggle->OnEvent(Event::ArrowRight));  // [1] -> [2]
-  EXPECT_TRUE(toggle->OnEvent(Event::Return));
+  REQUIRE(true == toggle->OnEvent(Event::ArrowRight));  // [1] -> [2]
+  REQUIRE(true == toggle->OnEvent(Event::Return));
   EXPECT_EQ(counter, 3);
 
-  EXPECT_FALSE(toggle->OnEvent(Event::ArrowRight));  // Reached far right.
-  EXPECT_TRUE(toggle->OnEvent(Event::Return));
+  REQUIRE_FALSE(toggle->OnEvent(Event::ArrowRight));  // Reached far right.
+  REQUIRE(true == toggle->OnEvent(Event::Return));
   EXPECT_EQ(counter, 4);
 
-  EXPECT_TRUE(toggle->OnEvent(Event::ArrowLeft));  // [2] -> [1]
-  EXPECT_TRUE(toggle->OnEvent(Event::Return));
+  REQUIRE(true == toggle->OnEvent(Event::ArrowLeft));  // [2] -> [1]
+  REQUIRE(true == toggle->OnEvent(Event::Return));
   EXPECT_EQ(counter, 5);
-  EXPECT_TRUE(toggle->OnEvent(Event::ArrowLeft));  // [1] -> [0]
-  EXPECT_TRUE(toggle->OnEvent(Event::Return));
+  REQUIRE(true == toggle->OnEvent(Event::ArrowLeft));  // [1] -> [0]
+  REQUIRE(true == toggle->OnEvent(Event::Return));
   EXPECT_EQ(counter, 6);
 
-  EXPECT_FALSE(toggle->OnEvent(Event::ArrowLeft));  // Reached far left.
-  EXPECT_TRUE(toggle->OnEvent(Event::Return));
+  REQUIRE_FALSE(toggle->OnEvent(Event::ArrowLeft));  // Reached far left.
+  REQUIRE(true == toggle->OnEvent(Event::Return));
   EXPECT_EQ(counter, 7);
 }
 

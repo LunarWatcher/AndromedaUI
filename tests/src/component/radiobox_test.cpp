@@ -12,7 +12,8 @@
 #include "andromeda/component/component_options.hpp"  // for RadioboxOption
 #include "andromeda/component/event.hpp"  // for Event, Event::Return, Event::ArrowDown, Event::End, Event::Home, Event::Tab, Event::TabReverse, Event::PageDown, Event::PageUp, Event::ArrowUp
 #include "andromeda/util/ref.hpp"         // for Ref
-#include "gtest/gtest.h"  // for AssertionResult, Message, TestPartResult, EXPECT_EQ, EXPECT_TRUE, Test, EXPECT_FALSE, TEST
+#include "catch2/catch_test_macros.hpp"  // for AssertionResult, Message, TestPartResult, EXPECT_EQ, EXPECT_TRUE, Test, REQUIRE_FALSE, TEST
+#include <migrate/GTestCompat.hpp>
 
 // NOLINTBEGIN
 namespace andromeda {
@@ -24,31 +25,31 @@ TEST(RadioboxTest, NavigationArrow) {
 
   // Down + Return
   EXPECT_EQ(selected, 0);
-  EXPECT_TRUE(radiobox->OnEvent(Event::ArrowDown));
+  REQUIRE(true == radiobox->OnEvent(Event::ArrowDown));
   EXPECT_EQ(selected, 0);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 1);
-  EXPECT_TRUE(radiobox->OnEvent(Event::ArrowDown));
+  REQUIRE(true == radiobox->OnEvent(Event::ArrowDown));
   EXPECT_EQ(selected, 1);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 2);
-  EXPECT_FALSE(radiobox->OnEvent(Event::ArrowDown));
+  REQUIRE_FALSE(radiobox->OnEvent(Event::ArrowDown));
   EXPECT_EQ(selected, 2);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 2);
 
   // Up + Return
-  EXPECT_TRUE(radiobox->OnEvent(Event::ArrowUp));
+  REQUIRE(true == radiobox->OnEvent(Event::ArrowUp));
   EXPECT_EQ(selected, 2);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 1);
-  EXPECT_TRUE(radiobox->OnEvent(Event::ArrowUp));
+  REQUIRE(true == radiobox->OnEvent(Event::ArrowUp));
   EXPECT_EQ(selected, 1);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 0);
-  EXPECT_FALSE(radiobox->OnEvent(Event::ArrowUp));
+  REQUIRE_FALSE(radiobox->OnEvent(Event::ArrowUp));
   EXPECT_EQ(selected, 0);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 0);
 }
 
@@ -59,30 +60,30 @@ TEST(RadioboxTest, NavigationArrowVim) {
 
   // J + Return
   EXPECT_EQ(selected, 0);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Character('j')));
+  REQUIRE(true == radiobox->OnEvent(Event::Character('j')));
   EXPECT_EQ(selected, 0);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 1);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Character('j')));
+  REQUIRE(true == radiobox->OnEvent(Event::Character('j')));
   EXPECT_EQ(selected, 1);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 2);
-  EXPECT_FALSE(radiobox->OnEvent(Event::Character('j')));
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE_FALSE(radiobox->OnEvent(Event::Character('j')));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 2);
 
   // K + Return
-  EXPECT_TRUE(radiobox->OnEvent(Event::Character('k')));
+  REQUIRE(true == radiobox->OnEvent(Event::Character('k')));
   EXPECT_EQ(selected, 2);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 1);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Character('k')));
+  REQUIRE(true == radiobox->OnEvent(Event::Character('k')));
   EXPECT_EQ(selected, 1);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 0);
-  EXPECT_FALSE(radiobox->OnEvent(Event::Character('k')));
+  REQUIRE_FALSE(radiobox->OnEvent(Event::Character('k')));
   EXPECT_EQ(selected, 0);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 0);
 }
 
@@ -93,47 +94,47 @@ TEST(RadioboxTest, NavigationTab) {
 
   // Tab + Return
   EXPECT_EQ(selected, 0);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Tab));
+  REQUIRE(true == radiobox->OnEvent(Event::Tab));
   EXPECT_EQ(selected, 0);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 1);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Tab));
+  REQUIRE(true == radiobox->OnEvent(Event::Tab));
   EXPECT_EQ(selected, 1);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 2);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Tab));
+  REQUIRE(true == radiobox->OnEvent(Event::Tab));
   EXPECT_EQ(selected, 2);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 0);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Tab));
+  REQUIRE(true == radiobox->OnEvent(Event::Tab));
   EXPECT_EQ(selected, 0);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 1);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Tab));
+  REQUIRE(true == radiobox->OnEvent(Event::Tab));
   EXPECT_EQ(selected, 1);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 2);
 
   // TabReverse + Return
-  EXPECT_TRUE(radiobox->OnEvent(Event::TabReverse));
+  REQUIRE(true == radiobox->OnEvent(Event::TabReverse));
   EXPECT_EQ(selected, 2);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 1);
-  EXPECT_TRUE(radiobox->OnEvent(Event::TabReverse));
+  REQUIRE(true == radiobox->OnEvent(Event::TabReverse));
   EXPECT_EQ(selected, 1);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 0);
-  EXPECT_TRUE(radiobox->OnEvent(Event::TabReverse));
+  REQUIRE(true == radiobox->OnEvent(Event::TabReverse));
   EXPECT_EQ(selected, 0);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 2);
-  EXPECT_TRUE(radiobox->OnEvent(Event::TabReverse));
+  REQUIRE(true == radiobox->OnEvent(Event::TabReverse));
   EXPECT_EQ(selected, 2);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 1);
-  EXPECT_TRUE(radiobox->OnEvent(Event::TabReverse));
+  REQUIRE(true == radiobox->OnEvent(Event::TabReverse));
   EXPECT_EQ(selected, 1);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
 }
 
 TEST(RadioboxTest, NavigationHome) {
@@ -142,27 +143,27 @@ TEST(RadioboxTest, NavigationHome) {
   auto radiobox = Radiobox(&entries, &selected);
 
   selected = 0;
-  EXPECT_FALSE(radiobox->OnEvent(Event::Home));
+  REQUIRE_FALSE(radiobox->OnEvent(Event::Home));
   EXPECT_EQ(selected, 0);
 
   selected = 1;
-  EXPECT_FALSE(radiobox->OnEvent(Event::Home));
+  REQUIRE_FALSE(radiobox->OnEvent(Event::Home));
   EXPECT_EQ(selected, 1);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 0);
-  EXPECT_FALSE(radiobox->OnEvent(Event::Home));
+  REQUIRE_FALSE(radiobox->OnEvent(Event::Home));
   EXPECT_EQ(selected, 0);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 0);
 
   selected = 2;
-  EXPECT_FALSE(radiobox->OnEvent(Event::Home));
+  REQUIRE_FALSE(radiobox->OnEvent(Event::Home));
   EXPECT_EQ(selected, 2);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 0);
-  EXPECT_FALSE(radiobox->OnEvent(Event::Home));
+  REQUIRE_FALSE(radiobox->OnEvent(Event::Home));
   EXPECT_EQ(selected, 0);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 0);
 }
 
@@ -174,24 +175,24 @@ TEST(RadioboxTest, NavigationPageDown) {
   Screen screen(1, 3);
   Render(screen, radiobox->Render());
 
-  EXPECT_TRUE(radiobox->OnEvent(Event::PageDown));
+  REQUIRE(true == radiobox->OnEvent(Event::PageDown));
   EXPECT_EQ(selected, 0);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 2);
 
-  EXPECT_TRUE(radiobox->OnEvent(Event::PageDown));
+  REQUIRE(true == radiobox->OnEvent(Event::PageDown));
   EXPECT_EQ(selected, 2);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 4);
 
-  EXPECT_TRUE(radiobox->OnEvent(Event::PageDown));
+  REQUIRE(true == radiobox->OnEvent(Event::PageDown));
   EXPECT_EQ(selected, 4);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 5);
 
-  EXPECT_FALSE(radiobox->OnEvent(Event::PageDown));
+  REQUIRE_FALSE(radiobox->OnEvent(Event::PageDown));
   EXPECT_EQ(selected, 5);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 5);
 }
 
@@ -203,24 +204,24 @@ TEST(RadioboxTest, NavigationPageUp) {
   Screen screen(1, 3);
   Render(screen, radiobox->Render());
 
-  EXPECT_TRUE(radiobox->OnEvent(Event::PageUp));
+  REQUIRE(true == radiobox->OnEvent(Event::PageUp));
   EXPECT_EQ(selected, 5);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 3);
 
-  EXPECT_TRUE(radiobox->OnEvent(Event::PageUp));
+  REQUIRE(true == radiobox->OnEvent(Event::PageUp));
   EXPECT_EQ(selected, 3);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 1);
 
-  EXPECT_TRUE(radiobox->OnEvent(Event::PageUp));
+  REQUIRE(true == radiobox->OnEvent(Event::PageUp));
   EXPECT_EQ(selected, 1);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 0);
 
-  EXPECT_FALSE(radiobox->OnEvent(Event::PageUp));
+  REQUIRE_FALSE(radiobox->OnEvent(Event::PageUp));
   EXPECT_EQ(selected, 0);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 0);
 }
 
@@ -230,29 +231,29 @@ TEST(RadioboxTest, NavigationEnd) {
   auto radiobox = Radiobox(&entries, &selected);
 
   selected = 0;
-  EXPECT_TRUE(radiobox->OnEvent(Event::End));
+  REQUIRE(true == radiobox->OnEvent(Event::End));
   EXPECT_EQ(selected, 0);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 2);
-  EXPECT_FALSE(radiobox->OnEvent(Event::End));
+  REQUIRE_FALSE(radiobox->OnEvent(Event::End));
   EXPECT_EQ(selected, 2);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 2);
 
   selected = 1;
-  EXPECT_FALSE(radiobox->OnEvent(Event::End));
+  REQUIRE_FALSE(radiobox->OnEvent(Event::End));
   EXPECT_EQ(selected, 1);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 2);
-  EXPECT_FALSE(radiobox->OnEvent(Event::End));
+  REQUIRE_FALSE(radiobox->OnEvent(Event::End));
   EXPECT_EQ(selected, 2);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 2);
 
   selected = 2;
-  EXPECT_FALSE(radiobox->OnEvent(Event::End));
+  REQUIRE_FALSE(radiobox->OnEvent(Event::End));
   EXPECT_EQ(selected, 2);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
   EXPECT_EQ(selected, 2);
 }
 
@@ -262,17 +263,17 @@ TEST(RadioboxTest, EventSpace) {
   auto radiobox = Radiobox(&entries, &selected);
 
   EXPECT_EQ(selected, 0);
-  EXPECT_TRUE(radiobox->OnEvent(Event::ArrowDown));
+  REQUIRE(true == radiobox->OnEvent(Event::ArrowDown));
   EXPECT_EQ(selected, 0);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Character(' ')));
+  REQUIRE(true == radiobox->OnEvent(Event::Character(' ')));
   EXPECT_EQ(selected, 1);
-  EXPECT_TRUE(radiobox->OnEvent(Event::ArrowDown));
+  REQUIRE(true == radiobox->OnEvent(Event::ArrowDown));
   EXPECT_EQ(selected, 1);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Character(' ')));
+  REQUIRE(true == radiobox->OnEvent(Event::Character(' ')));
   EXPECT_EQ(selected, 2);
-  EXPECT_FALSE(radiobox->OnEvent(Event::ArrowDown));
+  REQUIRE_FALSE(radiobox->OnEvent(Event::ArrowDown));
   EXPECT_EQ(selected, 2);
-  EXPECT_TRUE(radiobox->OnEvent(Event::Character(' ')));
+  REQUIRE(true == radiobox->OnEvent(Event::Character(' ')));
   EXPECT_EQ(selected, 2);
 }
 
@@ -287,9 +288,9 @@ TEST(RadioboxTest, RemoveEntries) {
   EXPECT_EQ(selected, 0);
   EXPECT_EQ(focused_entry, 0);
 
-  EXPECT_TRUE(radiobox->OnEvent(Event::ArrowDown));
-  EXPECT_TRUE(radiobox->OnEvent(Event::ArrowDown));
-  EXPECT_TRUE(radiobox->OnEvent(Event::Return));
+  REQUIRE(true == radiobox->OnEvent(Event::ArrowDown));
+  REQUIRE(true == radiobox->OnEvent(Event::ArrowDown));
+  REQUIRE(true == radiobox->OnEvent(Event::Return));
 
   EXPECT_EQ(selected, 2);
   EXPECT_EQ(focused_entry, 2);

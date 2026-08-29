@@ -9,7 +9,8 @@
 #include "andromeda/component/event.hpp"  // for Event, Event::Return, Event::ArrowDown, Event::ArrowLeft, Event::ArrowRight, Event::ArrowUp, Event::Backspace, Event::End, Event::Home, Event::Custom, Event::Delete, Event::F1, Event::F10, Event::F11, Event::F12, Event::F2, Event::F3, Event::F4, Event::F5, Event::F6, Event::F7, Event::F8, Event::F9, Event::PageDown, Event::PageUp, Event::Tab, Event::TabReverse, Event::Escape
 #include "andromeda/component/receiver.hpp"  // for MakeReceiver, ReceiverImpl
 #include "andromeda/component/terminal_input_parser.hpp"
-#include "gtest/gtest.h"  // for AssertionResult, Test, Message, TestPartResult, EXPECT_EQ, EXPECT_TRUE, TEST, EXPECT_FALSE
+#include "catch2/catch_test_macros.hpp"  // for AssertionResult, Test, Message, TestPartResult, EXPECT_EQ, EXPECT_TRUE, TEST, REQUIRE_FALSE
+#include <migrate/GTestCompat.hpp>
 
 // NOLINTBEGIN
 namespace andromeda {
@@ -31,11 +32,11 @@ TEST(Event, Character) {
 
   Task received;
   for (char c : basic_char) {
-    EXPECT_TRUE(event_receiver->Receive(&received));
-    EXPECT_TRUE(std::get<Event>(received).is_character());
+    REQUIRE(true == event_receiver->Receive(&received));
+    REQUIRE(true == std::get<Event>(received).is_character());
     EXPECT_EQ(c, std::get<Event>(received).character()[0]);
   }
-  EXPECT_FALSE(event_receiver->Receive(&received));
+  REQUIRE_FALSE(event_receiver->Receive(&received));
 }
 
 TEST(Event, EscapeKeyWithoutWaiting) {
@@ -46,7 +47,7 @@ TEST(Event, EscapeKeyWithoutWaiting) {
   }
 
   Task received;
-  EXPECT_FALSE(event_receiver->Receive(&received));
+  REQUIRE_FALSE(event_receiver->Receive(&received));
 }
 
 TEST(Event, EscapeKeyNotEnoughWait) {
@@ -58,7 +59,7 @@ TEST(Event, EscapeKeyNotEnoughWait) {
   }
 
   Task received;
-  EXPECT_FALSE(event_receiver->Receive(&received));
+  REQUIRE_FALSE(event_receiver->Receive(&received));
 }
 
 TEST(Event, EscapeKeyEnoughWait) {
@@ -70,9 +71,9 @@ TEST(Event, EscapeKeyEnoughWait) {
   }
 
   Task received;
-  EXPECT_TRUE(event_receiver->Receive(&received));
+  REQUIRE(true == event_receiver->Receive(&received));
   EXPECT_EQ(std::get<Event>(received), Event::Escape);
-  EXPECT_FALSE(event_receiver->Receive(&received));
+  REQUIRE_FALSE(event_receiver->Receive(&received));
 }
 
 TEST(Event, EscapeFast) {
@@ -86,11 +87,11 @@ TEST(Event, EscapeFast) {
     parser.Timeout(49);
   }
   Task received;
-  EXPECT_TRUE(event_receiver->Receive(&received));
+  REQUIRE(true == event_receiver->Receive(&received));
   EXPECT_EQ(std::get<Event>(received), Event::AltA);
-  EXPECT_TRUE(event_receiver->Receive(&received));
+  REQUIRE(true == event_receiver->Receive(&received));
   EXPECT_EQ(std::get<Event>(received), Event::AltB);
-  EXPECT_FALSE(event_receiver->Receive(&received));
+  REQUIRE_FALSE(event_receiver->Receive(&received));
 }
 
 TEST(Event, MouseLeftClickPressed) {
@@ -110,13 +111,13 @@ TEST(Event, MouseLeftClickPressed) {
   }
 
   Task received;
-  EXPECT_TRUE(event_receiver->Receive(&received));
-  EXPECT_TRUE(std::get<Event>(received).is_mouse());
+  REQUIRE(true == event_receiver->Receive(&received));
+  REQUIRE(true == std::get<Event>(received).is_mouse());
   EXPECT_EQ(Mouse::Left, std::get<Event>(received).mouse().button);
   EXPECT_EQ(12, std::get<Event>(received).mouse().x);
   EXPECT_EQ(42, std::get<Event>(received).mouse().y);
   EXPECT_EQ(std::get<Event>(received).mouse().motion, Mouse::Pressed);
-  EXPECT_FALSE(event_receiver->Receive(&received));
+  REQUIRE_FALSE(event_receiver->Receive(&received));
 }
 
 TEST(Event, MouseLeftMoved) {
@@ -137,13 +138,13 @@ TEST(Event, MouseLeftMoved) {
   }
 
   Task received;
-  EXPECT_TRUE(event_receiver->Receive(&received));
-  EXPECT_TRUE(std::get<Event>(received).is_mouse());
+  REQUIRE(true == event_receiver->Receive(&received));
+  REQUIRE(true == std::get<Event>(received).is_mouse());
   EXPECT_EQ(Mouse::Left, std::get<Event>(received).mouse().button);
   EXPECT_EQ(12, std::get<Event>(received).mouse().x);
   EXPECT_EQ(42, std::get<Event>(received).mouse().y);
   EXPECT_EQ(std::get<Event>(received).mouse().motion, Mouse::Moved);
-  EXPECT_FALSE(event_receiver->Receive(&received));
+  REQUIRE_FALSE(event_receiver->Receive(&received));
 }
 
 TEST(Event, MouseLeftClickReleased) {
@@ -163,13 +164,13 @@ TEST(Event, MouseLeftClickReleased) {
   }
 
   Task received;
-  EXPECT_TRUE(event_receiver->Receive(&received));
-  EXPECT_TRUE(std::get<Event>(received).is_mouse());
+  REQUIRE(true == event_receiver->Receive(&received));
+  REQUIRE(true == std::get<Event>(received).is_mouse());
   EXPECT_EQ(Mouse::Left, std::get<Event>(received).mouse().button);
   EXPECT_EQ(12, std::get<Event>(received).mouse().x);
   EXPECT_EQ(42, std::get<Event>(received).mouse().y);
   EXPECT_EQ(std::get<Event>(received).mouse().motion, Mouse::Released);
-  EXPECT_FALSE(event_receiver->Receive(&received));
+  REQUIRE_FALSE(event_receiver->Receive(&received));
 }
 
 TEST(Event, MouseReporting) {
@@ -187,11 +188,11 @@ TEST(Event, MouseReporting) {
   }
 
   Task received;
-  EXPECT_TRUE(event_receiver->Receive(&received));
-  EXPECT_TRUE(std::get<Event>(received).is_cursor_position());
+  REQUIRE(true == event_receiver->Receive(&received));
+  REQUIRE(true == std::get<Event>(received).is_cursor_position());
   EXPECT_EQ(42, std::get<Event>(received).cursor_x());
   EXPECT_EQ(12, std::get<Event>(received).cursor_y());
-  EXPECT_FALSE(event_receiver->Receive(&received));
+  REQUIRE_FALSE(event_receiver->Receive(&received));
 }
 
 TEST(Event, MouseMiddleClick) {
@@ -212,12 +213,12 @@ TEST(Event, MouseMiddleClick) {
   }
 
   Task received;
-  EXPECT_TRUE(event_receiver->Receive(&received));
-  EXPECT_TRUE(std::get<Event>(received).is_mouse());
+  REQUIRE(true == event_receiver->Receive(&received));
+  REQUIRE(true == std::get<Event>(received).is_mouse());
   EXPECT_EQ(Mouse::Middle, std::get<Event>(received).mouse().button);
   EXPECT_EQ(12, std::get<Event>(received).mouse().x);
   EXPECT_EQ(42, std::get<Event>(received).mouse().y);
-  EXPECT_FALSE(event_receiver->Receive(&received));
+  REQUIRE_FALSE(event_receiver->Receive(&received));
 }
 
 TEST(Event, MouseRightClick) {
@@ -238,12 +239,12 @@ TEST(Event, MouseRightClick) {
   }
 
   Task received;
-  EXPECT_TRUE(event_receiver->Receive(&received));
-  EXPECT_TRUE(std::get<Event>(received).is_mouse());
+  REQUIRE(true == event_receiver->Receive(&received));
+  REQUIRE(true == std::get<Event>(received).is_mouse());
   EXPECT_EQ(Mouse::Right, std::get<Event>(received).mouse().button);
   EXPECT_EQ(12, std::get<Event>(received).mouse().x);
   EXPECT_EQ(42, std::get<Event>(received).mouse().y);
-  EXPECT_FALSE(event_receiver->Receive(&received));
+  REQUIRE_FALSE(event_receiver->Receive(&received));
 }
 
 TEST(Event, UTF8) {
@@ -321,10 +322,10 @@ TEST(Event, UTF8) {
     }
     Task received;
     if (test.valid) {
-      EXPECT_TRUE(event_receiver->Receive(&received));
-      EXPECT_TRUE(std::get<Event>(received).is_character());
+      REQUIRE(true == event_receiver->Receive(&received));
+      REQUIRE(true == std::get<Event>(received).is_character());
     }
-    EXPECT_FALSE(event_receiver->Receive(&received));
+    REQUIRE_FALSE(event_receiver->Receive(&received));
   }
 }
 
@@ -336,8 +337,8 @@ TEST(Event, NewLine) {
       parser.Add(newline);
     }
     Task received;
-    EXPECT_TRUE(event_receiver->Receive(&received));
-    EXPECT_TRUE(std::get<Event>(received) == Event::Return);
+    REQUIRE(true == event_receiver->Receive(&received));
+    REQUIRE(std::get<Event>(received) == Event::Return);
   }
 }
 
@@ -364,9 +365,9 @@ TEST(Event, Control) {
     }
     Task received;
     if (test.cancel) {
-      EXPECT_FALSE(event_receiver->Receive(&received));
+      REQUIRE_FALSE(event_receiver->Receive(&received));
     } else {
-      EXPECT_TRUE(event_receiver->Receive(&received));
+      REQUIRE(true == event_receiver->Receive(&received));
       EXPECT_EQ(std::get<Event>(received), Event::Special({test.input}));
     }
   }
@@ -481,9 +482,9 @@ TEST(Event, Special) {
       }
     }
     Task received;
-    EXPECT_TRUE(event_receiver->Receive(&received));
+    REQUIRE(true == event_receiver->Receive(&received));
     EXPECT_EQ(std::get<Event>(received), test.expected);
-    EXPECT_FALSE(event_receiver->Receive(&received));
+    REQUIRE_FALSE(event_receiver->Receive(&received));
   }
 }
 
@@ -504,10 +505,10 @@ TEST(Event, DeviceControlString) {
   }
 
   Task received;
-  EXPECT_TRUE(event_receiver->Receive(&received));
-  EXPECT_TRUE(std::get<Event>(received).is_cursor_shape());
+  REQUIRE(true == event_receiver->Receive(&received));
+  REQUIRE(true == std::get<Event>(received).is_cursor_shape());
   EXPECT_EQ(1, std::get<Event>(received).cursor_shape());
-  EXPECT_FALSE(event_receiver->Receive(&received));
+  REQUIRE_FALSE(event_receiver->Receive(&received));
 }
 
 }  // namespace andromeda

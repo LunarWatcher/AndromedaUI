@@ -1,35 +1,36 @@
----
-Checks: "*,
-        -*-macro-usage,
-        -*-magic-numbers,
-        -*-narrowing-conversions
-        -*-unnecessary-value-param,
-        -*-uppercase-literal-suffix,
-        -abseil-*,
-        -altera-*,
-        -android-*,
-        -bugprone-easily-swappable-parameters,
-        -cppcoreguidelines-non-private-member-variables-in-classes,
-        -cppcoreguidelines-pro-type-union-access,
-        -fuchsia-*,
-        -google-*,
-        -hicpp-signed-bitwise,
-        -llvm*,
-        -misc-no-recursion,
-        -misc-non-private-member-variables-in-classes,
-        -modernize-use-nodiscard,
-        -modernize-use-trailing-return-type,
-        -readability-avoid-const-params-in-decls,
-        -readability-else-after-return,
-        -readability-identifier-length,
-        -readability-implicit-bool-conversion,
-        -readability-non-const-parameter,
-        -readability-simplify-boolean-expr,
-        -readability-static-accessed-through-instance,
-        -readability-use-anyofallof,
-        -readability-avoid-nested-conditional-operator,
-        -zircon-*,
-"
-WarningsAsErrors: ''
-HeaderFilterRegex: ''
-FormatStyle:     none
+# Notes:
+# - clang-analyzer-optin.core.EnumCastOutOfRange: Useful, complains about std::filesystem::file_size for no fucking reason
+# - clang-analyzer-cplusplus.NewDeleteLeaks: borked (https://github.com/llvm/llvm-project/issues/55219)
+# - bugprone-narrowing-conversions: There's so many conversions particularly between doubles and floats that it simply isn't feasible to keep up with 
+#       clangd's extra pendantic check. The compiler does the bulk of the useful checks with -Wall
+# - clang-diagnostic-unused-private-field: Maybe useful eventually, but not right now.
+# - portability-template-virtual-member-function: not important
+Checks: >
+  bugprone-*,
+  clang-*,
+  misc-*,
+  performance-*,
+  portability-*,
+  modernize-deprecated-headers,
+  modernize-use-constexpr,
+  modernize-use-string-view,
+  optin.taint.*,
+  -bugprone-easily-swappable-parameters,
+  -bugprone-exception-escape,
+  -bugprone-macro-parentheses,
+  -bugprone-narrowing-conversions,
+  -clang-analyzer-optin.core.EnumCastOutOfRange,
+  -clang-diagnostic-unused-parameter,
+  -clang-diagnostic-unused-private-field,
+  -misc-non-private-*,
+  -misc-const-correctness,
+  -misc-include-cleaner,
+  -misc-no-recursion,
+  -misc-use-anonymous-namespace,
+  -performance-avoid-endl,
+  -performance-enum-size,
+  -readability-*,
+  -portability-avoid-pragma-once,
+  -portability-template-virtual-member-function
+
+HeaderFilterRegex: ".*\\/src\\/andromeda\\/.*"

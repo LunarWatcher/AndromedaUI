@@ -10,7 +10,8 @@
 #include "andromeda/component/mouse.hpp"  // for Mouse, Mouse::Left, Mouse::Released
 #include "andromeda/dom/node.hpp"         // for Render
 #include "andromeda/screen/screen.hpp"    // for Screen
-#include "gtest/gtest.h"  // for AssertionResult, Message, TestPartResult, EXPECT_FALSE, EXPECT_EQ, Test, EXPECT_TRUE, TEST
+#include "catch2/catch_test_macros.hpp"  // for AssertionResult, Message, TestPartResult, REQUIRE_FALSE, EXPECT_EQ, Test, EXPECT_TRUE, TEST
+#include <migrate/GTestCompat.hpp>
 
 // NOLINTBEGIN
 namespace andromeda {
@@ -40,28 +41,28 @@ TEST(HoverableTest, BasicBool) {
   auto layout = Container::Horizontal({c1, c2});
   auto screen = Screen(8, 2);
   Render(screen, layout->Render());
-  EXPECT_FALSE(hover_1);
-  EXPECT_FALSE(hover_2);
+  REQUIRE_FALSE(hover_1);
+  REQUIRE_FALSE(hover_2);
 
-  EXPECT_FALSE(layout->OnEvent(HoverEvent(0, 0)));
-  EXPECT_TRUE(hover_1);
-  EXPECT_FALSE(hover_2);
+  REQUIRE_FALSE(layout->OnEvent(HoverEvent(0, 0)));
+  REQUIRE(true == hover_1);
+  REQUIRE_FALSE(hover_2);
 
-  EXPECT_FALSE(layout->OnEvent(HoverEvent(1, 0)));
-  EXPECT_TRUE(hover_1);
-  EXPECT_FALSE(hover_2);
+  REQUIRE_FALSE(layout->OnEvent(HoverEvent(1, 0)));
+  REQUIRE(true == hover_1);
+  REQUIRE_FALSE(hover_2);
 
-  EXPECT_FALSE(layout->OnEvent(HoverEvent(2, 0)));
-  EXPECT_TRUE(hover_1);
-  EXPECT_FALSE(hover_2);
+  REQUIRE_FALSE(layout->OnEvent(HoverEvent(2, 0)));
+  REQUIRE(true == hover_1);
+  REQUIRE_FALSE(hover_2);
 
-  EXPECT_FALSE(layout->OnEvent(HoverEvent(3, 0)));
-  EXPECT_FALSE(hover_1);
-  EXPECT_TRUE(hover_2);
+  REQUIRE_FALSE(layout->OnEvent(HoverEvent(3, 0)));
+  REQUIRE_FALSE(hover_1);
+  REQUIRE(true == hover_2);
 
-  EXPECT_FALSE(layout->OnEvent(HoverEvent(0, 0)));
-  EXPECT_TRUE(hover_1);
-  EXPECT_FALSE(hover_2);
+  REQUIRE_FALSE(layout->OnEvent(HoverEvent(0, 0)));
+  REQUIRE(true == hover_1);
+  REQUIRE_FALSE(hover_2);
 }
 
 TEST(HoverableTest, BasicCallback) {
@@ -81,31 +82,31 @@ TEST(HoverableTest, BasicCallback) {
   EXPECT_EQ(on_leave_1, 0);
   EXPECT_EQ(on_leave_2, 0);
 
-  EXPECT_FALSE(layout->OnEvent(HoverEvent(0, 0)));
+  REQUIRE_FALSE(layout->OnEvent(HoverEvent(0, 0)));
   EXPECT_EQ(on_enter_1, 1);
   EXPECT_EQ(on_enter_2, 0);
   EXPECT_EQ(on_leave_1, 0);
   EXPECT_EQ(on_leave_2, 0);
 
-  EXPECT_FALSE(layout->OnEvent(HoverEvent(1, 0)));
+  REQUIRE_FALSE(layout->OnEvent(HoverEvent(1, 0)));
   EXPECT_EQ(on_enter_1, 1);
   EXPECT_EQ(on_enter_2, 0);
   EXPECT_EQ(on_leave_1, 0);
   EXPECT_EQ(on_leave_2, 0);
 
-  EXPECT_FALSE(layout->OnEvent(HoverEvent(2, 0)));
+  REQUIRE_FALSE(layout->OnEvent(HoverEvent(2, 0)));
   EXPECT_EQ(on_enter_1, 1);
   EXPECT_EQ(on_enter_2, 0);
   EXPECT_EQ(on_leave_1, 0);
   EXPECT_EQ(on_leave_2, 0);
 
-  EXPECT_FALSE(layout->OnEvent(HoverEvent(3, 0)));
+  REQUIRE_FALSE(layout->OnEvent(HoverEvent(3, 0)));
   EXPECT_EQ(on_enter_1, 1);
   EXPECT_EQ(on_enter_2, 1);
   EXPECT_EQ(on_leave_1, 1);
   EXPECT_EQ(on_leave_2, 0);
 
-  EXPECT_FALSE(layout->OnEvent(HoverEvent(0, 0)));
+  REQUIRE_FALSE(layout->OnEvent(HoverEvent(0, 0)));
   EXPECT_EQ(on_enter_1, 2);
   EXPECT_EQ(on_enter_2, 1);
   EXPECT_EQ(on_leave_1, 1);
@@ -120,28 +121,28 @@ TEST(HoverableTest, BasicBoolCallback) {
   auto layout = Container::Horizontal({c1, c2});
   auto screen = Screen(8, 2);
   Render(screen, layout->Render());
-  EXPECT_FALSE(hover_1);
-  EXPECT_FALSE(hover_2);
+  REQUIRE_FALSE(hover_1);
+  REQUIRE_FALSE(hover_2);
 
-  EXPECT_FALSE(layout->OnEvent(HoverEvent(0, 0)));
-  EXPECT_TRUE(hover_1);
-  EXPECT_FALSE(hover_2);
+  REQUIRE_FALSE(layout->OnEvent(HoverEvent(0, 0)));
+  REQUIRE(true == hover_1);
+  REQUIRE_FALSE(hover_2);
 
-  EXPECT_FALSE(layout->OnEvent(HoverEvent(1, 0)));
-  EXPECT_TRUE(hover_1);
-  EXPECT_FALSE(hover_2);
+  REQUIRE_FALSE(layout->OnEvent(HoverEvent(1, 0)));
+  REQUIRE(true == hover_1);
+  REQUIRE_FALSE(hover_2);
 
-  EXPECT_FALSE(layout->OnEvent(HoverEvent(2, 0)));
-  EXPECT_TRUE(hover_1);
-  EXPECT_FALSE(hover_2);
+  REQUIRE_FALSE(layout->OnEvent(HoverEvent(2, 0)));
+  REQUIRE(true == hover_1);
+  REQUIRE_FALSE(hover_2);
 
-  EXPECT_FALSE(layout->OnEvent(HoverEvent(3, 0)));
-  EXPECT_FALSE(hover_1);
-  EXPECT_TRUE(hover_2);
+  REQUIRE_FALSE(layout->OnEvent(HoverEvent(3, 0)));
+  REQUIRE_FALSE(hover_1);
+  REQUIRE(true == hover_2);
 
-  EXPECT_FALSE(layout->OnEvent(HoverEvent(0, 0)));
-  EXPECT_TRUE(hover_1);
-  EXPECT_FALSE(hover_2);
+  REQUIRE_FALSE(layout->OnEvent(HoverEvent(0, 0)));
+  REQUIRE(true == hover_1);
+  REQUIRE_FALSE(hover_2);
 }
 
 TEST(HoverableTest, Coverage) {
@@ -158,32 +159,32 @@ TEST(HoverableTest, Coverage) {
 
   auto screen = Screen(8, 2);
   Render(screen, layout->Render());
-  EXPECT_FALSE(hover_1);
-  EXPECT_FALSE(hover_2);
+  REQUIRE_FALSE(hover_1);
+  REQUIRE_FALSE(hover_2);
   EXPECT_EQ(on_enter, 0);
   EXPECT_EQ(on_leave, 0);
 
-  EXPECT_FALSE(layout->OnEvent(HoverEvent(0, 0)));
-  EXPECT_TRUE(hover_1);
-  EXPECT_TRUE(hover_2);
+  REQUIRE_FALSE(layout->OnEvent(HoverEvent(0, 0)));
+  REQUIRE(true == hover_1);
+  REQUIRE(true == hover_2);
   EXPECT_EQ(on_enter, 1);
   EXPECT_EQ(on_leave, 0);
 
-  EXPECT_FALSE(layout->OnEvent(HoverEvent(1, 0)));
-  EXPECT_TRUE(hover_1);
-  EXPECT_TRUE(hover_2);
+  REQUIRE_FALSE(layout->OnEvent(HoverEvent(1, 0)));
+  REQUIRE(true == hover_1);
+  REQUIRE(true == hover_2);
   EXPECT_EQ(on_enter, 1);
   EXPECT_EQ(on_leave, 0);
 
-  EXPECT_FALSE(layout->OnEvent(HoverEvent(3, 0)));
-  EXPECT_FALSE(hover_1);
-  EXPECT_FALSE(hover_2);
+  REQUIRE_FALSE(layout->OnEvent(HoverEvent(3, 0)));
+  REQUIRE_FALSE(hover_1);
+  REQUIRE_FALSE(hover_2);
   EXPECT_EQ(on_enter, 1);
   EXPECT_EQ(on_leave, 1);
 
-  EXPECT_FALSE(layout->OnEvent(HoverEvent(0, 0)));
-  EXPECT_TRUE(hover_1);
-  EXPECT_TRUE(hover_2);
+  REQUIRE_FALSE(layout->OnEvent(HoverEvent(0, 0)));
+  REQUIRE(true == hover_1);
+  REQUIRE(true == hover_2);
   EXPECT_EQ(on_enter, 2);
   EXPECT_EQ(on_leave, 1);
 }

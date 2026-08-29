@@ -12,7 +12,8 @@
 #include "andromeda/dom/node.hpp"         // for Render
 #include "andromeda/screen/screen.hpp"    // for Screen
 #include "andromeda/screen/terminal.hpp"  // for SetColorSupport, Color, TrueColor
-#include "gtest/gtest.h"  // for AssertionResult, Message, TestPartResult, EXPECT_EQ, Test, EXPECT_FALSE, EXPECT_TRUE, TEST
+#include "catch2/catch_test_macros.hpp"  // for AssertionResult, Message, TestPartResult, EXPECT_EQ, Test, REQUIRE_FALSE, EXPECT_TRUE, TEST
+#include <migrate/GTestCompat.hpp>
 
 // NOLINTBEGIN
 namespace andromeda {
@@ -58,23 +59,23 @@ TEST(ButtonTest, Basic) {
   (void)container->Render();
 
   EXPECT_EQ(selected, 0);
-  EXPECT_TRUE(btn1->Focused());
-  EXPECT_FALSE(btn2->Focused());
+  REQUIRE(true == btn1->Focused());
+  REQUIRE_FALSE(btn2->Focused());
 
   container->OnEvent(Event::ArrowLeft);
   EXPECT_EQ(selected, 0);
-  EXPECT_TRUE(btn1->Focused());
-  EXPECT_FALSE(btn2->Focused());
+  REQUIRE(true == btn1->Focused());
+  REQUIRE_FALSE(btn2->Focused());
 
   container->OnEvent(Event::ArrowRight);
   EXPECT_EQ(selected, 1);
-  EXPECT_FALSE(btn1->Focused());
-  EXPECT_TRUE(btn2->Focused());
+  REQUIRE_FALSE(btn1->Focused());
+  REQUIRE(true == btn2->Focused());
 
   container->OnEvent(Event::ArrowRight);
   EXPECT_EQ(selected, 1);
-  EXPECT_FALSE(btn1->Focused());
-  EXPECT_TRUE(btn2->Focused());
+  REQUIRE_FALSE(btn1->Focused());
+  REQUIRE(true == btn2->Focused());
 
   EXPECT_EQ(press_count, 0);
 

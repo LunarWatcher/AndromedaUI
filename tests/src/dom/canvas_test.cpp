@@ -1,7 +1,8 @@
 // Copyright 2022 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#include <gtest/gtest.h>
+#include <catch2/catch_test_macros.hpp>
+#include <migrate/GTestCompat.hpp>
 #include <cstdint>  // for uint32_t
 #include <string>   // for allocator, string
 
@@ -41,7 +42,8 @@ TEST(CanvasTest, GoldPoint) {
   });
   Screen screen(30, 10);
   Render(screen, element);
-  EXPECT_EQ(Hash(screen.ToString()), 2085952774U) << screen.ToString();
+  INFO(screen.ToString());
+  EXPECT_EQ(Hash(screen.ToString()), 2085952774U);
 }
 
 TEST(CanvasTest, GoldPointColor) {
@@ -56,7 +58,8 @@ TEST(CanvasTest, GoldPointColor) {
   });
   Screen screen(30, 10);
   Render(screen, element);
-  EXPECT_EQ(Hash(screen.ToString()), 2295070594U) << screen.ToString();
+  INFO(screen.ToString());
+  EXPECT_EQ(Hash(screen.ToString()), 2295070594U);
 }
 
 TEST(CanvasTest, GoldBlock) {
@@ -74,7 +77,8 @@ TEST(CanvasTest, GoldBlock) {
   });
   Screen screen(30, 10);
   Render(screen, element);
-  EXPECT_EQ(Hash(screen.ToString()), 2625314979U) << screen.ToString();
+  INFO(screen.ToString());
+  EXPECT_EQ(Hash(screen.ToString()), 2625314979U);
 }
 
 TEST(CanvasTest, GoldBlockColor) {
@@ -89,7 +93,8 @@ TEST(CanvasTest, GoldBlockColor) {
   });
   Screen screen(30, 10);
   Render(screen, element);
-  EXPECT_EQ(Hash(screen.ToString()), 8392696U) << screen.ToString();
+  INFO(screen.ToString());
+  EXPECT_EQ(Hash(screen.ToString()), 8392696U);
 }
 
 TEST(CanvasTest, GoldText) {

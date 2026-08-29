@@ -2,15 +2,17 @@
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
 
-#include <gtest/gtest.h>
+#include <catch2/catch_test_macros.hpp>
+#include <migrate/GTestCompat.hpp>
 #include <functional>  // for function
 #include <vector>      // for allocator, vector
 
 #include "andromeda/component/animation.hpp"  // for Function, BackIn, BackInOut, BackOut, BounceIn, BounceInOut, BounceOut, CircularIn, CircularInOut, CircularOut, CubicIn, CubicInOut, CubicOut, ElasticIn, ElasticInOut, ElasticOut, ExponentialIn, ExponentialInOut, ExponentialOut, Linear, QuadraticIn, QuadraticInOut, QuadraticOut, QuarticIn, QuarticInOut, QuarticOut, QuinticIn, QuinticInOut, QuinticOut, SineIn, SineInOut, SineOut
 
-namespace andromeda {
+namespace {
+using namespace andromeda;
 
-TEST(AnimationTest, StartAndEnd) {
+TEST_CASE("Test start and end animations") {
   const std::vector<animation::easing::Function> functions = {
       animation::easing::Linear,         animation::easing::QuadraticIn,
       animation::easing::QuadraticOut,   animation::easing::QuadraticInOut,
@@ -30,8 +32,8 @@ TEST(AnimationTest, StartAndEnd) {
       animation::easing::BounceInOut,
   };
   for (const auto& it : functions) {
-    EXPECT_NEAR(0.F, it(0.F), 1.0e-4);
-    EXPECT_NEAR(1.F, it(1.F), 1.0e-4);
+    EXPECT_NEAR(0.f, it(0.F), 1.0e-4);
+    EXPECT_NEAR(1.f, it(1.F), 1.0e-4);
   }
 }
 

@@ -6,7 +6,8 @@
 #include "andromeda/dom/elements.hpp"   // for operator|, text, dim, Element
 #include "andromeda/dom/node.hpp"       // for Render
 #include "andromeda/screen/screen.hpp"  // for Screen, Pixel
-#include "gtest/gtest.h"  // for Test, AssertionResult, EXPECT_TRUE, Message, TEST, TestPartResult
+#include "catch2/catch_test_macros.hpp"  // for Test, AssertionResult, EXPECT_TRUE, Message, TEST, TestPartResult
+#include <migrate/GTestCompat.hpp>
 
 // NOLINTBEGIN
 namespace andromeda {
@@ -15,7 +16,7 @@ TEST(DimTest, Basic) {
   auto element = text("text") | dim;
   Screen screen(5, 1);
   Render(screen, element);
-  EXPECT_TRUE(screen.PixelAt(0, 0).dim);
+  REQUIRE(true == screen.PixelAt(0, 0).dim);
 }
 
 }  // namespace andromeda

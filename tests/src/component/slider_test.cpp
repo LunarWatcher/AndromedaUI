@@ -13,7 +13,8 @@
 #include "andromeda/component/event.hpp"           // for Event, Event::ArrowDown
 #include "andromeda/dom/node.hpp"                  // for Render
 #include "andromeda/screen/screen.hpp"             // for Screen
-#include "gtest/gtest.h"  // for AssertionResult, Message, TestPartResult, Test, EXPECT_EQ, EXPECT_TRUE, EXPECT_FALSE, TEST
+#include "catch2/catch_test_macros.hpp"  // for AssertionResult, Message, TestPartResult, Test, EXPECT_EQ, EXPECT_TRUE, REQUIRE_FALSE, TEST
+#include <migrate/GTestCompat.hpp>
 
 // NOLINTBEGIN
 namespace andromeda {
@@ -59,20 +60,20 @@ TEST(SliderTest, Right) {
   Render(screen, slider->Render());
   EXPECT_EQ(value, 50);
   EXPECT_EQ(updated, 0);
-  EXPECT_TRUE(slider->OnEvent(MousePressed(3, 0)));
+  REQUIRE(true == slider->OnEvent(MousePressed(3, 0)));
   EXPECT_EQ(value, 30);
   EXPECT_EQ(updated, 1);
-  EXPECT_TRUE(slider->OnEvent(MousePressed(9, 0)));
+  REQUIRE(true == slider->OnEvent(MousePressed(9, 0)));
   EXPECT_EQ(value, 90);
   EXPECT_EQ(updated, 2);
-  EXPECT_TRUE(slider->OnEvent(MousePressed(9, 2)));
+  REQUIRE(true == slider->OnEvent(MousePressed(9, 2)));
   EXPECT_EQ(value, 90);
   EXPECT_EQ(updated, 2);
-  EXPECT_TRUE(slider->OnEvent(MousePressed(5, 2)));
+  REQUIRE(true == slider->OnEvent(MousePressed(5, 2)));
   EXPECT_EQ(value, 50);
   EXPECT_EQ(updated, 3);
-  EXPECT_TRUE(slider->OnEvent(MouseReleased(5, 2)));
-  EXPECT_FALSE(slider->OnEvent(MousePressed(5, 2)));
+  REQUIRE(true == slider->OnEvent(MouseReleased(5, 2)));
+  REQUIRE_FALSE(slider->OnEvent(MousePressed(5, 2)));
   EXPECT_EQ(value, 50);
 }
 
@@ -91,20 +92,20 @@ TEST(SliderTest, Left) {
   Render(screen, slider->Render());
   EXPECT_EQ(value, 50);
   EXPECT_EQ(updated, 0);
-  EXPECT_TRUE(slider->OnEvent(MousePressed(3, 0)));
+  REQUIRE(true == slider->OnEvent(MousePressed(3, 0)));
   EXPECT_EQ(value, 70);
   EXPECT_EQ(updated, 1);
-  EXPECT_TRUE(slider->OnEvent(MousePressed(9, 0)));
+  REQUIRE(true == slider->OnEvent(MousePressed(9, 0)));
   EXPECT_EQ(value, 10);
   EXPECT_EQ(updated, 2);
-  EXPECT_TRUE(slider->OnEvent(MousePressed(9, 2)));
+  REQUIRE(true == slider->OnEvent(MousePressed(9, 2)));
   EXPECT_EQ(value, 10);
   EXPECT_EQ(updated, 2);
-  EXPECT_TRUE(slider->OnEvent(MousePressed(5, 2)));
+  REQUIRE(true == slider->OnEvent(MousePressed(5, 2)));
   EXPECT_EQ(value, 50);
   EXPECT_EQ(updated, 3);
-  EXPECT_TRUE(slider->OnEvent(MouseReleased(5, 2)));
-  EXPECT_FALSE(slider->OnEvent(MousePressed(5, 2)));
+  REQUIRE(true == slider->OnEvent(MouseReleased(5, 2)));
+  REQUIRE_FALSE(slider->OnEvent(MousePressed(5, 2)));
   EXPECT_EQ(value, 50);
 }
 
@@ -123,20 +124,20 @@ TEST(SliderTest, Down) {
   Render(screen, slider->Render());
   EXPECT_EQ(value, 50);
   EXPECT_EQ(updated, 0);
-  EXPECT_TRUE(slider->OnEvent(MousePressed(0, 3)));
+  REQUIRE(true == slider->OnEvent(MousePressed(0, 3)));
   EXPECT_EQ(value, 30);
   EXPECT_EQ(updated, 1);
-  EXPECT_TRUE(slider->OnEvent(MousePressed(0, 9)));
+  REQUIRE(true == slider->OnEvent(MousePressed(0, 9)));
   EXPECT_EQ(value, 90);
   EXPECT_EQ(updated, 2);
-  EXPECT_TRUE(slider->OnEvent(MousePressed(2, 9)));
+  REQUIRE(true == slider->OnEvent(MousePressed(2, 9)));
   EXPECT_EQ(value, 90);
   EXPECT_EQ(updated, 2);
-  EXPECT_TRUE(slider->OnEvent(MousePressed(2, 5)));
+  REQUIRE(true == slider->OnEvent(MousePressed(2, 5)));
   EXPECT_EQ(value, 50);
   EXPECT_EQ(updated, 3);
-  EXPECT_TRUE(slider->OnEvent(MouseReleased(2, 5)));
-  EXPECT_FALSE(slider->OnEvent(MousePressed(2, 5)));
+  REQUIRE(true == slider->OnEvent(MouseReleased(2, 5)));
+  REQUIRE_FALSE(slider->OnEvent(MousePressed(2, 5)));
   EXPECT_EQ(value, 50);
   EXPECT_EQ(updated, 3);
 }
@@ -156,20 +157,20 @@ TEST(SliderTest, Up) {
   Render(screen, slider->Render());
   EXPECT_EQ(value, 50);
   EXPECT_EQ(updated, 0);
-  EXPECT_TRUE(slider->OnEvent(MousePressed(0, 3)));
+  REQUIRE(true == slider->OnEvent(MousePressed(0, 3)));
   EXPECT_EQ(value, 70);
   EXPECT_EQ(updated, 1);
-  EXPECT_TRUE(slider->OnEvent(MousePressed(0, 9)));
+  REQUIRE(true == slider->OnEvent(MousePressed(0, 9)));
   EXPECT_EQ(value, 10);
   EXPECT_EQ(updated, 2);
-  EXPECT_TRUE(slider->OnEvent(MousePressed(2, 9)));
+  REQUIRE(true == slider->OnEvent(MousePressed(2, 9)));
   EXPECT_EQ(value, 10);
   EXPECT_EQ(updated, 2);
-  EXPECT_TRUE(slider->OnEvent(MousePressed(2, 5)));
+  REQUIRE(true == slider->OnEvent(MousePressed(2, 5)));
   EXPECT_EQ(value, 50);
   EXPECT_EQ(updated, 3);
-  EXPECT_TRUE(slider->OnEvent(MouseReleased(2, 5)));
-  EXPECT_FALSE(slider->OnEvent(MousePressed(2, 5)));
+  REQUIRE(true == slider->OnEvent(MouseReleased(2, 5)));
+  REQUIRE_FALSE(slider->OnEvent(MousePressed(2, 5)));
   EXPECT_EQ(value, 50);
 }
 
@@ -188,42 +189,42 @@ TEST(SliderTest, Focus) {
   EXPECT_EQ(screen.at(0, 1), "1");
   EXPECT_EQ(screen.at(0, 2), "2");
 
-  EXPECT_TRUE(container->OnEvent(Event::ArrowDown));
+  REQUIRE(true == container->OnEvent(Event::ArrowDown));
   Render(screen, container->Render());
   EXPECT_EQ(screen.at(0, 0), "0");
   EXPECT_EQ(screen.at(0, 1), "1");  // Select 1
   EXPECT_EQ(screen.at(0, 2), "2");
 
-  EXPECT_TRUE(container->OnEvent(Event::ArrowDown));
+  REQUIRE(true == container->OnEvent(Event::ArrowDown));
   Render(screen, container->Render());
   EXPECT_EQ(screen.at(0, 0), "1");
   EXPECT_EQ(screen.at(0, 1), "2");  // Select 2
   EXPECT_EQ(screen.at(0, 2), "3");
 
-  EXPECT_TRUE(container->OnEvent(Event::ArrowDown));  // Select 3
-  EXPECT_TRUE(container->OnEvent(Event::ArrowDown));  // Select 4
-  EXPECT_TRUE(container->OnEvent(Event::ArrowDown));  // Select 5
-  EXPECT_TRUE(container->OnEvent(Event::ArrowDown));  // Select 6
+  REQUIRE(true == container->OnEvent(Event::ArrowDown));  // Select 3
+  REQUIRE(true == container->OnEvent(Event::ArrowDown));  // Select 4
+  REQUIRE(true == container->OnEvent(Event::ArrowDown));  // Select 5
+  REQUIRE(true == container->OnEvent(Event::ArrowDown));  // Select 6
 
-  EXPECT_TRUE(container->OnEvent(Event::ArrowDown));
+  REQUIRE(true == container->OnEvent(Event::ArrowDown));
   Render(screen, container->Render());
   EXPECT_EQ(screen.at(0, 0), "6");
   EXPECT_EQ(screen.at(0, 1), "7");  // Select 7
   EXPECT_EQ(screen.at(0, 2), "8");
 
-  EXPECT_TRUE(container->OnEvent(Event::ArrowDown));
+  REQUIRE(true == container->OnEvent(Event::ArrowDown));
   Render(screen, container->Render());
   EXPECT_EQ(screen.at(0, 0), "7");
   EXPECT_EQ(screen.at(0, 1), "8");  // Select 8
   EXPECT_EQ(screen.at(0, 2), "9");
 
-  EXPECT_TRUE(container->OnEvent(Event::ArrowDown));
+  REQUIRE(true == container->OnEvent(Event::ArrowDown));
   Render(screen, container->Render());
   EXPECT_EQ(screen.at(0, 0), "7");
   EXPECT_EQ(screen.at(0, 1), "8");
   EXPECT_EQ(screen.at(0, 2), "9");  // Select 9
 
-  EXPECT_FALSE(container->OnEvent(Event::ArrowDown));
+  REQUIRE_FALSE(container->OnEvent(Event::ArrowDown));
 }
 
 }  // namespace andromeda

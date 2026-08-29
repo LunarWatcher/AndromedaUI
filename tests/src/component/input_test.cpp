@@ -12,7 +12,8 @@
 #include "andromeda/dom/node.hpp"       // for Render
 #include "andromeda/screen/screen.hpp"  // for Fixed, Screen, Pixel
 #include "andromeda/util/ref.hpp"       // for Ref
-#include "gtest/gtest.h"  // for AssertionResult, Message, TestPartResult, EXPECT_EQ, EXPECT_TRUE, Test, EXPECT_FALSE, TEST
+#include "catch2/catch_test_macros.hpp"  // for AssertionResult, Message, TestPartResult, EXPECT_EQ, EXPECT_TRUE, Test, REQUIRE_FALSE, TEST
+#include <migrate/GTestCompat.hpp>
 
 namespace andromeda {
 
@@ -67,52 +68,52 @@ TEST(InputTest, ArrowLeftRight) {
                                     });
   EXPECT_EQ(cursor_position, 0);
 
-  EXPECT_FALSE(input->OnEvent(Event::ArrowLeft));
+  REQUIRE_FALSE(input->OnEvent(Event::ArrowLeft));
   EXPECT_EQ(cursor_position, 0);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRight));
+  REQUIRE(true == input->OnEvent(Event::ArrowRight));
   EXPECT_EQ(cursor_position, 1);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeft));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeft));
   EXPECT_EQ(cursor_position, 0);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRight));
+  REQUIRE(true == input->OnEvent(Event::ArrowRight));
   EXPECT_EQ(cursor_position, 1);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRight));
+  REQUIRE(true == input->OnEvent(Event::ArrowRight));
   EXPECT_EQ(cursor_position, 2);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRight));
+  REQUIRE(true == input->OnEvent(Event::ArrowRight));
   EXPECT_EQ(cursor_position, 3);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRight));
+  REQUIRE(true == input->OnEvent(Event::ArrowRight));
   EXPECT_EQ(cursor_position, 6);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRight));
+  REQUIRE(true == input->OnEvent(Event::ArrowRight));
   EXPECT_EQ(cursor_position, 9);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRight));
+  REQUIRE(true == input->OnEvent(Event::ArrowRight));
   EXPECT_EQ(cursor_position, 10);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRight));
+  REQUIRE(true == input->OnEvent(Event::ArrowRight));
   EXPECT_EQ(cursor_position, 13);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRight));
+  REQUIRE(true == input->OnEvent(Event::ArrowRight));
   EXPECT_EQ(cursor_position, 14);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRight));
+  REQUIRE(true == input->OnEvent(Event::ArrowRight));
   EXPECT_EQ(cursor_position, 15);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRight));
+  REQUIRE(true == input->OnEvent(Event::ArrowRight));
   EXPECT_EQ(cursor_position, 18);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRight));
+  REQUIRE(true == input->OnEvent(Event::ArrowRight));
   EXPECT_EQ(cursor_position, 19);
 
-  EXPECT_FALSE(input->OnEvent(Event::ArrowRight));
+  REQUIRE_FALSE(input->OnEvent(Event::ArrowRight));
   EXPECT_EQ(cursor_position, 19);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeft));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeft));
   EXPECT_EQ(cursor_position, 18);
 }
 
@@ -130,61 +131,61 @@ TEST(InputTest, ArrowUpDown) {
                                         .cursor_position = &cursor_position,
                                     });
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowDown));
+  REQUIRE(true == input->OnEvent(Event::ArrowDown));
   EXPECT_EQ(cursor_position, 4);
-  EXPECT_TRUE(input->OnEvent(Event::ArrowDown));
+  REQUIRE(true == input->OnEvent(Event::ArrowDown));
   EXPECT_EQ(cursor_position, 11);
-  EXPECT_TRUE(input->OnEvent(Event::ArrowDown));
+  REQUIRE(true == input->OnEvent(Event::ArrowDown));
   EXPECT_EQ(cursor_position, 21);
-  EXPECT_TRUE(input->OnEvent(Event::ArrowDown));
+  REQUIRE(true == input->OnEvent(Event::ArrowDown));
   EXPECT_EQ(cursor_position, 29);
-  EXPECT_TRUE(input->OnEvent(Event::ArrowDown));
+  REQUIRE(true == input->OnEvent(Event::ArrowDown));
   EXPECT_EQ(cursor_position, 36);
-  EXPECT_TRUE(input->OnEvent(Event::ArrowDown));
+  REQUIRE(true == input->OnEvent(Event::ArrowDown));
   EXPECT_EQ(cursor_position, 40);
-  EXPECT_FALSE(input->OnEvent(Event::ArrowDown));
+  REQUIRE_FALSE(input->OnEvent(Event::ArrowDown));
   EXPECT_EQ(cursor_position, 40);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowUp));
+  REQUIRE(true == input->OnEvent(Event::ArrowUp));
   EXPECT_EQ(cursor_position, 36);
-  EXPECT_TRUE(input->OnEvent(Event::ArrowUp));
+  REQUIRE(true == input->OnEvent(Event::ArrowUp));
   EXPECT_EQ(cursor_position, 29);
-  EXPECT_TRUE(input->OnEvent(Event::ArrowUp));
+  REQUIRE(true == input->OnEvent(Event::ArrowUp));
   EXPECT_EQ(cursor_position, 21);
-  EXPECT_TRUE(input->OnEvent(Event::ArrowUp));
+  REQUIRE(true == input->OnEvent(Event::ArrowUp));
   EXPECT_EQ(cursor_position, 11);
-  EXPECT_TRUE(input->OnEvent(Event::ArrowUp));
+  REQUIRE(true == input->OnEvent(Event::ArrowUp));
   EXPECT_EQ(cursor_position, 4);
-  EXPECT_TRUE(input->OnEvent(Event::ArrowUp));
+  REQUIRE(true == input->OnEvent(Event::ArrowUp));
   EXPECT_EQ(cursor_position, 0);
-  EXPECT_FALSE(input->OnEvent(Event::ArrowUp));
+  REQUIRE_FALSE(input->OnEvent(Event::ArrowUp));
   EXPECT_EQ(cursor_position, 0);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRight));
+  REQUIRE(true == input->OnEvent(Event::ArrowRight));
   EXPECT_EQ(cursor_position, 3);
-  EXPECT_TRUE(input->OnEvent(Event::ArrowDown));
+  REQUIRE(true == input->OnEvent(Event::ArrowDown));
   EXPECT_EQ(cursor_position, 7);
-  EXPECT_TRUE(input->OnEvent(Event::ArrowDown));
+  REQUIRE(true == input->OnEvent(Event::ArrowDown));
   EXPECT_EQ(cursor_position, 14);
-  EXPECT_TRUE(input->OnEvent(Event::ArrowDown));
+  REQUIRE(true == input->OnEvent(Event::ArrowDown));
   EXPECT_EQ(cursor_position, 24);
-  EXPECT_TRUE(input->OnEvent(Event::ArrowDown));
+  REQUIRE(true == input->OnEvent(Event::ArrowDown));
   EXPECT_EQ(cursor_position, 32);
-  EXPECT_TRUE(input->OnEvent(Event::ArrowDown));
+  REQUIRE(true == input->OnEvent(Event::ArrowDown));
   EXPECT_EQ(cursor_position, 39);
-  EXPECT_TRUE(input->OnEvent(Event::ArrowDown));
+  REQUIRE(true == input->OnEvent(Event::ArrowDown));
   EXPECT_EQ(cursor_position, 40);
-  EXPECT_FALSE(input->OnEvent(Event::ArrowDown));
+  REQUIRE_FALSE(input->OnEvent(Event::ArrowDown));
   EXPECT_EQ(cursor_position, 40);
 
   cursor_position = 39;
-  EXPECT_TRUE(input->OnEvent(Event::ArrowUp));
+  REQUIRE(true == input->OnEvent(Event::ArrowUp));
   EXPECT_EQ(cursor_position, 32);
-  EXPECT_TRUE(input->OnEvent(Event::ArrowUp));
+  REQUIRE(true == input->OnEvent(Event::ArrowUp));
   EXPECT_EQ(cursor_position, 24);
-  EXPECT_TRUE(input->OnEvent(Event::ArrowUp));
+  REQUIRE(true == input->OnEvent(Event::ArrowUp));
   EXPECT_EQ(cursor_position, 14);
-  EXPECT_TRUE(input->OnEvent(Event::ArrowUp));
+  REQUIRE(true == input->OnEvent(Event::ArrowUp));
   EXPECT_EQ(cursor_position, 7);
 }
 
@@ -195,32 +196,32 @@ TEST(InputTest, Insert) {
                                         .cursor_position = &cursor_position,
                                     });
 
-  EXPECT_TRUE(input->OnEvent(Event::Character('a')));
-  EXPECT_TRUE(input->OnEvent(Event::Character('b')));
-  EXPECT_TRUE(input->OnEvent(Event::Character('c')));
+  REQUIRE(true == input->OnEvent(Event::Character('a')));
+  REQUIRE(true == input->OnEvent(Event::Character('b')));
+  REQUIRE(true == input->OnEvent(Event::Character('c')));
   EXPECT_EQ(content, "abc");
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeft));
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeft));
-  EXPECT_TRUE(input->OnEvent(Event::Character('-')));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeft));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeft));
+  REQUIRE(true == input->OnEvent(Event::Character('-')));
   EXPECT_EQ(content, "a-bc");
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeft));
-  EXPECT_TRUE(input->OnEvent(Event::Character('-')));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeft));
+  REQUIRE(true == input->OnEvent(Event::Character('-')));
   EXPECT_EQ(content, "a--bc");
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeft));
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeft));
-  EXPECT_TRUE(input->OnEvent(Event::Character('-')));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeft));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeft));
+  REQUIRE(true == input->OnEvent(Event::Character('-')));
   EXPECT_EQ(content, "-a--bc");
 
-  EXPECT_TRUE(input->OnEvent(Event::Character("测")));
+  REQUIRE(true == input->OnEvent(Event::Character("测")));
   EXPECT_EQ(content, "-测a--bc");
 
-  EXPECT_TRUE(input->OnEvent(Event::Character("a")));
+  REQUIRE(true == input->OnEvent(Event::Character("a")));
   EXPECT_EQ(content, "-测aa--bc");
 
-  EXPECT_TRUE(input->OnEvent(Event::Character("测")));
+  REQUIRE(true == input->OnEvent(Event::Character("测")));
   EXPECT_EQ(content, "-测a测a--bc");
 }
 
@@ -231,20 +232,20 @@ TEST(InputTest, Home) {
                                         .cursor_position = &cursor_position,
                                     });
 
-  EXPECT_TRUE(input->OnEvent(Event::Character('a')));
-  EXPECT_TRUE(input->OnEvent(Event::Character('b')));
-  EXPECT_TRUE(input->OnEvent(Event::Character('c')));
-  EXPECT_TRUE(input->OnEvent(Event::Return));
-  EXPECT_TRUE(input->OnEvent(Event::Character("测")));
-  EXPECT_TRUE(input->OnEvent(Event::Character('b')));
-  EXPECT_TRUE(input->OnEvent(Event::Character('c')));
+  REQUIRE(true == input->OnEvent(Event::Character('a')));
+  REQUIRE(true == input->OnEvent(Event::Character('b')));
+  REQUIRE(true == input->OnEvent(Event::Character('c')));
+  REQUIRE(true == input->OnEvent(Event::Return));
+  REQUIRE(true == input->OnEvent(Event::Character("测")));
+  REQUIRE(true == input->OnEvent(Event::Character('b')));
+  REQUIRE(true == input->OnEvent(Event::Character('c')));
   EXPECT_EQ(content, "abc\n测bc");
   EXPECT_EQ(cursor_position, 9u);
 
-  EXPECT_TRUE(input->OnEvent(Event::Home));
+  REQUIRE(true == input->OnEvent(Event::Home));
   EXPECT_EQ(cursor_position, 0u);
 
-  EXPECT_TRUE(input->OnEvent(Event::Character('-')));
+  REQUIRE(true == input->OnEvent(Event::Character('-')));
   EXPECT_EQ(cursor_position, 1u);
   EXPECT_EQ(content, "-abc\n测bc");
 }
@@ -256,15 +257,15 @@ TEST(InputTest, End) {
                                         .cursor_position = &cursor_position,
                                     });
 
-  EXPECT_TRUE(input->OnEvent(Event::Character('a')));
-  EXPECT_TRUE(input->OnEvent(Event::Character('b')));
-  EXPECT_TRUE(input->OnEvent(Event::Character('c')));
-  EXPECT_TRUE(input->OnEvent(Event::Return));
-  EXPECT_TRUE(input->OnEvent(Event::Character("测")));
-  EXPECT_TRUE(input->OnEvent(Event::Character('b')));
-  EXPECT_TRUE(input->OnEvent(Event::Character('c')));
-  EXPECT_TRUE(input->OnEvent(Event::ArrowUp));
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeft));
+  REQUIRE(true == input->OnEvent(Event::Character('a')));
+  REQUIRE(true == input->OnEvent(Event::Character('b')));
+  REQUIRE(true == input->OnEvent(Event::Character('c')));
+  REQUIRE(true == input->OnEvent(Event::Return));
+  REQUIRE(true == input->OnEvent(Event::Character("测")));
+  REQUIRE(true == input->OnEvent(Event::Character('b')));
+  REQUIRE(true == input->OnEvent(Event::Character('c')));
+  REQUIRE(true == input->OnEvent(Event::ArrowUp));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeft));
   EXPECT_EQ(content, "abc\n测bc");
   EXPECT_EQ(cursor_position, 2u);
 
@@ -279,57 +280,57 @@ TEST(InputTest, Delete) {
                                    .cursor_position = &cursor_position,
                                });
 
-  EXPECT_TRUE(input->OnEvent(Event::Character('a')));
-  EXPECT_TRUE(input->OnEvent(Event::Character('b')));
-  EXPECT_TRUE(input->OnEvent(Event::Character('c')));
-  EXPECT_TRUE(input->OnEvent(Event::Return));
-  EXPECT_TRUE(input->OnEvent(Event::Character("测")));
-  EXPECT_TRUE(input->OnEvent(Event::Character('b')));
-  EXPECT_TRUE(input->OnEvent(Event::Character('c')));
+  REQUIRE(true == input->OnEvent(Event::Character('a')));
+  REQUIRE(true == input->OnEvent(Event::Character('b')));
+  REQUIRE(true == input->OnEvent(Event::Character('c')));
+  REQUIRE(true == input->OnEvent(Event::Return));
+  REQUIRE(true == input->OnEvent(Event::Character("测")));
+  REQUIRE(true == input->OnEvent(Event::Character('b')));
+  REQUIRE(true == input->OnEvent(Event::Character('c')));
 
   EXPECT_EQ(content, "abc\n测bc");
   EXPECT_EQ(cursor_position, 9u);
 
-  EXPECT_FALSE(input->OnEvent(Event::Delete));
+  REQUIRE_FALSE(input->OnEvent(Event::Delete));
   EXPECT_EQ(content, "abc\n测bc");
   EXPECT_EQ(cursor_position, 9u);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeft));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeft));
   EXPECT_EQ(content, "abc\n测bc");
   EXPECT_EQ(cursor_position, 8u);
 
-  EXPECT_TRUE(input->OnEvent(Event::Delete));
+  REQUIRE(true == input->OnEvent(Event::Delete));
   EXPECT_EQ(content, "abc\n测b");
   EXPECT_EQ(cursor_position, 8u);
 
-  EXPECT_FALSE(input->OnEvent(Event::Delete));
+  REQUIRE_FALSE(input->OnEvent(Event::Delete));
   EXPECT_EQ(content, "abc\n测b");
   EXPECT_EQ(cursor_position, 8u);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeft));
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeft));
-  EXPECT_TRUE(input->OnEvent(Event::Delete));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeft));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeft));
+  REQUIRE(true == input->OnEvent(Event::Delete));
   EXPECT_EQ(content, "abc\nb");
   EXPECT_EQ(cursor_position, 4u);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeft));
-  EXPECT_TRUE(input->OnEvent(Event::Delete));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeft));
+  REQUIRE(true == input->OnEvent(Event::Delete));
   EXPECT_EQ(content, "abcb");
   EXPECT_EQ(cursor_position, 3u);
 
-  EXPECT_TRUE(input->OnEvent(Event::Delete));
+  REQUIRE(true == input->OnEvent(Event::Delete));
   EXPECT_EQ(content, "abc");
   EXPECT_EQ(cursor_position, 3u);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeft));
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeft));
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeft));
-  EXPECT_TRUE(input->OnEvent(Event::Delete));
-  EXPECT_TRUE(input->OnEvent(Event::Delete));
-  EXPECT_TRUE(input->OnEvent(Event::Delete));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeft));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeft));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeft));
+  REQUIRE(true == input->OnEvent(Event::Delete));
+  REQUIRE(true == input->OnEvent(Event::Delete));
+  REQUIRE(true == input->OnEvent(Event::Delete));
   EXPECT_EQ(content, "");
 
-  EXPECT_FALSE(input->OnEvent(Event::Delete));
+  REQUIRE_FALSE(input->OnEvent(Event::Delete));
   EXPECT_EQ(content, "");
 }
 
@@ -340,52 +341,52 @@ TEST(InputTest, Backspace) {
                                    .cursor_position = &cursor_position,
                                });
 
-  EXPECT_TRUE(input->OnEvent(Event::Character('a')));
-  EXPECT_TRUE(input->OnEvent(Event::Character('b')));
-  EXPECT_TRUE(input->OnEvent(Event::Character('c')));
-  EXPECT_TRUE(input->OnEvent(Event::Return));
-  EXPECT_TRUE(input->OnEvent(Event::Character("测")));
-  EXPECT_TRUE(input->OnEvent(Event::Character('b')));
-  EXPECT_TRUE(input->OnEvent(Event::Character('c')));
+  REQUIRE(true == input->OnEvent(Event::Character('a')));
+  REQUIRE(true == input->OnEvent(Event::Character('b')));
+  REQUIRE(true == input->OnEvent(Event::Character('c')));
+  REQUIRE(true == input->OnEvent(Event::Return));
+  REQUIRE(true == input->OnEvent(Event::Character("测")));
+  REQUIRE(true == input->OnEvent(Event::Character('b')));
+  REQUIRE(true == input->OnEvent(Event::Character('c')));
 
   EXPECT_EQ(content, "abc\n测bc");
   EXPECT_EQ(cursor_position, 9u);
 
-  EXPECT_TRUE(input->OnEvent(Event::Backspace));
+  REQUIRE(true == input->OnEvent(Event::Backspace));
   EXPECT_EQ(content, "abc\n测b");
   EXPECT_EQ(cursor_position, 8u);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeft));
-  EXPECT_TRUE(input->OnEvent(Event::Backspace));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeft));
+  REQUIRE(true == input->OnEvent(Event::Backspace));
   EXPECT_EQ(content, "abc\nb");
   EXPECT_EQ(cursor_position, 4u);
 
-  EXPECT_TRUE(input->OnEvent(Event::Backspace));
+  REQUIRE(true == input->OnEvent(Event::Backspace));
   EXPECT_EQ(content, "abcb");
   EXPECT_EQ(cursor_position, 3u);
 
-  EXPECT_TRUE(input->OnEvent(Event::Backspace));
+  REQUIRE(true == input->OnEvent(Event::Backspace));
   EXPECT_EQ(content, "abb");
   EXPECT_EQ(cursor_position, 2u);
 
-  EXPECT_TRUE(input->OnEvent(Event::Backspace));
+  REQUIRE(true == input->OnEvent(Event::Backspace));
   EXPECT_EQ(content, "ab");
   EXPECT_EQ(cursor_position, 1u);
 
-  EXPECT_TRUE(input->OnEvent(Event::Backspace));
+  REQUIRE(true == input->OnEvent(Event::Backspace));
   EXPECT_EQ(content, "b");
   EXPECT_EQ(cursor_position, 0u);
 
-  EXPECT_FALSE(input->OnEvent(Event::Backspace));
+  REQUIRE_FALSE(input->OnEvent(Event::Backspace));
   EXPECT_EQ(content, "b");
   EXPECT_EQ(cursor_position, 0u);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRight));
-  EXPECT_TRUE(input->OnEvent(Event::Backspace));
+  REQUIRE(true == input->OnEvent(Event::ArrowRight));
+  REQUIRE(true == input->OnEvent(Event::Backspace));
   EXPECT_EQ(content, "");
   EXPECT_EQ(cursor_position, 0u);
 
-  EXPECT_FALSE(input->OnEvent(Event::Backspace));
+  REQUIRE_FALSE(input->OnEvent(Event::Backspace));
   EXPECT_EQ(content, "");
   EXPECT_EQ(cursor_position, 0u);
 }
@@ -401,73 +402,73 @@ TEST(InputTest, CtrlArrow) {
                                });
 
   // Use CTRL+Left several time
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeftCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeftCtrl));
   EXPECT_EQ(cursor_position, 67);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeftCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeftCtrl));
   EXPECT_EQ(cursor_position, 60);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeftCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeftCtrl));
   EXPECT_EQ(cursor_position, 53);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeftCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeftCtrl));
   EXPECT_EQ(cursor_position, 46);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeftCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeftCtrl));
   EXPECT_EQ(cursor_position, 39);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeftCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeftCtrl));
   EXPECT_EQ(cursor_position, 29);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeftCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeftCtrl));
   EXPECT_EQ(cursor_position, 24);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeftCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeftCtrl));
   EXPECT_EQ(cursor_position, 17);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeftCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeftCtrl));
   EXPECT_EQ(cursor_position, 10);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeftCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeftCtrl));
   EXPECT_EQ(cursor_position, 5);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeftCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeftCtrl));
   EXPECT_EQ(cursor_position, 0);
 
-  EXPECT_FALSE(input->OnEvent(Event::ArrowLeftCtrl));
+  REQUIRE_FALSE(input->OnEvent(Event::ArrowLeftCtrl));
   EXPECT_EQ(cursor_position, 0);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRightCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowRightCtrl));
   EXPECT_EQ(cursor_position, 4);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRightCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowRightCtrl));
   EXPECT_EQ(cursor_position, 9);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRightCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowRightCtrl));
   EXPECT_EQ(cursor_position, 16);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRightCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowRightCtrl));
   EXPECT_EQ(cursor_position, 23);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRightCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowRightCtrl));
   EXPECT_EQ(cursor_position, 28);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRightCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowRightCtrl));
   EXPECT_EQ(cursor_position, 35);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRightCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowRightCtrl));
   EXPECT_EQ(cursor_position, 45);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRightCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowRightCtrl));
   EXPECT_EQ(cursor_position, 52);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRightCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowRightCtrl));
   EXPECT_EQ(cursor_position, 59);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRightCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowRightCtrl));
   EXPECT_EQ(cursor_position, 66);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRightCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowRightCtrl));
   EXPECT_EQ(cursor_position, 73);
 }
 
@@ -479,25 +480,25 @@ TEST(InputTest, CtrlArrowLeft2) {
                                });
 
   // Use CTRL+Left several time
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeftCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeftCtrl));
   EXPECT_EQ(cursor_position, 31);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeftCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeftCtrl));
   EXPECT_EQ(cursor_position, 23);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeftCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeftCtrl));
   EXPECT_EQ(cursor_position, 15);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeftCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeftCtrl));
   EXPECT_EQ(cursor_position, 9);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeftCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeftCtrl));
   EXPECT_EQ(cursor_position, 3);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowLeftCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowLeftCtrl));
   EXPECT_EQ(cursor_position, 0);
 
-  EXPECT_FALSE(input->OnEvent(Event::ArrowLeftCtrl));
+  REQUIRE_FALSE(input->OnEvent(Event::ArrowLeftCtrl));
   EXPECT_EQ(cursor_position, 0);
 }
 
@@ -509,31 +510,31 @@ TEST(InputTest, CtrlArrowRight) {
   auto input = Input(&content, {.cursor_position = &cursor_position});
 
   // Use CTRL+Left several time
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRightCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowRightCtrl));
   EXPECT_EQ(cursor_position, 4);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRightCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowRightCtrl));
   EXPECT_EQ(cursor_position, 9);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRightCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowRightCtrl));
   EXPECT_EQ(cursor_position, 16);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRightCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowRightCtrl));
   EXPECT_EQ(cursor_position, 23);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRightCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowRightCtrl));
   EXPECT_EQ(cursor_position, 28);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRightCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowRightCtrl));
   EXPECT_EQ(cursor_position, 35);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRightCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowRightCtrl));
   EXPECT_EQ(cursor_position, 42);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRightCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowRightCtrl));
   EXPECT_EQ(cursor_position, 49);
 
-  EXPECT_FALSE(input->OnEvent(Event::ArrowRightCtrl));
+  REQUIRE_FALSE(input->OnEvent(Event::ArrowRightCtrl));
   EXPECT_EQ(cursor_position, 49);
 }
 
@@ -543,25 +544,25 @@ TEST(InputTest, CtrlArrowRight2) {
   auto input = Input(&content, {.cursor_position = &cursor_position});
 
   // Use CTRL+Left several time
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRightCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowRightCtrl));
   EXPECT_EQ(cursor_position, 7);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRightCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowRightCtrl));
   EXPECT_EQ(cursor_position, 13);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRightCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowRightCtrl));
   EXPECT_EQ(cursor_position, 21);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRightCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowRightCtrl));
   EXPECT_EQ(cursor_position, 29);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRightCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowRightCtrl));
   EXPECT_EQ(cursor_position, 35);
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowRightCtrl));
+  REQUIRE(true == input->OnEvent(Event::ArrowRightCtrl));
   EXPECT_EQ(cursor_position, 38);
 
-  EXPECT_FALSE(input->OnEvent(Event::ArrowRightCtrl));
+  REQUIRE_FALSE(input->OnEvent(Event::ArrowRightCtrl));
   EXPECT_EQ(cursor_position, 38);
 }
 
@@ -626,61 +627,61 @@ TEST(InputTest, MouseClick) {
 
   mouse.x = 0;
   mouse.y = 0;
-  EXPECT_TRUE(input->OnEvent(Event::Mouse("", mouse)));
+  REQUIRE(true == input->OnEvent(Event::Mouse("", mouse)));
   render();
   EXPECT_EQ(cursor_position, 0u);
 
   mouse.x = 2;
   mouse.y = 0;
-  EXPECT_TRUE(input->OnEvent(Event::Mouse("", mouse)));
+  REQUIRE(true == input->OnEvent(Event::Mouse("", mouse)));
   render();
   EXPECT_EQ(cursor_position, 2u);
 
   mouse.x = 2;
   mouse.y = 0;
-  EXPECT_FALSE(input->OnEvent(Event::Mouse("", mouse)));
+  REQUIRE_FALSE(input->OnEvent(Event::Mouse("", mouse)));
   render();
   EXPECT_EQ(cursor_position, 2u);
 
   mouse.x = 1;
   mouse.y = 0;
-  EXPECT_TRUE(input->OnEvent(Event::Mouse("", mouse)));
+  REQUIRE(true == input->OnEvent(Event::Mouse("", mouse)));
   render();
   EXPECT_EQ(cursor_position, 1u);
 
   mouse.x = 3;
   mouse.y = 0;
-  EXPECT_TRUE(input->OnEvent(Event::Mouse("", mouse)));
+  REQUIRE(true == input->OnEvent(Event::Mouse("", mouse)));
   render();
   EXPECT_EQ(cursor_position, 3u);
 
   mouse.x = 4;
   mouse.y = 0;
-  EXPECT_TRUE(input->OnEvent(Event::Mouse("", mouse)));
+  REQUIRE(true == input->OnEvent(Event::Mouse("", mouse)));
   render();
   EXPECT_EQ(cursor_position, 4u);
 
   mouse.x = 5;
   mouse.y = 0;
-  EXPECT_FALSE(input->OnEvent(Event::Mouse("", mouse)));
+  REQUIRE_FALSE(input->OnEvent(Event::Mouse("", mouse)));
   render();
   EXPECT_EQ(cursor_position, 4u);
 
   mouse.x = 5;
   mouse.y = 1;
-  EXPECT_TRUE(input->OnEvent(Event::Mouse("", mouse)));
+  REQUIRE(true == input->OnEvent(Event::Mouse("", mouse)));
   render();
   EXPECT_EQ(cursor_position, 9u);
 
   mouse.x = 1;
   mouse.y = 1;
-  EXPECT_TRUE(input->OnEvent(Event::Mouse("", mouse)));
+  REQUIRE(true == input->OnEvent(Event::Mouse("", mouse)));
   render();
   EXPECT_EQ(cursor_position, 6u);
 
   mouse.x = 4;
   mouse.y = 2;
-  EXPECT_TRUE(input->OnEvent(Event::Mouse("", mouse)));
+  REQUIRE(true == input->OnEvent(Event::Mouse("", mouse)));
   render();
   EXPECT_EQ(cursor_position, 10u);
 }
@@ -718,25 +719,25 @@ TEST(InputTest, MouseClickComplex) {
 
   mouse.x = 0;
   mouse.y = 0;
-  EXPECT_TRUE(input->OnEvent(Event::Mouse("", mouse)));
+  REQUIRE(true == input->OnEvent(Event::Mouse("", mouse)));
   render();
   EXPECT_EQ(cursor_position, 0);
 
   mouse.x = 0;
   mouse.y = 1;
-  EXPECT_TRUE(input->OnEvent(Event::Mouse("", mouse)));
+  REQUIRE(true == input->OnEvent(Event::Mouse("", mouse)));
   render();
   EXPECT_EQ(cursor_position, 14);
 
   mouse.x = 1;
   mouse.y = 0;
-  EXPECT_TRUE(input->OnEvent(Event::Mouse("", mouse)));
+  REQUIRE(true == input->OnEvent(Event::Mouse("", mouse)));
   render();
   EXPECT_EQ(cursor_position, 3);
 
   mouse.x = 1;
   mouse.y = 1;
-  EXPECT_TRUE(input->OnEvent(Event::Mouse("", mouse)));
+  REQUIRE(true == input->OnEvent(Event::Mouse("", mouse)));
   render();
   EXPECT_EQ(cursor_position, 17);
 }
@@ -748,9 +749,9 @@ TEST(InputTest, OnEnter) {
   option.on_enter = [&] { on_enter_called = true; };
   Component input = Input(&content, option);
 
-  EXPECT_FALSE(on_enter_called);
-  EXPECT_TRUE(input->OnEvent(Event::Return));
-  EXPECT_TRUE(on_enter_called);
+  REQUIRE_FALSE(on_enter_called);
+  REQUIRE(true == input->OnEvent(Event::Return));
+  REQUIRE(true == on_enter_called);
 }
 
 TEST(InputTest, InsertMode) {
@@ -763,21 +764,21 @@ TEST(InputTest, InsertMode) {
       .cursor_position = &cursor_position,
   });
 
-  EXPECT_TRUE(insert);
-  EXPECT_TRUE(input->OnEvent(Event::Insert));
-  EXPECT_FALSE(insert);
+  REQUIRE(true == insert);
+  REQUIRE(true == input->OnEvent(Event::Insert));
+  REQUIRE_FALSE(insert);
 
   EXPECT_EQ(content, "abc\nefg");
-  EXPECT_TRUE(input->OnEvent(Event::Character('x')));
+  REQUIRE(true == input->OnEvent(Event::Character('x')));
   EXPECT_EQ(content, "axc\nefg");
-  EXPECT_TRUE(input->OnEvent(Event::Character('y')));
+  REQUIRE(true == input->OnEvent(Event::Character('y')));
   EXPECT_EQ(content, "axy\nefg");
-  EXPECT_TRUE(input->OnEvent(Event::Character('z')));
+  REQUIRE(true == input->OnEvent(Event::Character('z')));
   EXPECT_EQ(content, "axyz\nefg");
 
-  EXPECT_TRUE(input->OnEvent(Event::ArrowDown));
+  REQUIRE(true == input->OnEvent(Event::ArrowDown));
   EXPECT_EQ(content, "axyz\nefg");
-  EXPECT_TRUE(input->OnEvent(Event::Character('X')));
+  REQUIRE(true == input->OnEvent(Event::Character('X')));
   EXPECT_EQ(content, "axyz\nefgX");
 }
 

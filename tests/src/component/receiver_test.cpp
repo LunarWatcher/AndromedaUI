@@ -5,7 +5,8 @@
 #include <utility>  // for move
 
 #include "andromeda/component/receiver.hpp"
-#include "gtest/gtest.h"  // for AssertionResult, Message, Test, TestPartResult, EXPECT_EQ, EXPECT_TRUE, EXPECT_FALSE, TEST
+#include "catch2/catch_test_macros.hpp"  // for AssertionResult, Message, Test, TestPartResult, EXPECT_EQ, EXPECT_TRUE, REQUIRE_FALSE, TEST
+#include <migrate/GTestCompat.hpp>
 
 // NOLINTBEGIN
 namespace andromeda {
@@ -20,10 +21,10 @@ TEST(Receiver, Basic) {
   sender.reset();
 
   char a, b, c, d;
-  EXPECT_TRUE(receiver->Receive(&a));
-  EXPECT_TRUE(receiver->Receive(&b));
-  EXPECT_TRUE(receiver->Receive(&c));
-  EXPECT_FALSE(receiver->Receive(&d));
+  REQUIRE(true == receiver->Receive(&a));
+  REQUIRE(true == receiver->Receive(&b));
+  REQUIRE(true == receiver->Receive(&c));
+  REQUIRE_FALSE(receiver->Receive(&d));
 
   EXPECT_EQ(a, 'a');
   EXPECT_EQ(b, 'b');
@@ -62,15 +63,15 @@ TEST(Receiver, BasicWithThread) {
   s1_bis.reset();
 
   char c;
-  EXPECT_TRUE(r3->Receive(&c));
+  REQUIRE(true == r3->Receive(&c));
   EXPECT_EQ(c, '1');
-  EXPECT_TRUE(r3->Receive(&c));
+  REQUIRE(true == r3->Receive(&c));
   EXPECT_EQ(c, '2');
-  EXPECT_TRUE(r3->Receive(&c));
+  REQUIRE(true == r3->Receive(&c));
   EXPECT_EQ(c, '3');
-  EXPECT_TRUE(r3->Receive(&c));
+  REQUIRE(true == r3->Receive(&c));
   EXPECT_EQ(c, '4');
-  EXPECT_FALSE(r3->Receive(&c));
+  REQUIRE_FALSE(r3->Receive(&c));
 
   // Thread will end at the end of the stream.
   t12.join();

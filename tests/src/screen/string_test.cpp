@@ -2,7 +2,8 @@
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
 #include "andromeda/screen/string.hpp"
-#include <gtest/gtest.h>
+#include <catch2/catch_test_macros.hpp>
+#include <migrate/GTestCompat.hpp>
 #include <string>  // for allocator, string
 #include "andromeda/screen/string_internal.hpp"
 
@@ -105,14 +106,14 @@ TEST(StringTest, GlyphIterate) {
 TEST(StringTest, CellToGlyphIndex) {
   // Basic:
   auto basic = CellToGlyphIndex("abc");
-  ASSERT_EQ(basic.size(), 3);
+  EXPECT_EQ(basic.size(), 3);
   EXPECT_EQ(basic[0], 0);
   EXPECT_EQ(basic[1], 1);
   EXPECT_EQ(basic[2], 2);
 
   // Fullwidth glyphs:
   auto fullwidth = CellToGlyphIndex("测试");
-  ASSERT_EQ(fullwidth.size(), 4);
+  EXPECT_EQ(fullwidth.size(), 4);
   EXPECT_EQ(fullwidth[0], 0);
   EXPECT_EQ(fullwidth[1], 0);
   EXPECT_EQ(fullwidth[2], 1);
@@ -120,7 +121,7 @@ TEST(StringTest, CellToGlyphIndex) {
 
   // Combining characters:
   auto combining = CellToGlyphIndex("a⃒a̗ā");
-  ASSERT_EQ(combining.size(), 3);
+  EXPECT_EQ(combining.size(), 3);
   EXPECT_EQ(combining[0], 0);
   EXPECT_EQ(combining[1], 1);
   EXPECT_EQ(combining[2], 2);

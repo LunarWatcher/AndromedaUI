@@ -6,7 +6,8 @@
 #include "andromeda/dom/elements.hpp"     // for Element, text
 #include "andromeda/dom/node.hpp"         // for Render
 #include "andromeda/screen/screen.hpp"  // for Screen
-#include "gtest/gtest.h"  // for AssertionResult, Message, Test, TestPartResult, EXPECT_EQ, EXPECT_FALSE, EXPECT_TRUE, TEST
+#include "catch2/catch_test_macros.hpp"  // for AssertionResult, Message, Test, TestPartResult, EXPECT_EQ, REQUIRE_FALSE, EXPECT_TRUE, TEST
+#include <migrate/GTestCompat.hpp>
 
 // NOLINTBEGIN
 namespace andromeda {
@@ -16,11 +17,11 @@ TEST(CollapsibleTest, Basic) {
   bool show = false;
   auto collapsible = Collapsible("parent", child, &show);
 
-  EXPECT_TRUE(collapsible->Focused());
-  EXPECT_FALSE(child->Focused());
-  EXPECT_FALSE(collapsible->OnEvent(Event::ArrowDown));
-  EXPECT_TRUE(collapsible->Focused());
-  EXPECT_FALSE(child->Focused());
+  REQUIRE(true == collapsible->Focused());
+  REQUIRE_FALSE(child->Focused());
+  REQUIRE_FALSE(collapsible->OnEvent(Event::ArrowDown));
+  REQUIRE(true == collapsible->Focused());
+  REQUIRE_FALSE(child->Focused());
 
   {
     Screen screen(8, 3);

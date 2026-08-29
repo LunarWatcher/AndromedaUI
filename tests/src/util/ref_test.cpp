@@ -4,7 +4,8 @@
 
 #include "andromeda/util/ref.hpp"
 
-#include <gtest/gtest.h>
+#include <catch2/catch_test_macros.hpp>
+#include <migrate/GTestCompat.hpp>
 #include "andromeda/component/component.hpp"
 
 namespace andromeda {

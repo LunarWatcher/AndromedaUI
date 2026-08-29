@@ -5,7 +5,8 @@
 #include "andromeda/component/component.hpp"  // for Horizontal, Vertical, Button, Tab
 #include "andromeda/component/component_base.hpp"  // for ComponentBase, Component
 #include "andromeda/component/event.hpp"  // for Event, Event::Tab, Event::TabReverse, Event::ArrowDown, Event::ArrowLeft, Event::ArrowRight, Event::ArrowUp
-#include "gtest/gtest.h"  // for AssertionResult, Message, TestPartResult, EXPECT_EQ, EXPECT_FALSE, Test, EXPECT_TRUE, TEST
+#include "catch2/catch_test_macros.hpp"  // for AssertionResult, Message, TestPartResult, EXPECT_EQ, REQUIRE_FALSE, Test, EXPECT_TRUE, TEST
+#include <migrate/GTestCompat.hpp>
 
 namespace andromeda {
 

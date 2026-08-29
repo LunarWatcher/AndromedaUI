@@ -11,7 +11,8 @@
 #include "andromeda/dom/elements.hpp"   // for Element, separatorDouble, text
 #include "andromeda/dom/node.hpp"       // for Render
 #include "andromeda/screen/screen.hpp"  // for Screen
-#include "gtest/gtest.h"  // for AssertionResult, Message, TestPartResult, Test, EXPECT_EQ, EXPECT_TRUE, TEST
+#include "catch2/catch_test_macros.hpp"  // for AssertionResult, Message, TestPartResult, Test, EXPECT_EQ, EXPECT_TRUE, TEST
+#include <migrate/GTestCompat.hpp>
 
 // NOLINTBEGIN
 namespace andromeda {
@@ -53,11 +54,11 @@ TEST(ResizableSplit, BasicLeft) {
   auto screen = Screen(20, 20);
   Render(screen, component->Render());
   EXPECT_EQ(position, 3);
-  EXPECT_TRUE(component->OnEvent(MousePressed(3, 1)));
+  REQUIRE(true == component->OnEvent(MousePressed(3, 1)));
   EXPECT_EQ(position, 3);
-  EXPECT_TRUE(component->OnEvent(MousePressed(10, 1)));
+  REQUIRE(true == component->OnEvent(MousePressed(10, 1)));
   EXPECT_EQ(position, 10);
-  EXPECT_TRUE(component->OnEvent(MouseReleased(10, 1)));
+  REQUIRE(true == component->OnEvent(MouseReleased(10, 1)));
   EXPECT_EQ(position, 10);
 }
 
@@ -78,11 +79,11 @@ TEST(ResizableSplit, BasicLeftWithCustomSeparator) {
             " ║  \r\n"
             " ║  \r\n"
             " ║  ");
-  EXPECT_TRUE(component->OnEvent(MousePressed(1, 1)));
+  REQUIRE(true == component->OnEvent(MousePressed(1, 1)));
   EXPECT_EQ(position, 1);
-  EXPECT_TRUE(component->OnEvent(MousePressed(2, 1)));
+  REQUIRE(true == component->OnEvent(MousePressed(2, 1)));
   EXPECT_EQ(position, 2);
-  EXPECT_TRUE(component->OnEvent(MouseReleased(2, 1)));
+  REQUIRE(true == component->OnEvent(MouseReleased(2, 1)));
   EXPECT_EQ(position, 2);
 }
 
@@ -93,11 +94,11 @@ TEST(ResizableSplit, BasicRight) {
   auto screen = Screen(20, 20);
   Render(screen, component->Render());
   EXPECT_EQ(position, 3);
-  EXPECT_TRUE(component->OnEvent(MousePressed(16, 1)));
+  REQUIRE(true == component->OnEvent(MousePressed(16, 1)));
   EXPECT_EQ(position, 3);
-  EXPECT_TRUE(component->OnEvent(MousePressed(10, 1)));
+  REQUIRE(true == component->OnEvent(MousePressed(10, 1)));
   EXPECT_EQ(position, 9);
-  EXPECT_TRUE(component->OnEvent(MouseReleased(10, 1)));
+  REQUIRE(true == component->OnEvent(MouseReleased(10, 1)));
   EXPECT_EQ(position, 9);
 }
 
@@ -118,11 +119,11 @@ TEST(ResizableSplit, BasicRightWithCustomSeparator) {
             "  ║ \r\n"
             "  ║ \r\n"
             "  ║ ");
-  EXPECT_TRUE(component->OnEvent(MousePressed(2, 1)));
+  REQUIRE(true == component->OnEvent(MousePressed(2, 1)));
   EXPECT_EQ(position, 1);
-  EXPECT_TRUE(component->OnEvent(MousePressed(1, 1)));
+  REQUIRE(true == component->OnEvent(MousePressed(1, 1)));
   EXPECT_EQ(position, 2);
-  EXPECT_TRUE(component->OnEvent(MouseReleased(1, 1)));
+  REQUIRE(true == component->OnEvent(MouseReleased(1, 1)));
   EXPECT_EQ(position, 2);
 }
 
@@ -133,11 +134,11 @@ TEST(ResizableSplit, BasicTop) {
   auto screen = Screen(20, 20);
   Render(screen, component->Render());
   EXPECT_EQ(position, 3);
-  EXPECT_TRUE(component->OnEvent(MousePressed(1, 3)));
+  REQUIRE(true == component->OnEvent(MousePressed(1, 3)));
   EXPECT_EQ(position, 3);
-  EXPECT_TRUE(component->OnEvent(MousePressed(1, 10)));
+  REQUIRE(true == component->OnEvent(MousePressed(1, 10)));
   EXPECT_EQ(position, 10);
-  EXPECT_TRUE(component->OnEvent(MouseReleased(1, 10)));
+  REQUIRE(true == component->OnEvent(MouseReleased(1, 10)));
   EXPECT_EQ(position, 10);
 }
 
@@ -158,11 +159,11 @@ TEST(ResizableSplit, BasicTopWithCustomSeparator) {
             "════\r\n"
             "    \r\n"
             "    ");
-  EXPECT_TRUE(component->OnEvent(MousePressed(1, 1)));
+  REQUIRE(true == component->OnEvent(MousePressed(1, 1)));
   EXPECT_EQ(position, 1);
-  EXPECT_TRUE(component->OnEvent(MousePressed(1, 2)));
+  REQUIRE(true == component->OnEvent(MousePressed(1, 2)));
   EXPECT_EQ(position, 2);
-  EXPECT_TRUE(component->OnEvent(MouseReleased(1, 2)));
+  REQUIRE(true == component->OnEvent(MouseReleased(1, 2)));
   EXPECT_EQ(position, 2);
 }
 
@@ -173,11 +174,11 @@ TEST(ResizableSplit, BasicBottom) {
   auto screen = Screen(20, 20);
   Render(screen, component->Render());
   EXPECT_EQ(position, 3);
-  EXPECT_TRUE(component->OnEvent(MousePressed(1, 16)));
+  REQUIRE(true == component->OnEvent(MousePressed(1, 16)));
   EXPECT_EQ(position, 3);
-  EXPECT_TRUE(component->OnEvent(MousePressed(1, 10)));
+  REQUIRE(true == component->OnEvent(MousePressed(1, 10)));
   EXPECT_EQ(position, 9);
-  EXPECT_TRUE(component->OnEvent(MouseReleased(1, 10)));
+  REQUIRE(true == component->OnEvent(MouseReleased(1, 10)));
   EXPECT_EQ(position, 9);
 }
 
@@ -198,11 +199,11 @@ TEST(ResizableSplit, BasicBottomWithCustomSeparator) {
             "    \r\n"
             "════\r\n"
             "    ");
-  EXPECT_TRUE(component->OnEvent(MousePressed(1, 2)));
+  REQUIRE(true == component->OnEvent(MousePressed(1, 2)));
   EXPECT_EQ(position, 1);
-  EXPECT_TRUE(component->OnEvent(MousePressed(1, 1)));
+  REQUIRE(true == component->OnEvent(MousePressed(1, 1)));
   EXPECT_EQ(position, 2);
-  EXPECT_TRUE(component->OnEvent(MouseReleased(1, 1)));
+  REQUIRE(true == component->OnEvent(MouseReleased(1, 1)));
   EXPECT_EQ(position, 2);
 }
 
@@ -213,24 +214,24 @@ TEST(ResizableSplit, NavigationVertical) {
   auto component =
       ResizableSplitTop(component_top, component_bottom, &position);
 
-  EXPECT_TRUE(component_top->Active());
-  EXPECT_FALSE(component_bottom->Active());
+  REQUIRE(true == component_top->Active());
+  REQUIRE_FALSE(component_bottom->Active());
 
-  EXPECT_FALSE(component->OnEvent(Event::ArrowRight));
-  EXPECT_TRUE(component_top->Active());
-  EXPECT_FALSE(component_bottom->Active());
+  REQUIRE_FALSE(component->OnEvent(Event::ArrowRight));
+  REQUIRE(true == component_top->Active());
+  REQUIRE_FALSE(component_bottom->Active());
 
-  EXPECT_TRUE(component->OnEvent(Event::ArrowDown));
-  EXPECT_FALSE(component_top->Active());
-  EXPECT_TRUE(component_bottom->Active());
+  REQUIRE(true == component->OnEvent(Event::ArrowDown));
+  REQUIRE_FALSE(component_top->Active());
+  REQUIRE(true == component_bottom->Active());
 
-  EXPECT_FALSE(component->OnEvent(Event::ArrowDown));
-  EXPECT_FALSE(component_top->Active());
-  EXPECT_TRUE(component_bottom->Active());
+  REQUIRE_FALSE(component->OnEvent(Event::ArrowDown));
+  REQUIRE_FALSE(component_top->Active());
+  REQUIRE(true == component_bottom->Active());
 
-  EXPECT_TRUE(component->OnEvent(Event::ArrowUp));
-  EXPECT_TRUE(component_top->Active());
-  EXPECT_FALSE(component_bottom->Active());
+  REQUIRE(true == component->OnEvent(Event::ArrowUp));
+  REQUIRE(true == component_top->Active());
+  REQUIRE_FALSE(component_bottom->Active());
 }
 
 }  // namespace andromeda

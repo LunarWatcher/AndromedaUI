@@ -1,7 +1,8 @@
 // Copyright 2021 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#include <gtest/gtest.h>  // for Test, TestInfo (ptr only), TEST, EXPECT_EQ, Message, TestPartResult
+#include <catch2/catch_test_macros.hpp>  // for Test, TestInfo (ptr only), TEST, EXPECT_EQ, Message, TestPartResult
+#include <migrate/GTestCompat.hpp>
 #include <csignal>  // for raise, SIGABRT, SIGFPE, SIGILL, SIGINT, SIGSEGV, SIGTERM
 #include <andromeda/component/event.hpp>  // for Event, Event::Custom
 #include <tuple>                      // for _Swallow_assign, ignore
@@ -101,7 +102,7 @@ TEST(ScreenInteractive, CtrlC_Forced) {
   });
   screen.Loop(component);
 
-  ASSERT_LE(ctrl_c_count, 50);
+  REQUIRE(ctrl_c_count <= 50);
 }
 
 TEST(ScreenInteractive, CtrlC_NotForced) {
@@ -128,7 +129,7 @@ TEST(ScreenInteractive, CtrlC_NotForced) {
   });
   screen.Loop(component);
 
-  ASSERT_GE(ctrl_c_count, 50);
+  REQUIRE(ctrl_c_count >= 50);
 }
 
 }  // namespace andromeda

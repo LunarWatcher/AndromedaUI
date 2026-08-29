@@ -1,3 +1,4 @@
+option(ANDROMEDAUI_BUILD_TESTS "Set to ON to build tests" OFF)
 option(ANDROMEDAUI_BUILD_EXAMPLES "Set to ON to build examples" OFF)
 option(ANDROMEDAUI_CLANG_TIDY "Execute clang-tidy" OFF)
 option(ANDROMEDAUI_DEV_WARNINGS "Enable more compiler warnings and warnings as errors" OFF)
@@ -30,13 +31,6 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 include(cmake/andromeda_message.cmake)
 
 add_library(screen
-  include/andromeda/screen/box.hpp
-  include/andromeda/screen/color.hpp
-  include/andromeda/screen/color_info.hpp
-  include/andromeda/screen/image.hpp
-  include/andromeda/screen/pixel.hpp
-  include/andromeda/screen/screen.hpp
-  include/andromeda/screen/string.hpp
   src/andromeda/screen/box.cpp
   src/andromeda/screen/color.cpp
   src/andromeda/screen/color_info.cpp
@@ -48,14 +42,6 @@ add_library(screen
 )
 
 add_library(dom
-  include/andromeda/dom/canvas.hpp
-  include/andromeda/dom/direction.hpp
-  include/andromeda/dom/elements.hpp
-  include/andromeda/dom/flexbox_config.hpp
-  include/andromeda/dom/node.hpp
-  include/andromeda/dom/requirement.hpp
-  include/andromeda/dom/selection.hpp
-  include/andromeda/dom/take_any_args.hpp
   src/andromeda/dom/automerge.cpp
   src/andromeda/dom/selection_style.cpp
   src/andromeda/dom/blink.cpp
@@ -103,17 +89,6 @@ add_library(dom
 )
 
 add_library(component
-  include/andromeda/component/animation.hpp
-  include/andromeda/component/captured_mouse.hpp
-  include/andromeda/component/component.hpp
-  include/andromeda/component/component_base.hpp
-  include/andromeda/component/component_options.hpp
-  include/andromeda/component/event.hpp
-  include/andromeda/component/loop.hpp
-  include/andromeda/component/mouse.hpp
-  include/andromeda/component/receiver.hpp
-  include/andromeda/component/screen_interactive.hpp
-  include/andromeda/component/task.hpp
   src/andromeda/component/animation.cpp
   src/andromeda/component/button.cpp
   src/andromeda/component/catch_event.cpp
@@ -142,6 +117,10 @@ add_library(component
   src/andromeda/component/window.cpp
 )
 
+target_include_directories(component PUBLIC ./src)
+target_include_directories(dom PUBLIC ./src)
+target_include_directories(screen PUBLIC ./src)
+
 target_link_libraries(dom
   PUBLIC screen
 )
@@ -166,6 +145,14 @@ include(cmake/iwyu.cmake)
 include(cmake/andromeda_export.cmake)
 
 add_subdirectory(examples)
+
+if (ANDROMEDAUI_BUILD_TESTS)
+    add_subdirectory(tests EXCLUDE_FROM_ALL)
+    add_custom_target(test
+        COMMAND tests
+        DEPENDS tests
+        COMMENT "Test Andromeda")
+endif()
 
 # You can generate ./examples_modules/ by running
 # ./tools/generate_examples_modules.sh

@@ -5,7 +5,8 @@
 
 #include "andromeda/component/component.hpp"       // for Make
 #include "andromeda/component/component_base.hpp"  // for ComponentBase, Component
-#include "gtest/gtest.h"  // for Message, TestPartResult, EXPECT_EQ, Test, AssertionResult, TEST, EXPECT_FALSE
+#include "catch2/catch_test_macros.hpp"  // for Message, TestPartResult, EXPECT_EQ, Test, AssertionResult, TEST, REQUIRE_FALSE
+#include <migrate/GTestCompat.hpp>
 
 namespace andromeda {
 
@@ -161,13 +162,13 @@ TEST(ComponentTest, NonFocusableAreNotFocused) {
     bool Focusable() const override { return false; }
   };
   auto root = Make<NonFocusable>();
-  EXPECT_FALSE(root->Focused());
+  REQUIRE_FALSE(root->Focused());
   EXPECT_EQ(root->ActiveChild(), nullptr);
 
   auto child = Make<NonFocusable>();
   root->Add(child);
-  EXPECT_FALSE(root->Focused());
-  EXPECT_FALSE(child->Focused());
+  REQUIRE_FALSE(root->Focused());
+  REQUIRE_FALSE(child->Focused());
   EXPECT_EQ(root->ActiveChild(), nullptr);
   EXPECT_EQ(child->ActiveChild(), nullptr);
 }
