@@ -1,23 +1,16 @@
-option(FTXUI_BUILD_DOCS "Set to ON to build docs" OFF)
 option(FTXUI_BUILD_EXAMPLES "Set to ON to build examples" OFF)
 option(FTXUI_BUILD_MODULES "Build the C++20 modules" OFF)
-option(FTXUI_BUILD_TESTS "Set to ON to build tests" OFF)
-option(FTXUI_BUILD_TESTS_FUZZER "Set to ON to enable fuzzing" OFF)
 option(FTXUI_CLANG_TIDY "Execute clang-tidy" OFF)
 option(FTXUI_DEV_WARNINGS "Enable more compiler warnings and warnings as errors" OFF)
 option(FTXUI_ENABLE_COVERAGE "Execute code coverage" OFF)
 option(FTXUI_ENABLE_INSTALL "Generate the install target" ON)
 option(FTXUI_QUIET "Set to ON for FTXUI to be quiet" OFF)
 
-if (FTXUI_BUILD_MODULES)
-  cmake_minimum_required(VERSION 3.28.2)
-else()
-  cmake_minimum_required(VERSION 3.12)
-endif()
+cmake_minimum_required(VERSION 3.28.2)
 
-project(ftxui
+project(AndromedaUI
   LANGUAGES CXX
-  VERSION 6.1.9
+  VERSION 1.0.0
   DESCRIPTION "C++ Functional Terminal User Interface."
 )
 
@@ -175,16 +168,11 @@ ftxui_check_coverage(screen)
 ftxui_check_coverage(dom)
 ftxui_check_coverage(component)
 
-include(cmake/ftxui_test.cmake)
-include(cmake/ftxui_benchmark.cmake)
-include(cmake/ftxui_fuzzer.cmake)
 include(cmake/iwyu.cmake)
 include(cmake/ftxui_export.cmake)
-include(cmake/ftxui_install.cmake)
 include(cmake/ftxui_package.cmake)
 include(cmake/ftxui_modules.cmake)
 
-add_subdirectory(doc)
 add_subdirectory(examples)
 
 # You can generate ./examples_modules/ by running
