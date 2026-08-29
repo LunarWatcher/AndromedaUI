@@ -1,8 +1,8 @@
 // Copyright 2023 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#ifndef FTXUI_SCREEN_STRING_INTERNAL_HPP
-#define FTXUI_SCREEN_STRING_INTERNAL_HPP
+#ifndef ANDROMEDAUI_SCREEN_STRING_INTERNAL_HPP
+#define ANDROMEDAUI_SCREEN_STRING_INTERNAL_HPP
 
 #include <cstdint>
 #include <string>
@@ -64,4 +64,4 @@ std::vector<WordBreakProperty> Utf8ToWordBreakProperty(
 bool IsWordBreakingCharacter(const std::string& input, size_t glyph_index);
 }  // namespace andromeda
 
-#endif /* end of include guard: FTXUI_SCREEN_STRING_INTERNAL_HPP */
+#endif /* end of include guard: ANDROMEDAUI_SCREEN_STRING_INTERNAL_HPP */

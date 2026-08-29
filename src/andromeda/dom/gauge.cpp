@@ -16,7 +16,7 @@ namespace andromeda {
 namespace {
 // NOLINTNEXTLINE
 static const std::string charset_horizontal[11] = {
-#if defined(FTXUI_MICROSOFT_TERMINAL_FALLBACK)
+#if defined(ANDROMEDAUI_MICROSOFT_TERMINAL_FALLBACK)
     // Microsoft's terminals often use fonts not handling the 8 unicode
     // characters for representing the whole gauge. Fallback with less.
     " ", " ", " ", " ", "▌", "▌", "▌", "█", "█", "█",

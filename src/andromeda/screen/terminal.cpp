@@ -71,7 +71,7 @@ Terminal::Color ComputeColorSupport() {
     return Terminal::Color::Palette256;
   }
 
-#if defined(FTXUI_MICROSOFT_TERMINAL_FALLBACK)
+#if defined(ANDROMEDAUI_MICROSOFT_TERMINAL_FALLBACK)
   // Microsoft terminals do not properly declare themselves supporting true
   // colors: https://github.com/microsoft/terminal/issues/1040
   // As a fallback, assume microsoft terminal are the ones not setting those

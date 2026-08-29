@@ -1,9 +1,9 @@
-option(FTXUI_BUILD_EXAMPLES "Set to ON to build examples" OFF)
-option(FTXUI_CLANG_TIDY "Execute clang-tidy" OFF)
-option(FTXUI_DEV_WARNINGS "Enable more compiler warnings and warnings as errors" OFF)
-option(FTXUI_ENABLE_COVERAGE "Execute code coverage" OFF)
-option(FTXUI_ENABLE_INSTALL "Generate the install target" ON)
-option(FTXUI_QUIET "Set to ON for FTXUI to be quiet" OFF)
+option(ANDROMEDAUI_BUILD_EXAMPLES "Set to ON to build examples" OFF)
+option(ANDROMEDAUI_CLANG_TIDY "Execute clang-tidy" OFF)
+option(ANDROMEDAUI_DEV_WARNINGS "Enable more compiler warnings and warnings as errors" OFF)
+option(ANDROMEDAUI_ENABLE_COVERAGE "Execute code coverage" OFF)
+option(ANDROMEDAUI_ENABLE_INSTALL "Generate the install target" ON)
+option(ANDROMEDAUI_QUIET "Set to ON for FTXUI to be quiet" OFF)
 
 cmake_minimum_required(VERSION 3.28.2)
 
@@ -14,15 +14,15 @@ project(AndromedaUI
 )
 
 
-set(FTXUI_MICROSOFT_TERMINAL_FALLBACK_HELP_TEXT "On windows, assume the \
+set(ANDROMEDAUI_MICROSOFT_TERMINAL_FALLBACK_HELP_TEXT "On windows, assume the \
 terminal used will be one of Microsoft and use a set of reasonnable fallback \
 to counteract its implementations problems.")
 if (WIN32)
-  option(FTXUI_MICROSOFT_TERMINAL_FALLBACK
-    ${FTXUI_MICROSOFT_TERMINAL_FALLBACK_HELP_TEXT} ON)
+  option(ANDROMEDAUI_MICROSOFT_TERMINAL_FALLBACK
+    ${ANDROMEDAUI_MICROSOFT_TERMINAL_FALLBACK_HELP_TEXT} ON)
 else()
-  option(FTXUI_MICROSOFT_TERMINAL_FALLBACK
-    ${FTXUI_MICROSOFT_TERMINAL_FALLBACK_HELP_TEXT} OFF)
+  option(ANDROMEDAUI_MICROSOFT_TERMINAL_FALLBACK
+    ${ANDROMEDAUI_MICROSOFT_TERMINAL_FALLBACK_HELP_TEXT} OFF)
 endif()
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)

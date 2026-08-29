@@ -18,7 +18,7 @@ namespace andromeda {
 namespace {
 // NOLINTNEXTLINE
 static std::string charset[] =
-#if defined(FTXUI_MICROSOFT_TERMINAL_FALLBACK)
+#if defined(ANDROMEDAUI_MICROSOFT_TERMINAL_FALLBACK)
     // Microsoft's terminals often use fonts not handling the 8 unicode
     // characters for representing the whole graph. Fallback with less.
     {" ", " ", "█", " ", "█", "█", "█", "█", "█"};

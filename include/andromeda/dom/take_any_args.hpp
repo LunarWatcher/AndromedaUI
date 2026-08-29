@@ -1,8 +1,8 @@
 // Copyright 2020 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#ifndef FTXUI_DOM_TAKE_ANY_ARGS_HPP
-#define FTXUI_DOM_TAKE_ANY_ARGS_HPP
+#ifndef ANDROMEDAUI_DOM_TAKE_ANY_ARGS_HPP
+#define ANDROMEDAUI_DOM_TAKE_ANY_ARGS_HPP
 
 // IWYU pragma: private, include "andromeda/dom/elements.hpp"
 #include <andromeda/dom/node.hpp>
@@ -45,4 +45,4 @@ TAKE_ANY_ARGS(dbox)
 TAKE_ANY_ARGS(hflow)
 }  // namespace andromeda
 
-#endif  // FTXUI_DOM_TAKE_ANY_ARGS_HPP
+#endif  // ANDROMEDAUI_DOM_TAKE_ANY_ARGS_HPP

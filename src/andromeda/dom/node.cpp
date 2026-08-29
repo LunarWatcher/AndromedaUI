@@ -126,7 +126,7 @@ void Render(Screen& screen, Node* node, Selection& selection) {
   }
 
   if (node->requirement().focused.enabled
-#if defined(FTXUI_MICROSOFT_TERMINAL_FALLBACK)
+#if defined(ANDROMEDAUI_MICROSOFT_TERMINAL_FALLBACK)
       // Setting the cursor to the right position allow folks using CJK (China,
       // Japanese, Korean, ...) characters to see their [input method editor]
       // displayed at the right location. See [issue].

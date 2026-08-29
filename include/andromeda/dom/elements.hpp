@@ -1,8 +1,8 @@
 // Copyright 2020 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#ifndef FTXUI_DOM_ELEMENTS_HPP
-#define FTXUI_DOM_ELEMENTS_HPP
+#ifndef ANDROMEDAUI_DOM_ELEMENTS_HPP
+#define ANDROMEDAUI_DOM_ELEMENTS_HPP
 
 #include <functional>
 #include <memory>
@@ -199,4 +199,4 @@ Dimensions Fit(Element&, bool extend_beyond_screen = false);
 
 // Include old definitions using wstring.
 #include "andromeda/dom/deprecated.hpp"
-#endif  // FTXUI_DOM_ELEMENTS_HPP
+#endif  // ANDROMEDAUI_DOM_ELEMENTS_HPP

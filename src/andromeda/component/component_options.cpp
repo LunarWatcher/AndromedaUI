@@ -262,7 +262,7 @@ ButtonOption ButtonOption::Animated(Color background,
 CheckboxOption CheckboxOption::Simple() {
   auto option = CheckboxOption();
   option.transform = [](const EntryState& s) {
-#if defined(FTXUI_MICROSOFT_TERMINAL_FALLBACK)
+#if defined(ANDROMEDAUI_MICROSOFT_TERMINAL_FALLBACK)
     // Microsoft terminal do not use fonts able to render properly the default
     // radiobox glyph.
     auto prefix = text(s.state ? "[X] " : "[ ] ");  // NOLINT
@@ -287,7 +287,7 @@ CheckboxOption CheckboxOption::Simple() {
 RadioboxOption RadioboxOption::Simple() {
   auto option = RadioboxOption();
   option.transform = [](const EntryState& s) {
-#if defined(FTXUI_MICROSOFT_TERMINAL_FALLBACK)
+#if defined(ANDROMEDAUI_MICROSOFT_TERMINAL_FALLBACK)
     // Microsoft terminal do not use fonts able to render properly the default
     // radiobox glyph.
     auto prefix = text(s.state ? "(*) " : "( ) ");  // NOLINT

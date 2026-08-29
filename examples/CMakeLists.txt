@@ -1,4 +1,4 @@
-if(NOT FTXUI_BUILD_EXAMPLES)
+if(NOT ANDROMEDAUI_BUILD_EXAMPLES)
   return()
 endif()
 

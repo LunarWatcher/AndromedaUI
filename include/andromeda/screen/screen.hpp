@@ -1,8 +1,8 @@
 // Copyright 2020 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#ifndef FTXUI_SCREEN_SCREEN_HPP
-#define FTXUI_SCREEN_SCREEN_HPP
+#ifndef ANDROMEDAUI_SCREEN_SCREEN_HPP
+#define ANDROMEDAUI_SCREEN_SCREEN_HPP
 
 #include <cstdint>     // for uint8_t
 #include <functional>  // for function
@@ -85,4 +85,4 @@ class Screen : public Image {
 
 }  // namespace andromeda
 
-#endif  // FTXUI_SCREEN_SCREEN_HPP
+#endif  // ANDROMEDAUI_SCREEN_SCREEN_HPP

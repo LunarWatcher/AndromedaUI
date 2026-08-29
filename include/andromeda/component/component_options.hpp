@@ -1,8 +1,8 @@
 // Copyright 2021 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#ifndef FTXUI_COMPONENT_COMPONENT_OPTIONS_HPP
-#define FTXUI_COMPONENT_COMPONENT_OPTIONS_HPP
+#ifndef ANDROMEDAUI_COMPONENT_COMPONENT_OPTIONS_HPP
+#define ANDROMEDAUI_COMPONENT_COMPONENT_OPTIONS_HPP
 
 #include <chrono>                         // for milliseconds
 #include <andromeda/component/animation.hpp>  // for Duration, QuadraticInOut, Function
@@ -280,4 +280,4 @@ struct DropdownOption {
 
 }  // namespace andromeda
 
-#endif /* end of include guard: FTXUI_COMPONENT_COMPONENT_OPTIONS_HPP */
+#endif /* end of include guard: ANDROMEDAUI_COMPONENT_COMPONENT_OPTIONS_HPP */

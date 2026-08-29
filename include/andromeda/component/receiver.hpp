@@ -1,8 +1,8 @@
 // Copyright 2020 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#ifndef FTXUI_COMPONENT_RECEIVER_HPP_
-#define FTXUI_COMPONENT_RECEIVER_HPP_
+#ifndef ANDROMEDAUI_COMPONENT_RECEIVER_HPP_
+#define ANDROMEDAUI_COMPONENT_RECEIVER_HPP_
 
 #include <algorithm>           // for copy, max
 #include <atomic>              // for atomic, __atomic_base
@@ -142,4 +142,4 @@ Receiver<T> MakeReceiver() {
 
 }  // namespace andromeda
 
-#endif  // FTXUI_COMPONENT_RECEIVER_HPP_
+#endif  // ANDROMEDAUI_COMPONENT_RECEIVER_HPP_

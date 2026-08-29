@@ -1,8 +1,8 @@
 // Copyright 2021 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#ifndef FTXUI_DOM_TABLE
-#define FTXUI_DOM_TABLE
+#ifndef ANDROMEDAUI_DOM_TABLE
+#define ANDROMEDAUI_DOM_TABLE
 
 #include <string>  // for string
 #include <vector>  // for vector
@@ -92,4 +92,4 @@ class TableSelection {
 
 }  // namespace andromeda
 
-#endif /* end of include guard: FTXUI_DOM_TABLE */
+#endif /* end of include guard: ANDROMEDAUI_DOM_TABLE */

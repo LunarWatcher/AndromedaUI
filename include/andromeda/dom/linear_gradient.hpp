@@ -1,8 +1,8 @@
 // Copyright 2023 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#ifndef FTXUI_DOM_LINEAR_GRADIENT_HPP
-#define FTXUI_DOM_LINEAR_GRADIENT_HPP
+#ifndef ANDROMEDAUI_DOM_LINEAR_GRADIENT_HPP
+#define ANDROMEDAUI_DOM_LINEAR_GRADIENT_HPP
 
 #include <optional>
 #include <vector>
@@ -48,4 +48,4 @@ struct LinearGradient {
 
 }  // namespace andromeda
 
-#endif  // FTXUI_DOM_LINEAR_GRADIENT_HPP
+#endif  // ANDROMEDAUI_DOM_LINEAR_GRADIENT_HPP

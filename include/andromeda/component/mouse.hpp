@@ -1,8 +1,8 @@
 // Copyright 2020 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#ifndef FTXUI_COMPONENT_MOUSE_HPP
-#define FTXUI_COMPONENT_MOUSE_HPP
+#ifndef ANDROMEDAUI_COMPONENT_MOUSE_HPP
+#define ANDROMEDAUI_COMPONENT_MOUSE_HPP
 namespace andromeda {
 
 /// @brief A mouse event. It contains the coordinate of the mouse, the button
@@ -44,4 +44,4 @@ struct Mouse {
 
 }  // namespace andromeda
 
-#endif /* end of include guard: FTXUI_COMPONENT_MOUSE_HPP */
+#endif /* end of include guard: ANDROMEDAUI_COMPONENT_MOUSE_HPP */

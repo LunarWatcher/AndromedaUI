@@ -6,7 +6,7 @@ function(andromeda_set_options library)
     set_target_properties(${library} PROPERTIES OUTPUT_NAME "andromeda-${library}")
   endif()
 
-  if (FTXUI_CLANG_TIDY)
+  if (ANDROMEDAUI_CLANG_TIDY)
     if (NOT CLANG_TIDY_EXE)
       message(FATAL_ERROR "clang-tidy requested but executable not found")
     endif()
@@ -16,7 +16,7 @@ function(andromeda_set_options library)
     )
 
     # By using "PUBLIC" as opposed to "SYSTEM INTERFACE", the compiler warning
-    # are enforced on the headers. This is behind "FTXUI_CLANG_TIDY", so that it
+    # are enforced on the headers. This is behind "ANDROMEDAUI_CLANG_TIDY", so that it
     # applies only when developing FTXUI and on the CI. User's of the library
     # get only the SYSTEM INTERFACE instead.
     target_include_directories(${library}
@@ -58,7 +58,7 @@ function(andromeda_set_options library)
   # Add as many warning as possible:
   if (WIN32)
     if (MSVC)
-      if(FTXUI_DEV_WARNINGS)
+      if(ANDROMEDAUI_DEV_WARNINGS)
         target_compile_options(${library} PRIVATE "/W3")
         target_compile_options(${library} PRIVATE "/WX")
       endif()
@@ -69,7 +69,7 @@ function(andromeda_set_options library)
     # Force Win32 to UNICODE
     target_compile_definitions(${library} PRIVATE UNICODE _UNICODE)
   else()
-    if(FTXUI_DEV_WARNINGS)
+    if(ANDROMEDAUI_DEV_WARNINGS)
       target_compile_options(${library} PRIVATE "-Wall")
       target_compile_options(${library} PRIVATE "-Werror")
       target_compile_options(${library} PRIVATE "-Wextra")
@@ -87,15 +87,15 @@ function(andromeda_set_options library)
   endif()
 
   if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-    if(FTXUI_DEV_WARNINGS)
+    if(ANDROMEDAUI_DEV_WARNINGS)
       target_compile_options(${library} PRIVATE "-Wdocumentation")
     endif()
   endif()
 
 
-  if (FTXUI_MICROSOFT_TERMINAL_FALLBACK)
+  if (ANDROMEDAUI_MICROSOFT_TERMINAL_FALLBACK)
     target_compile_definitions(${library}
-      PRIVATE "FTXUI_MICROSOFT_TERMINAL_FALLBACK")
+      PRIVATE "ANDROMEDAUI_MICROSOFT_TERMINAL_FALLBACK")
   endif()
 endfunction()
 

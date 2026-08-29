@@ -1,8 +1,8 @@
 // Copyright 2022 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#ifndef FTXUI_COMPONENT_LOOP_HPP
-#define FTXUI_COMPONENT_LOOP_HPP
+#ifndef ANDROMEDAUI_COMPONENT_LOOP_HPP
+#define ANDROMEDAUI_COMPONENT_LOOP_HPP
 
 #include <memory>  // for shared_ptr
 
@@ -38,4 +38,4 @@ class Loop {
 
 }  // namespace andromeda
 
-#endif  // FTXUI_COMPONENT_LOOP_HPP
+#endif  // ANDROMEDAUI_COMPONENT_LOOP_HPP

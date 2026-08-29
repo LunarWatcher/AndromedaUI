@@ -24,21 +24,21 @@
 #endif
 
 // Macro for hinting that an expression is likely to be false.
-#if !defined(FTXUI_UNLIKELY)
+#if !defined(ANDROMEDAUI_UNLIKELY)
 #if defined(COMPILER_GCC) || defined(__clang__)
-#define FTXUI_UNLIKELY(x) __builtin_expect(!!(x), 0)
+#define ANDROMEDAUI_UNLIKELY(x) __builtin_expect(!!(x), 0)
 #else
-#define FTXUI_UNLIKELY(x) (x)
+#define ANDROMEDAUI_UNLIKELY(x) (x)
 #endif  // defined(COMPILER_GCC)
-#endif  // !defined(FTXUI_UNLIKELY)
+#endif  // !defined(ANDROMEDAUI_UNLIKELY)
 
-#if !defined(FTXUI_LIKELY)
+#if !defined(ANDROMEDAUI_LIKELY)
 #if defined(COMPILER_GCC) || defined(__clang__)
-#define FTXUI_LIKELY(x) __builtin_expect(!!(x), 1)
+#define ANDROMEDAUI_LIKELY(x) __builtin_expect(!!(x), 1)
 #else
-#define FTXUI_LIKELY(x) (x)
+#define ANDROMEDAUI_LIKELY(x) (x)
 #endif  // defined(COMPILER_GCC)
-#endif  // !defined(FTXUI_LIKELY)
+#endif  // !defined(ANDROMEDAUI_LIKELY)
 
 namespace andromeda {
 
@@ -73,12 +73,12 @@ void UpdatePixelStyle(const Screen* screen,
                       const Pixel& prev,
                       const Pixel& next) {
   // See https://gist.github.com/egmontkob/eb114294efbcd5adb1944c9f3cb5feda
-  if (FTXUI_UNLIKELY(next.hyperlink != prev.hyperlink)) {
+  if (ANDROMEDAUI_UNLIKELY(next.hyperlink != prev.hyperlink)) {
     ss << "\x1B]8;;" << screen->Hyperlink(next.hyperlink) << "\x1B\\";
   }
 
   // Bold
-  if (FTXUI_UNLIKELY((next.bold ^ prev.bold) | (next.dim ^ prev.dim))) {
+  if (ANDROMEDAUI_UNLIKELY((next.bold ^ prev.bold) | (next.dim ^ prev.dim))) {
     // BOLD_AND_DIM_RESET:
     ss << ((prev.bold && !next.bold) || (prev.dim && !next.dim) ? "\x1B[22m"
                                                                 : "");
@@ -87,7 +87,7 @@ void UpdatePixelStyle(const Screen* screen,
   }
 
   // Underline
-  if (FTXUI_UNLIKELY(next.underlined != prev.underlined ||
+  if (ANDROMEDAUI_UNLIKELY(next.underlined != prev.underlined ||
                      next.underlined_double != prev.underlined_double)) {
     ss << (next.underlined          ? "\x1B[4m"     // UNDERLINE
            : next.underlined_double ? "\x1B[21m"    // UNDERLINE_DOUBLE
@@ -95,30 +95,30 @@ void UpdatePixelStyle(const Screen* screen,
   }
 
   // Blink
-  if (FTXUI_UNLIKELY(next.blink != prev.blink)) {
+  if (ANDROMEDAUI_UNLIKELY(next.blink != prev.blink)) {
     ss << (next.blink ? "\x1B[5m"     // BLINK_SET
                       : "\x1B[25m");  // BLINK_RESET
   }
 
   // Inverted
-  if (FTXUI_UNLIKELY(next.inverted != prev.inverted)) {
+  if (ANDROMEDAUI_UNLIKELY(next.inverted != prev.inverted)) {
     ss << (next.inverted ? "\x1B[7m"     // INVERTED_SET
                          : "\x1B[27m");  // INVERTED_RESET
   }
 
   // Italics
-  if (FTXUI_UNLIKELY(next.italic != prev.italic)) {
+  if (ANDROMEDAUI_UNLIKELY(next.italic != prev.italic)) {
     ss << (next.italic ? "\x1B[3m"     // ITALIC_SET
                        : "\x1B[23m");  // ITALIC_RESET
   }
 
   // StrikeThrough
-  if (FTXUI_UNLIKELY(next.strikethrough != prev.strikethrough)) {
+  if (ANDROMEDAUI_UNLIKELY(next.strikethrough != prev.strikethrough)) {
     ss << (next.strikethrough ? "\x1B[9m"     // CROSSED_OUT
                               : "\x1B[29m");  // CROSSED_OUT_RESET
   }
 
-  if (FTXUI_UNLIKELY(next.foreground_color != prev.foreground_color ||
+  if (ANDROMEDAUI_UNLIKELY(next.foreground_color != prev.foreground_color ||
                      next.background_color != prev.background_color)) {
     ss << "\x1B[" + next.foreground_color.Print(false) + "m";
     ss << "\x1B[" + next.background_color.Print(true) + "m";

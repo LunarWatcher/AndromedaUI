@@ -1,8 +1,8 @@
 // Copyright 2021 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#ifndef FTXUI_DOM_FLEXBOX_CONFIG_HPP
-#define FTXUI_DOM_FLEXBOX_CONFIG_HPP
+#ifndef ANDROMEDAUI_DOM_FLEXBOX_CONFIG_HPP
+#define ANDROMEDAUI_DOM_FLEXBOX_CONFIG_HPP
 
 /*
   This replicate the CSS flexbox model.
@@ -111,4 +111,4 @@ struct FlexboxConfig {
 
 }  // namespace andromeda
 
-#endif  // FTXUI_DOM_FLEXBOX_CONFIG_HPP
+#endif  // ANDROMEDAUI_DOM_FLEXBOX_CONFIG_HPP

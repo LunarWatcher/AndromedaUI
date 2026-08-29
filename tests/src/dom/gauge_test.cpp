@@ -23,7 +23,7 @@ TEST(GaugeTest, HalfHorizontal) {
   Screen screen(11, 1);
   Render(screen, root);
 
-#if defined(FTXUI_MICROSOFT_TERMINAL_FALLBACK)
+#if defined(ANDROMEDAUI_MICROSOFT_TERMINAL_FALLBACK)
   EXPECT_EQ("█████▌     ", screen.ToString());
 #else
   EXPECT_EQ("█████▍     ", screen.ToString());

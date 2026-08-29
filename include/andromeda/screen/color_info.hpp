@@ -1,8 +1,8 @@
 // Copyright 2020 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#ifndef FTXUI_SCREEN_COLOR_INFO_HPP
-#define FTXUI_SCREEN_COLOR_INFO_HPP
+#ifndef ANDROMEDAUI_SCREEN_COLOR_INFO_HPP
+#define ANDROMEDAUI_SCREEN_COLOR_INFO_HPP
 
 #include <cstdint>
 #include <andromeda/screen/color.hpp>
@@ -26,4 +26,4 @@ ColorInfo GetColorInfo(Color::Palette16 index);
 
 }  // namespace andromeda
 
-#endif  // FTXUI_SCREEN_COLOR_INFO_HPP
+#endif  // ANDROMEDAUI_SCREEN_COLOR_INFO_HPP

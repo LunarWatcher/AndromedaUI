@@ -2,8 +2,8 @@
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
 
-#ifndef FTXUI_DOM_SELECTION_HPP
-#define FTXUI_DOM_SELECTION_HPP
+#ifndef ANDROMEDAUI_DOM_SELECTION_HPP
+#define ANDROMEDAUI_DOM_SELECTION_HPP
 
 #include <functional>
 
@@ -47,4 +47,4 @@ class Selection {
 
 }  // namespace andromeda
 
-#endif /* end of include guard: FTXUI_DOM_SELECTION_HPP */
+#endif /* end of include guard: ANDROMEDAUI_DOM_SELECTION_HPP */

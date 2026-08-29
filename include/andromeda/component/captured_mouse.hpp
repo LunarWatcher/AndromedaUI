@@ -1,8 +1,8 @@
 // Copyright 2020 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#ifndef FTXUI_CAPTURED_MOUSE_HPP
-#define FTXUI_CAPTURED_MOUSE_HPP
+#ifndef ANDROMEDAUI_CAPTURED_MOUSE_HPP
+#define ANDROMEDAUI_CAPTURED_MOUSE_HPP
 
 #include <memory>
 
@@ -19,4 +19,4 @@ class CapturedMouseInterface {
 using CapturedMouse = std::unique_ptr<CapturedMouseInterface>;
 }  // namespace andromeda
 
-#endif /* end of include guard: FTXUI_CAPTURED_MOUSE_HPP */
+#endif /* end of include guard: ANDROMEDAUI_CAPTURED_MOUSE_HPP */
