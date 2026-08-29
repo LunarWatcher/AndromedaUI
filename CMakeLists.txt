@@ -1,5 +1,4 @@
 option(FTXUI_BUILD_EXAMPLES "Set to ON to build examples" OFF)
-option(FTXUI_BUILD_MODULES "Build the C++20 modules" OFF)
 option(FTXUI_CLANG_TIDY "Execute clang-tidy" OFF)
 option(FTXUI_DEV_WARNINGS "Enable more compiler warnings and warnings as errors" OFF)
 option(FTXUI_ENABLE_COVERAGE "Execute code coverage" OFF)
@@ -171,7 +170,6 @@ ftxui_check_coverage(component)
 include(cmake/iwyu.cmake)
 include(cmake/ftxui_export.cmake)
 include(cmake/ftxui_package.cmake)
-include(cmake/ftxui_modules.cmake)
 
 add_subdirectory(examples)
 
