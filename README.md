@@ -5,18 +5,19 @@ AndromedaUI is an AI slop-free fork of [FTXUI](https://github.com/ArthurSonzogni
 Please note that this fork and upstream use two different versioning systems. v1.0.0 in this fork is the first release after the fork, and has no relation to upstream v1.0.0.
 
 ## Example
-```cpp
-    vbox({
-      hbox({
-        text("one") | border,
-        text("two") | border | flex,
-        text("three") | border | flex,
-      }),
 
-      gauge(0.25) | color(Color::Red),
-      gauge(0.50) | color(Color::White),
-      gauge(0.75) | color(Color::Blue),
-    });
+```cpp
+andromeda::vbox({
+    andromeda::hbox({
+        andromeda::text("one") | andromeda::border,
+        andromeda::text("two") | andromeda::border | andromeda::flex,
+        andromeda::text("three") | andromeda::border | andromeda::flex,
+    }),
+
+    andromeda::gauge(0.25) | andromeda::color(Color::Red),
+    andromeda::gauge(0.50) | andromeda::color(Color::White),
+    andromeda::gauge(0.75) | andromeda::color(Color::Blue),
+});
 ```
 
 ## Requirements
@@ -41,6 +42,12 @@ target_link_libraries(your_target PRIVATE
     andromedaui::screen
 )
 ```
+
+## Documentation
+
+The documentation was removed during the split from FTXUI due to a heavy reliance on images not stored in the source tree, as well as heavy use of doxygen-specific functionality that makes the source files very hard to read outside the doxygen-rendered pages. 
+
+The docs will be replaced at some point:tm:. In the meanwhile, there's a long list of examples (see the `examples` folder) that cover basically all the functionality in the library. `dom/component/homescreen.cpp` is a particularly broad example that covers proper TUI use.
 
 ## License
 
