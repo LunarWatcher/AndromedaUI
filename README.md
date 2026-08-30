@@ -21,7 +21,7 @@ Please note that this fork and upstream use two different versioning systems. v1
 
 ## Requirements
 
-AndromedaUI requires a C++20 compiler.
+AndromedaUI requires a C++20 compiler. It should in theory run on all operating systems, but only Linux is verified.
 
 ## Build using CMake
 
@@ -35,7 +35,7 @@ FetchContent_Declare(andromedaui
 FetchContent_MakeAvailable(andromedaui)
 
 target_link_libraries(your_target PRIVATE
-    # Chose a submodule
+    # Choose a submodule (or use all)
     andromedaui::component
     andromedaui::dom
     andromedaui::screen

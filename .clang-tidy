@@ -5,6 +5,7 @@
 #       clangd's extra pendantic check. The compiler does the bulk of the useful checks with -Wall
 # - clang-diagnostic-unused-private-field: Maybe useful eventually, but not right now.
 # - portability-template-virtual-member-function: not important
+# - misc-static-assert: currently borked and whines about all `assert`s
 Checks: >
   bugprone-*,
   clang-*,
