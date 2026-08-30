@@ -38,7 +38,7 @@ class Screen : public Image {
 
   // Fill the screen with space and reset any screen state, like hyperlinks, and
   // cursor
-  void Clear();
+  void Clear() override;
 
   // Move the terminal cursor n-lines up with n = dimy().
   std::string ResetPosition(bool clear = false) const;

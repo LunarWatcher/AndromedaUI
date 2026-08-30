@@ -21,7 +21,6 @@ class VBox : public Node {
  public:
   explicit VBox(Elements children) : Node(std::move(children)) {}
 
- private:
   void ComputeRequirement() override {
     requirement_ = Requirement{};
 

@@ -79,7 +79,7 @@ Component Toggle(ConstStringListRef entries, int* selected);
 
 // General slider constructor:
 template <typename T>
-Component Slider(SliderOption<T> options);
+Component Slider(const SliderOption<T>& options);
 
 // Shorthand without the `SliderOption` constructor:
 Component Slider(ConstStringRef label,

@@ -14,56 +14,58 @@
 
 using namespace andromeda;
 
-Element make_box(int x, int y) {
-  std::string title = "(" + std::to_string(x) + ", " + std::to_string(y) + ")";
-  return text(title) | center | size(WIDTH, EQUAL, 18) |
-         size(HEIGHT, EQUAL, 9) | border |
-         bgcolor(Color::HSV(x * 255 / 15, 255, y * 255 / 15));
+static Element make_box(int x, int y) {
+    std::string title = "(" + std::to_string(x) + ", " + std::to_string(y) + ")";
+    return text(title) | center | size(WIDTH, EQUAL, 18) |
+        size(HEIGHT, EQUAL, 9) | border |
+        bgcolor(Color::HSV(x * 255 / 15, 255, y * 255 / 15));
 };
 
-Element make_grid() {
-  std::vector<Elements> rows;
-  for (int i = 0; i < 15; i++) {
-    std::vector<Element> cols;
-    for (int j = 0; j < 15; j++) {
-      cols.push_back(make_box(i, j));
+static Element make_grid() {
+    std::vector<Elements> rows;
+    rows.reserve(15);
+    for (int i = 0; i < 15; i++) {
+        std::vector<Element> cols;
+        cols.reserve(15);
+        for (int j = 0; j < 15; j++) {
+            cols.push_back(make_box(i, j));
+        }
+        rows.push_back(cols);
     }
-    rows.push_back(cols);
-  }
 
-  return gridbox(rows);
+    return gridbox(rows);
 };
 
 int main() {
-  float focus_x = 0.5f;
-  float focus_y = 0.5f;
+    float focus_x = 0.5f;
+    float focus_y = 0.5f;
 
-  auto slider_x = Slider("x", &focus_x, 0.f, 1.f, 0.01f);
-  auto slider_y = Slider("y", &focus_y, 0.f, 1.f, 0.01f);
+    auto slider_x = Slider("x", &focus_x, 0.f, 1.f, 0.01f);
+    auto slider_y = Slider("y", &focus_y, 0.f, 1.f, 0.01f);
 
-  auto renderer = Renderer(
-      Container::Vertical({
-          slider_x,
-          slider_y,
-      }),
-      [&] {
-        auto title = "focusPositionRelative(" +        //
-                     std::to_string(focus_x) + ", " +  //
-                     std::to_string(focus_y) + ")";    //
-        return vbox({
-                   text(title),
-                   separator(),
-                   slider_x->Render(),
-                   slider_y->Render(),
-                   separator(),
-                   make_grid() | focusPositionRelative(focus_x, focus_y) |
-                       frame | flex,
-               }) |
-               border;
-      });
+    auto renderer = Renderer(
+        Container::Vertical({
+                slider_x,
+                slider_y,
+            }),
+        [&] {
+            auto title = "focusPositionRelative(" +        //
+                std::to_string(focus_x) + ", " +  //
+                std::to_string(focus_y) + ")";    //
+            return vbox({
+                    text(title),
+                    separator(),
+                    slider_x->Render(),
+                    slider_y->Render(),
+                    separator(),
+                    make_grid() | focusPositionRelative(focus_x, focus_y) |
+                    frame | flex,
+                }) |
+                border;
+        });
 
-  auto screen = ScreenInteractive::Fullscreen();
-  screen.Loop(renderer);
+    auto screen = ScreenInteractive::Fullscreen();
+    screen.Loop(renderer);
 
-  return 0;
+    return 0;
 }

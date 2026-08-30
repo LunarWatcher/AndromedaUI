@@ -19,27 +19,27 @@ namespace andromeda {
 /// @param show a function returning whether |child| should shown.
 /// @ingroup component
 Component Maybe(Component child, std::function<bool()> show) {
-  class Impl : public ComponentBase {
-   public:
-    explicit Impl(std::function<bool()> show) : show_(std::move(show)) {}
+    class Impl : public ComponentBase {
+    public:
+        explicit Impl(std::function<bool()> show) : show_(std::move(show)) {}
 
-   private:
-    Element OnRender() override {
-      return show_() ? ComponentBase::OnRender() : std::make_unique<Node>();
-    }
-    bool Focusable() const override {
-      return show_() && ComponentBase::Focusable();
-    }
-    bool OnEvent(Event event) override {
-      return show_() && ComponentBase::OnEvent(event);
-    }
+        Element OnRender() override {
+            return show_() ? ComponentBase::OnRender() : std::make_unique<Node>();
+        }
+        bool Focusable() const override {
+            return show_() && ComponentBase::Focusable();
+        }
+        bool OnEvent(Event event) override {
+            return show_() && ComponentBase::OnEvent(event);
+        }
 
-    std::function<bool()> show_;
-  };
+    private:
+        std::function<bool()> show_;
+    };
 
-  auto maybe = Make<Impl>(std::move(show));
-  maybe->Add(std::move(child));
-  return maybe;
+    auto maybe = Make<Impl>(std::move(show));
+    maybe->Add(std::move(child));
+    return maybe;
 }
 
 /// @brief Decorate a component. It is shown only when the |show| function
@@ -55,9 +55,9 @@ Component Maybe(Component child, std::function<bool()> show) {
 /// auto maybe_component = component | Maybe([&]{ return counter == 42; });
 /// ```
 ComponentDecorator Maybe(std::function<bool()> show) {
-  return [show = std::move(show)](Component child) mutable {
-    return Maybe(std::move(child), std::move(show));
-  };
+    return [show = std::move(show)](Component child) mutable {
+        return Maybe(std::move(child), std::move(show));
+    };
 }
 
 /// @brief Decorate a component |child|. It is shown only when |show| is true.
@@ -72,7 +72,7 @@ ComponentDecorator Maybe(std::function<bool()> show) {
 /// auto maybe_component = Maybe(component, &show);
 /// ```
 Component Maybe(Component child, const bool* show) {
-  return Maybe(std::move(child), [show] { return *show; });
+    return Maybe(std::move(child), [show] { return *show; });
 }
 
 /// @brief Decorate a component. It is shown only when |show| is true.
@@ -86,7 +86,7 @@ Component Maybe(Component child, const bool* show) {
 /// auto maybe_component = component | Maybe(&show);
 /// ```
 ComponentDecorator Maybe(const bool* show) {
-  return [show](Component child) { return Maybe(std::move(child), show); };
+    return [show](Component child) { return Maybe(std::move(child), show); };
 }
 
 }  // namespace andromeda

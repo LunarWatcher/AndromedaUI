@@ -132,7 +132,6 @@ class LinearGradientColor : public NodeDecorator {
         gradient_(Normalize(gradient)),
         background_color_{background_color} {}
 
- private:
   void Render(Screen& screen) override {
     const float degtorad = 0.01745329251F;
     const float dx = std::cos(gradient_.angle * degtorad);
@@ -172,6 +171,7 @@ class LinearGradientColor : public NodeDecorator {
     NodeDecorator::Render(screen);
   }
 
+ private:
   LinearGradientNormalized gradient_;
   bool background_color_;
 };

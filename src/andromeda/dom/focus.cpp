@@ -29,29 +29,29 @@ namespace andromeda {
 ///   | frame;
 /// ```
 Decorator focusPositionRelative(float x, float y) {
-  class Impl : public NodeDecorator {
-   public:
-    Impl(Element child, float x, float y)
-        : NodeDecorator(std::move(child)), x_(x), y_(y) {}
+    class Impl : public NodeDecorator {
+    public:
+        Impl(Element child, float x, float y)
+            : NodeDecorator(std::move(child)), x_(x), y_(y) {}
 
-    void ComputeRequirement() override {
-      NodeDecorator::ComputeRequirement();
-      requirement_.focused.enabled = true;
-      requirement_.focused.node = this;
-      requirement_.focused.box.x_min = int(float(requirement_.min_x) * x_);
-      requirement_.focused.box.y_min = int(float(requirement_.min_y) * y_);
-      requirement_.focused.box.x_max = int(float(requirement_.min_x) * x_);
-      requirement_.focused.box.y_max = int(float(requirement_.min_y) * y_);
-    }
+        void ComputeRequirement() override {
+            NodeDecorator::ComputeRequirement();
+            requirement_.focused.enabled = true;
+            requirement_.focused.node = this;
+            requirement_.focused.box.x_min = int(float(requirement_.min_x) * x_);
+            requirement_.focused.box.y_min = int(float(requirement_.min_y) * y_);
+            requirement_.focused.box.x_max = int(float(requirement_.min_x) * x_);
+            requirement_.focused.box.y_max = int(float(requirement_.min_y) * y_);
+        }
 
-   private:
-    const float x_;
-    const float y_;
-  };
+    private:
+        const float x_;
+        const float y_;
+    };
 
-  return [x, y](Element child) {
-    return std::make_shared<Impl>(std::move(child), x, y);
-  };
+    return [x, y](Element child) {
+        return std::make_shared<Impl>(std::move(child), x, y);
+    };
 }
 
 /// @brief Used inside a `frame`, this force the view to be scrolled toward a
@@ -67,30 +67,30 @@ Decorator focusPositionRelative(float x, float y) {
 ///   | frame;
 /// ```
 Decorator focusPosition(int x, int y) {
-  class Impl : public NodeDecorator {
-   public:
-    Impl(Element child, int x, int y)
-        : NodeDecorator(std::move(child)), x_(x), y_(y) {}
+    class Impl : public NodeDecorator {
+    public:
+        Impl(Element child, int x, int y)
+            : NodeDecorator(std::move(child)), x_(x), y_(y) {}
 
-    void ComputeRequirement() override {
-      NodeDecorator::ComputeRequirement();
-      requirement_.focused.enabled = false;
+        void ComputeRequirement() override {
+            NodeDecorator::ComputeRequirement();
+            requirement_.focused.enabled = false;
 
-      Box& box = requirement_.focused.box;
-      box.x_min = x_;
-      box.y_min = y_;
-      box.x_max = x_;
-      box.y_max = y_;
-    }
+            Box& box = requirement_.focused.box;
+            box.x_min = x_;
+            box.y_min = y_;
+            box.x_max = x_;
+            box.y_max = y_;
+        }
 
-   private:
-    const int x_;
-    const int y_;
-  };
+    private:
+        const int x_;
+        const int y_;
+    };
 
-  return [x, y](Element child) {
-    return std::make_shared<Impl>(std::move(child), x, y);
-  };
+    return [x, y](Element child) {
+        return std::make_shared<Impl>(std::move(child), x, y);
+    };
 }
 
 }  // namespace andromeda

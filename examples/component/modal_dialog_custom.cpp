@@ -3,6 +3,7 @@
 // the LICENSE file.
 #include <memory>  // for allocator, shared_ptr, __shared_ptr_access
 #include <string>  // for string, basic_string, char_traits, operator+
+#include <utility>
 #include <vector>  // for vector
 
 #include "andromeda/component/captured_mouse.hpp"  // for andromeda
@@ -49,7 +50,7 @@ int main() {
       "1/5 stars", "2/5 stars", "3/5 stars", "4/5 stars", "5/5 stars",
   };
   auto on_rating = [&](std::string new_rating) {
-    rating = new_rating;
+    rating = std::move(new_rating);
     depth = 0;
   };
   auto depth_1_container = Container::Horizontal({

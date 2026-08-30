@@ -7,7 +7,7 @@
 
 using namespace andromeda;
 
-Component DummyWindowContent() {
+static Component DummyWindowContent() {
   class Impl : public ComponentBase {
    private:
     bool checked[3] = {false, false, false};

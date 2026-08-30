@@ -1,7 +1,7 @@
 // Copyright 2020 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#include <stddef.h>  // for size_t
+#include <cstddef>  // for size_t
 #include <memory>    // for shared_ptr, __shared_ptr_access, allocator
 #include <string>  // for string, basic_string, to_string, operator+, char_traits
 #include <vector>  // for vector

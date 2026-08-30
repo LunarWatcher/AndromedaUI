@@ -17,11 +17,11 @@ namespace andromeda {
 namespace {
 
 void Post(std::function<void()> f) {
-  if (auto* screen = ScreenInteractive::Active()) {
-    screen->Post(std::move(f));
-    return;
-  }
-  f();
+    if (auto* screen = ScreenInteractive::Active()) {
+        screen->Post(std::move(f));
+        return;
+    }
+    f();
 }
 
 }  // namespace
@@ -41,33 +41,33 @@ void Post(std::function<void()> f) {
 /// ```
 // NOLINTNEXTLINE
 Component Hoverable(Component component, bool* hover) {
-  class Impl : public ComponentBase {
-   public:
-    Impl(Component component, bool* hover)
-        : component_(std::move(component)), hover_(hover) {
-      Add(component_);
-    }
+    class Impl : public ComponentBase {
+    public:
+        Impl(Component component, bool* hover)
+            : component_(std::move(component)), hover_(hover) {
+            Add(component_);
+        }
 
-   private:
-    Element OnRender() override {
-      return ComponentBase::OnRender() | reflect(box_);
-    }
+        Element OnRender() override {
+            return ComponentBase::OnRender() | reflect(box_);
+        }
 
-    bool OnEvent(Event event) override {
-      if (event.is_mouse()) {
-        *hover_ = box_.Contain(event.mouse().x, event.mouse().y) &&
-                  CaptureMouse(event);
-      }
+        bool OnEvent(Event event) override {
+            if (event.is_mouse()) {
+                *hover_ = box_.Contain(event.mouse().x, event.mouse().y) &&
+                    CaptureMouse(event);
+            }
 
-      return ComponentBase::OnEvent(event);
-    }
+            return ComponentBase::OnEvent(event);
+        }
 
-    Component component_;
-    bool* hover_;
-    Box box_;
-  };
+    private:
+        Component component_;
+        bool* hover_;
+        Box box_;
+    };
 
-  return Make<Impl>(component, hover);
+    return Make<Impl>(component, hover);
 }
 
 /// @brief Wrap a component. Uses callbacks.
@@ -84,46 +84,46 @@ Component Hoverable(Component component, bool* hover) {
 /// auto button_hover = Hoverable(button, &hover);
 /// ```
 Component Hoverable(Component component,
-                    std::function<void()> on_enter,
-                    std::function<void()> on_leave) {
-  class Impl : public ComponentBase {
-   public:
-    Impl(Component component,
-         std::function<void()> on_enter,
-         std::function<void()> on_leave)
-        : component_(std::move(component)),
-          on_enter_(std::move(on_enter)),
-          on_leave_(std::move(on_leave)) {
-      Add(component_);
-    }
-
-   private:
-    Element OnRender() override {
-      return ComponentBase::OnRender() | reflect(box_);
-    }
-
-    bool OnEvent(Event event) override {
-      if (event.is_mouse()) {
-        const bool hover = box_.Contain(event.mouse().x, event.mouse().y) &&
-                           CaptureMouse(event);
-        if (hover != hover_) {
-          Post(hover ? on_enter_ : on_leave_);
+    std::function<void()> on_enter,
+    std::function<void()> on_leave) {
+    class Impl : public ComponentBase {
+    public:
+        Impl(Component component,
+            std::function<void()> on_enter,
+            std::function<void()> on_leave)
+            : component_(std::move(component)),
+              on_enter_(std::move(on_enter)),
+              on_leave_(std::move(on_leave)) {
+            Add(component_);
         }
-        hover_ = hover;
-      }
 
-      return ComponentBase::OnEvent(event);
-    }
+        Element OnRender() override {
+            return ComponentBase::OnRender() | reflect(box_);
+        }
 
-    Component component_;
-    Box box_;
-    bool hover_ = false;
-    std::function<void()> on_enter_;
-    std::function<void()> on_leave_;
-  };
+        bool OnEvent(Event event) override {
+            if (event.is_mouse()) {
+                const bool hover = box_.Contain(event.mouse().x, event.mouse().y) &&
+                    CaptureMouse(event);
+                if (hover != hover_) {
+                    Post(hover ? on_enter_ : on_leave_);
+                }
+                hover_ = hover;
+            }
 
-  return Make<Impl>(std::move(component), std::move(on_enter),
-                    std::move(on_leave));
+            return ComponentBase::OnEvent(event);
+        }
+
+    private:
+        Component component_;
+        Box box_;
+        bool hover_ = false;
+        std::function<void()> on_enter_;
+        std::function<void()> on_leave_;
+    };
+
+    return Make<Impl>(std::move(component), std::move(on_enter),
+        std::move(on_leave));
 }
 
 /// @brief Wrap a component. Gives the ability to know if it is hovered by the
@@ -139,9 +139,9 @@ Component Hoverable(Component component,
 /// button |= Hoverable(&hover);
 /// ```
 ComponentDecorator Hoverable(bool* hover) {
-  return [hover](Component component) {
-    return Hoverable(std::move(component), hover);
-  };
+    return [hover](Component component) {
+        return Hoverable(std::move(component), hover);
+    };
 }
 
 /// @brief Wrap a component. Gives the ability to know if it is hovered by the
@@ -163,11 +163,11 @@ ComponentDecorator Hoverable(bool* hover) {
 /// ```
 // NOLINTNEXTLINE
 ComponentDecorator Hoverable(std::function<void()> on_enter,
-                             // NOLINTNEXTLINE
-                             std::function<void()> on_leave) {
-  return [on_enter, on_leave](Component component) {
-    return Hoverable(std::move(component), on_enter, on_leave);
-  };
+    // NOLINTNEXTLINE
+    std::function<void()> on_leave) {
+    return [on_enter, on_leave](Component component) {
+        return Hoverable(std::move(component), on_enter, on_leave);
+    };
 }
 
 /// @brief Wrap a component. Gives the ability to know if it is hovered by the
@@ -186,11 +186,11 @@ ComponentDecorator Hoverable(std::function<void()> on_enter,
 /// ```
 // NOLINTNEXTLINE
 Component Hoverable(Component component, std::function<void(bool)> on_change) {
-  return Hoverable(
-      std::move(component),              //
-      [on_change] { on_change(true); },  //
-      [on_change] { on_change(false); }  //
-  );
+    return Hoverable(
+        std::move(component),              //
+        [on_change] { on_change(true); },  //
+        [on_change] { on_change(false); }  //
+    );
 }
 
 /// @brief Wrap a component. Gives the ability to know if it is hovered by the
@@ -207,9 +207,9 @@ Component Hoverable(Component component, std::function<void(bool)> on_change) {
 /// ```
 // NOLINTNEXTLINE
 ComponentDecorator Hoverable(std::function<void(bool)> on_change) {
-  return [on_change](Component component) {
-    return Hoverable(std::move(component), on_change);
-  };
+    return [on_change](Component component) {
+        return Hoverable(std::move(component), on_change);
+    };
 }
 
 }  // namespace andromeda

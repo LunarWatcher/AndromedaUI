@@ -12,12 +12,12 @@
 
 using namespace andromeda;
 
-Element LoremIpsum() {
+static Element LoremIpsum() {
   return vbox({
-      text("FTXUI: A powerful library for building user interfaces."),
+      text("AndromedaUI: A powerful library for building user interfaces."),
       text("Enjoy a rich set of components and a declarative style."),
       text("Create beautiful and responsive UIs with minimal effort."),
-      text("Join the community and experience the power of FTXUI."),
+      text("Join the community and experience the power of AndromedaUI."),
   });
 }
 

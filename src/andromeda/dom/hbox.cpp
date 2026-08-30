@@ -20,7 +20,6 @@ class HBox : public Node {
  public:
   explicit HBox(Elements children) : Node(std::move(children)) {}
 
- private:
   void ComputeRequirement() override {
     requirement_ = Requirement{};
 

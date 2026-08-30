@@ -12,7 +12,7 @@
 
 using namespace andromeda;
 
-void Nested(std::string path) {
+static void Nested(std::string path) {
   auto screen = ScreenInteractive::FitComponent();
   auto back_button = Button("Back", screen.ExitLoopClosure());
   auto goto_1 = Button("Goto /1", [path] { Nested(path + "/1"); });

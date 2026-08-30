@@ -294,7 +294,7 @@ const std::map<std::string, TileEncoding> tile_encoding = { // NOLINT
 // clang-format on
 
 template <class A, class B>
-std::map<B, A> InvertMap(const std::map<A, B> input) {
+std::map<B, A> InvertMap(const std::map<A, B>& input) {
   std::map<B, A> output;
   for (const auto& it : input) {
     output[it.second] = it.first;

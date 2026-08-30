@@ -17,7 +17,7 @@
 
 using namespace andromeda;
 
-Component DummyComponent(int id) {
+static Component DummyComponent(int id) {
   return Renderer([id](bool focused) {
     auto t = text("component " + std::to_string(id));
     if (focused)
@@ -26,7 +26,7 @@ Component DummyComponent(int id) {
   });
 }
 
-Component Text(const std::string& t) {
+static Component Text(const std::string& t) {
   return Renderer([t] { return text(t) | borderEmpty; });
 }
 

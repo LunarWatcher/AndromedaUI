@@ -16,6 +16,7 @@
 #include "andromeda/dom/node.hpp"  // for Render
 #include "andromeda/screen/color.hpp"  // for Color, Color::BlueLight, Color::RedLight, Color::YellowLight, andromeda
 
+namespace {
 class Graph {
  public:
   std::vector<int> operator()(int width, int height) const {
@@ -40,6 +41,7 @@ std::vector<int> triangle(int width, int height) {
     output[i] = i % (height - 4) + 2;
   }
   return output;
+}
 }
 
 int main() {

@@ -73,7 +73,7 @@ int main() {
     return vbox({state.element, separatorEmpty()});
   };
 
-  auto generateUiFromStyle = [&](InputOption style) {
+  auto generateUiFromStyle = [&](const InputOption& style) {
     auto first_name = new std::string();   // Leaked
     auto middle_name = new std::string();  // Leaked
     auto last_name = new std::string();    // Leaked

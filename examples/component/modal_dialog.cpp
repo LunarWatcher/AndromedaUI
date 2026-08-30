@@ -5,6 +5,7 @@
 #include <andromeda/component/mouse.hpp>              // for andromeda
 #include <functional>                             // for function
 #include <memory>                                 // for allocator, shared_ptr
+#include <utility>
 
 #include "andromeda/component/component.hpp"  // for Button, operator|=, Renderer, Vertical, Modal
 #include "andromeda/component/screen_interactive.hpp"  // for ScreenInteractive, Component
@@ -12,71 +13,74 @@
 
 using namespace andromeda;
 
-auto button_style = ButtonOption::Animated();
+namespace {
+
+auto button_style = ButtonOption::Animated(); // NOLINT(bugprone-throwing-static-initialization)
 
 // Definition of the main component. The details are not important.
-Component MainComponent(std::function<void()> show_modal,
-                        std::function<void()> exit) {
-  auto component = Container::Vertical({
-      Button("Show modal", show_modal, button_style),
-      Button("Quit", exit, button_style),
-  });
-  // Polish how the two buttons are rendered:
-  component |= Renderer([&](Element inner) {
-    return vbox({
-               text("Main component"),
-               separator(),
-               inner,
-           })                                //
-           | size(WIDTH, GREATER_THAN, 15)   //
-           | size(HEIGHT, GREATER_THAN, 15)  //
-           | border                          //
-           | center;                         //
-  });
-  return component;
+Component MainComponent(std::function<void()> show_modal, std::function<void()> exit) {
+    auto component = Container::Vertical({
+            Button("Show modal", std::move(show_modal), button_style),
+            Button("Quit", std::move(exit), button_style),
+        });
+    // Polish how the two buttons are rendered:
+    component |= Renderer([&](const Element& inner) {
+        return vbox({
+                text("Main component"),
+                separator(),
+                inner,
+            })                                //
+            | size(WIDTH, GREATER_THAN, 15)   //
+            | size(HEIGHT, GREATER_THAN, 15)  //
+            | border                          //
+            | center;                         //
+    });
+    return component;
 }
 
 // Definition of the modal component. The details are not important.
 Component ModalComponent(std::function<void()> do_nothing,
-                         std::function<void()> hide_modal) {
-  auto component = Container::Vertical({
-      Button("Do nothing", do_nothing, button_style),
-      Button("Quit modal", hide_modal, button_style),
-  });
-  // Polish how the two buttons are rendered:
-  component |= Renderer([&](Element inner) {
-    return vbox({
-               text("Modal component "),
-               separator(),
-               inner,
-           })                               //
-           | size(WIDTH, GREATER_THAN, 30)  //
-           | border;                        //
-  });
-  return component;
+    std::function<void()> hide_modal) {
+    auto component = Container::Vertical({
+            Button("Do nothing", std::move(do_nothing), button_style),
+            Button("Quit modal", std::move(hide_modal), button_style),
+        });
+    // Polish how the two buttons are rendered:
+    component |= Renderer([&](const Element& inner) {
+        return vbox({
+                text("Modal component "),
+                separator(),
+                inner,
+            })                               //
+            | size(WIDTH, GREATER_THAN, 30)  //
+            | border;                        //
+    });
+    return component;
 }
 
-int main(int argc, const char* argv[]) {
-  auto screen = ScreenInteractive::TerminalOutput();
+}
 
-  // State of the application:
-  bool modal_shown = false;
+int main() {
+    auto screen = ScreenInteractive::TerminalOutput();
 
-  // Some actions modifying the state:
-  auto show_modal = [&] { modal_shown = true; };
-  auto hide_modal = [&] { modal_shown = false; };
-  auto exit = screen.ExitLoopClosure();
-  auto do_nothing = [&] {};
+    // State of the application:
+    bool modal_shown = false;
 
-  // Instanciate the main and modal components:
-  auto main_component = MainComponent(show_modal, exit);
-  auto modal_component = ModalComponent(do_nothing, hide_modal);
+    // Some actions modifying the state:
+    auto show_modal = [&] { modal_shown = true; };
+    auto hide_modal = [&] { modal_shown = false; };
+    auto exit = screen.ExitLoopClosure();
+    auto do_nothing = [&] {};
 
-  // Use the `Modal` function to use together the main component and its modal
-  // window. The |modal_shown| boolean controls whether the modal is shown or
-  // not.
-  main_component |= Modal(modal_component, &modal_shown);
+    // Instanciate the main and modal components:
+    auto main_component = MainComponent(show_modal, exit);
+    auto modal_component = ModalComponent(do_nothing, hide_modal);
 
-  screen.Loop(main_component);
-  return 0;
+    // Use the `Modal` function to use together the main component and its modal
+    // window. The |modal_shown| boolean controls whether the modal is shown or
+    // not.
+    main_component |= Modal(modal_component, &modal_shown);
+
+    screen.Loop(main_component);
+    return 0;
 }

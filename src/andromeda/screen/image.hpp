@@ -33,7 +33,7 @@ class Image {
   int dimy() const { return dimy_; }
 
   // Fill the image with space and default style
-  void Clear();
+  virtual void Clear();
 
   Box stencil;
 

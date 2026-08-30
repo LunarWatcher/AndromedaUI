@@ -27,15 +27,15 @@ namespace andromeda {
 /// screen.Loop(renderer);
 /// ```
 Component Renderer(std::function<Element()> render) {
-  class Impl : public ComponentBase {
-   public:
-    explicit Impl(std::function<Element()> render)
-        : render_(std::move(render)) {}
-    Element OnRender() override { return render_(); }
-    std::function<Element()> render_;
-  };
+    class Impl : public ComponentBase {
+    public:
+        explicit Impl(std::function<Element()> render)
+            : render_(std::move(render)) {}
+        Element OnRender() override { return render_(); }
+        std::function<Element()> render_;
+    };
 
-  return Make<Impl>(std::move(render));
+    return Make<Impl>(std::move(render));
 }
 
 /// @brief Return a new Component, similar to |child|, but using |render| as the
@@ -59,9 +59,9 @@ Component Renderer(std::function<Element()> render) {
 /// screen.Loop(renderer);
 /// ```
 Component Renderer(Component child, std::function<Element()> render) {
-  Component renderer = Renderer(std::move(render));
-  renderer->Add(std::move(child));
-  return renderer;
+    Component renderer = Renderer(std::move(render));
+    renderer->Add(std::move(child));
+    return renderer;
 }
 
 /// @brief Return a focusable component, using |render| to render its interface.
@@ -82,30 +82,31 @@ Component Renderer(Component child, std::function<Element()> render) {
 /// screen.Loop(renderer);
 /// ```
 Component Renderer(std::function<Element(bool)> render) {
-  class Impl : public ComponentBase {
-   public:
-    explicit Impl(std::function<Element(bool)> render)
-        : render_(std::move(render)) {}
+    class Impl : public ComponentBase {
+    public:
+        explicit Impl(std::function<Element(bool)> render)
+            : render_(std::move(render)) {}
 
-   private:
-    Element OnRender() override { return render_(Focused()) | reflect(box_); }
-    bool Focusable() const override { return true; }
-    bool OnEvent(Event event) override {
-      if (event.is_mouse() && box_.Contain(event.mouse().x, event.mouse().y)) {
-        if (!CaptureMouse(event)) {
-          return false;
+        Element OnRender() override { return render_(Focused()) | reflect(box_); }
+        bool Focusable() const override { return true; }
+        bool OnEvent(Event event) override {
+            if (event.is_mouse() && box_.Contain(event.mouse().x, event.mouse().y)) {
+                if (!CaptureMouse(event)) {
+                    return false;
+                }
+
+                TakeFocus();
+            }
+
+            return false;
         }
 
-        TakeFocus();
-      }
+    private:
+        Box box_;
 
-      return false;
-    }
-    Box box_;
-
-    std::function<Element(bool)> render_;
-  };
-  return Make<Impl>(std::move(render));
+        std::function<Element(bool)> render_;
+    };
+    return Make<Impl>(std::move(render));
 }
 
 /// @brief Decorate a component, by decorating what it renders.
@@ -123,11 +124,11 @@ Component Renderer(std::function<Element(bool)> render) {
 /// screen.Loop(renderer);
 /// ```
 ComponentDecorator Renderer(ElementDecorator decorator) {  // NOLINT
-  return [decorator](Component component) {                // NOLINT
-    return Renderer(component, [component, decorator] {
-      return component->Render() | decorator;
-    });
-  };
+    return [decorator](Component component) {                // NOLINT
+        return Renderer(component, [component, decorator] {
+            return component->Render() | decorator;
+        });
+    };
 }
 
 }  // namespace andromeda

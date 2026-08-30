@@ -15,7 +15,7 @@
 using namespace andromeda;
 
 // Display a component nicely with a title on the left.
-Component Wrap(std::string name, Component component) {
+static Component Wrap(const std::string& name, const Component& component) {
   return Renderer(component, [name, component] {
     return hbox({
                text(name) | size(WIDTH, EQUAL, 8),

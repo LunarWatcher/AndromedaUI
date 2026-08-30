@@ -27,6 +27,8 @@ Checks: >
   -misc-include-cleaner,
   -misc-no-recursion,
   -misc-use-anonymous-namespace,
+  -misc-confusable-identifiers,
+  -misc-multiple-inheritance,
   -performance-avoid-endl,
   -performance-enum-size,
   -readability-*,

@@ -1,12 +1,11 @@
 // Copyright 2020 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#include <stdlib.h>                   // for EXIT_SUCCESS
+#include <cstdlib>                   // for EXIT_SUCCESS
 #include <chrono>                     // for milliseconds
 #include <andromeda/component/event.hpp>  // for Event
 #include <andromeda/component/mouse.hpp>  // for andromeda
 #include <andromeda/dom/elements.hpp>  // for text, separator, Element, operator|, vbox, border
-#include <memory>                  // for allocator, shared_ptr
 #include <string>                  // for operator+, to_string
 #include <thread>                  // for sleep_for
 
@@ -37,7 +36,7 @@ int main() {
            border;
   });
 
-  component |= CatchEvent([&](Event) -> bool {
+  component |= CatchEvent([&](const Event&) -> bool {
     event_count++;
     return false;
   });

@@ -2,6 +2,7 @@
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
 #include <string>  // for basic_string, string, allocator
+#include <utility>
 #include <vector>  // for vector
 
 #include "andromeda/component/captured_mouse.hpp"  // for andromeda
@@ -29,14 +30,14 @@ int main() {
           [](bool open, Element checkbox, Element radiobox) {
             if (open) {
               return vbox({
-                  checkbox | inverted,
-                  radiobox | vscroll_indicator | frame |
+                      std::move(checkbox) | inverted,
+                  std::move(radiobox) | vscroll_indicator | frame |
                       size(HEIGHT, LESS_THAN, 10),
                   filler(),
               });
             }
             return vbox({
-                checkbox,
+                std::move(checkbox),
                 filler(),
             });
           },
@@ -45,7 +46,7 @@ int main() {
   auto dropdown_2 = Dropdown({
       .radiobox = {.entries = &entries},
       .transform =
-          [](bool open, Element checkbox, Element radiobox) {
+          [](bool open, const Element& checkbox, const Element& radiobox) {
             if (open) {
               return vbox({
                   checkbox | inverted,
@@ -78,7 +79,7 @@ int main() {
                   },
           },
       .transform =
-          [](bool open, Element checkbox, Element radiobox) {
+          [](bool open, Element checkbox, const Element& radiobox) {
             checkbox |= borderEmpty;
             if (open) {
               return vbox({

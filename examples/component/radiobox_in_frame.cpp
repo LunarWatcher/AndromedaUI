@@ -14,19 +14,21 @@
 using namespace andromeda;
 
 int main() {
-  std::vector<std::string> entries;
-  int selected = 0;
+    std::vector<std::string> entries;
+    int selected = 0;
 
-  for (int i = 0; i < 30; ++i)
-    entries.push_back("RadioBox " + std::to_string(i));
-  auto radiobox = Radiobox(&entries, &selected);
-  auto renderer = Renderer(radiobox, [&] {
-    return radiobox->Render() | vscroll_indicator | frame |
-           size(HEIGHT, LESS_THAN, 10) | border;
-  });
+    entries.reserve(30);
+    for (int i = 0; i < 30; ++i) {
+        entries.push_back("RadioBox " + std::to_string(i));
+    }
+    auto radiobox = Radiobox(&entries, &selected);
+    auto renderer = Renderer(radiobox, [&] {
+        return radiobox->Render() | vscroll_indicator | frame |
+            size(HEIGHT, LESS_THAN, 10) | border;
+    });
 
-  auto screen = ScreenInteractive::FitComponent();
-  screen.Loop(renderer);
+    auto screen = ScreenInteractive::FitComponent();
+    screen.Loop(renderer);
 
-  return 0;
+    return 0;
 }

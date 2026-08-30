@@ -8,7 +8,7 @@ namespace andromeda::util {
 
 // Similar to std::clamp, but allow hi to be lower than lo.
 template <class T>
-constexpr const T& clamp(const T& v, const T& lo, const T& hi) {
+constexpr T clamp(const T& v, const T& lo, const T& hi) {
   return v < lo ? lo : hi < v ? hi : v;
 }
 

@@ -1,10 +1,9 @@
 // Copyright 2020 Arthur Sonzogni. All rights reserved.
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
-#include <stddef.h>    // for size_t
+#include <cstddef>    // for size_t
 #include <array>       // for array
 #include <atomic>      // for atomic
-#include <chrono>      // for operator""s, chrono_literals
 #include <cmath>       // for sin
 #include <functional>  // for ref, reference_wrapper, function
 #include <memory>      // for allocator, shared_ptr, __shared_ptr_access
@@ -39,9 +38,9 @@ int main() {
     std::vector<int> output(width);
     for (int i = 0; i < width; ++i) {
       float v = 0.5f;
-      v += 0.1f * sin((i + shift) * 0.1f);
-      v += 0.2f * sin((i + shift + 10) * 0.15f);
-      v += 0.1f * sin((i + shift) * 0.03f);
+      v += 0.1f * std::sin((i + shift) * 0.1f);
+      v += 0.2f * std::sin((i + shift + 10) * 0.15f);
+      v += 0.1f * std::sin((i + shift) * 0.03f);
       v *= height;
       output[i] = (int)v;
     }

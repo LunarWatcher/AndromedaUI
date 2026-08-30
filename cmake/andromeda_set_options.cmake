@@ -41,7 +41,7 @@ function(andromeda_set_options library)
       $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   )
 
-  target_compile_features(${library} PUBLIC cxx_std_17)
+  target_compile_features(${library} PUBLIC cxx_std_20)
 
   # Force Microsoft Visual Studio to decode sources files in UTF-8. This applies
   # to the library and the library users.

@@ -15,43 +15,43 @@ using namespace andromeda;
 
 // Take a list of component, display them vertically, one column shifted to the
 // right.
-Component Inner(std::vector<Component> children) {
-  Component vlist = Container::Vertical(std::move(children));
-  return Renderer(vlist, [vlist] {
-    return hbox({
-        text(" "),
-        vlist->Render(),
+static Component Inner(std::vector<Component> children) {
+    Component vlist = Container::Vertical(std::move(children));
+    return Renderer(vlist, [vlist] {
+        return hbox({
+                text(" "),
+                vlist->Render(),
+            });
     });
-  });
 }
 
-Component Empty() {
-  return std::make_shared<ComponentBase>();
+static Component Empty() {
+    return std::make_shared<ComponentBase>();
 }
 
 int main() {
-  auto component =
-      Collapsible("Collapsible 1",
-                  Inner({
-                      Collapsible("Collapsible 1.1",
-                                  Inner({
-                                      Collapsible("Collapsible 1.1.1", Empty()),
-                                      Collapsible("Collapsible 1.1.2", Empty()),
-                                      Collapsible("Collapsible 1.1.3", Empty()),
-                                  })),
-                      Collapsible("Collapsible 1.2",
-                                  Inner({
-                                      Collapsible("Collapsible 1.2.1", Empty()),
-                                      Collapsible("Collapsible 1.2.2", Empty()),
-                                      Collapsible("Collapsible 1.2.3", Empty()),
-                                  })),
-                      Collapsible("Collapsible 1.3",
-                                  Inner({
-                                      Collapsible("Collapsible 1.3.1", Empty()),
-                                      Collapsible("Collapsible 1.3.2", Empty()),
-                                      Collapsible("Collapsible 1.3.3", Empty()),
-                                  })),
-                  }));
+    auto component =
+        Collapsible("Collapsible 1",
+            Inner({
+                    Collapsible("Collapsible 1.1",
+                        Inner({
+                                Collapsible("Collapsible 1.1.1", Empty()),
+                                Collapsible("Collapsible 1.1.2", Empty()),
+                                Collapsible("Collapsible 1.1.3", Empty()),
+                            })),
+                    Collapsible("Collapsible 1.2",
+                        Inner({
+                                Collapsible("Collapsible 1.2.1", Empty()),
+                                Collapsible("Collapsible 1.2.2", Empty()),
+                                Collapsible("Collapsible 1.2.3", Empty()),
+                            })),
+                    Collapsible("Collapsible 1.3",
+                        Inner({
+                                Collapsible("Collapsible 1.3.1", Empty()),
+                                Collapsible("Collapsible 1.3.2", Empty()),
+                                Collapsible("Collapsible 1.3.3", Empty()),
+                            })),
+                }));
 
-  ScreenInteractive::FitComponent().Loop(component);
+    ScreenInteractive::FitComponent().Loop(component);
 }

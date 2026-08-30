@@ -16,7 +16,7 @@
 using namespace andromeda;
 
 // Define a special style for some menu entry.
-MenuEntryOption Colored(andromeda::Color c) {
+static MenuEntryOption Colored(andromeda::Color c) {
   MenuEntryOption option;
   option.animated_colors.foreground.enabled = true;
   option.animated_colors.background.enabled = true;

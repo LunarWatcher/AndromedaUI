@@ -10,6 +10,7 @@
 
 namespace andromeda {
 
+namespace {
 class CatchEventBase : public ComponentBase {
  public:
   // Constructor.
@@ -28,6 +29,7 @@ class CatchEventBase : public ComponentBase {
  protected:
   std::function<bool(Event)> on_event_;
 };
+}
 
 /// @brief Return a component, using |on_event| to catch events. This function
 /// must returns true when the event has been handled, false otherwise.

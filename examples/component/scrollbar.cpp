@@ -7,7 +7,7 @@
 
 using namespace andromeda;
 
-Component DummyWindowContent() {
+static Component DummyWindowContent() {
   class Impl : public ComponentBase {
    private:
     float scroll_x = 0.1;

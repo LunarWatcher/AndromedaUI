@@ -10,7 +10,7 @@
 
 using namespace andromeda;
 
-Component Instance(std::string label, Decorator focusCursor) {
+static Component Instance(const std::string& label, const Decorator& focusCursor) {
   return Renderer([=](bool focused) {
     if (focused) {
       return hbox({

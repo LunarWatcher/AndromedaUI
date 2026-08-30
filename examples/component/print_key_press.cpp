@@ -2,23 +2,19 @@
 // Use of this source code is governed by the MIT license that can be found in
 // the LICENSE file.
 
-#include <stddef.h>   // for size_t
+#include <cstddef>   // for size_t
 #include <algorithm>  // for max
-#include <memory>     // for allocator, shared_ptr
 #include <string>  // for char_traits, operator+, string, basic_string, to_string
-#include <utility>  // for move
 #include <vector>   // for vector
 
-#include "andromeda/component/captured_mouse.hpp"  // for andromeda
 #include "andromeda/component/component.hpp"       // for CatchEvent, Renderer
 #include "andromeda/component/event.hpp"           // for Event
-#include "andromeda/component/mouse.hpp"  // for Mouse, Mouse::Left, Mouse::Middle, Mouse::None, Mouse::Pressed, Mouse::Released, Mouse::Right, Mouse::WheelDown, Mouse::WheelUp
 #include "andromeda/component/screen_interactive.hpp"  // for ScreenInteractive
 #include "andromeda/dom/elements.hpp"  // for text, vbox, window, Element, Elements
 
 using namespace andromeda;
 
-std::string Code(Event event) {
+static std::string Code(const Event& event) {
   std::string codes;
   for (auto& it : event.input()) {
     codes += " " + std::to_string((unsigned int)it);
@@ -57,7 +53,7 @@ int main() {
   auto component = ResizableSplitLeft(left_column, right_column, &split_size);
   component |= border;
 
-  component |= CatchEvent([&](Event event) {
+  component |= CatchEvent([&](const Event& event) {
     keys.push_back(event);
     return false;
   });

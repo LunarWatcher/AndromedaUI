@@ -6,7 +6,6 @@
 #include <memory>    // for allocator, shared_ptr, __shared_ptr_access
 #include <string>  // for char_traits, to_string, operator+, string, basic_string
 
-#include "andromeda/component/captured_mouse.hpp"  // for andromeda
 #include "andromeda/component/component.hpp"  // for MenuEntry, Renderer, Vertical
 #include "andromeda/component/component_base.hpp"      // for ComponentBase
 #include "andromeda/component/component_options.hpp"   // for MenuEntryOption
@@ -17,7 +16,7 @@
 using namespace andromeda;
 
 // Define a special style for some menu entry.
-MenuEntryOption Colored(andromeda::Color c) {
+static MenuEntryOption Colored(andromeda::Color c) {
   MenuEntryOption option;
   option.transform = [c](EntryState state) {
     state.label = (state.active ? "> " : "  ") + state.label;

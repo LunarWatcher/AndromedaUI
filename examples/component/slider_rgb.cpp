@@ -13,12 +13,12 @@
 
 using namespace andromeda;
 
-Element ColorTile(int red, int green, int blue) {
+static Element ColorTile(int red, int green, int blue) {
   return text("") | size(WIDTH, GREATER_THAN, 14) |
          size(HEIGHT, GREATER_THAN, 7) | bgcolor(Color::RGB(red, green, blue));
 }
 
-Element ColorString(int red, int green, int blue) {
+static Element ColorString(int red, int green, int blue) {
   return text("RGB = (" +                    //
               std::to_string(red) + "," +    //
               std::to_string(green) + "," +  //
