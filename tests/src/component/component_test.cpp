@@ -159,7 +159,8 @@ TEST(ContainerTest, ChildAt) {
 
 TEST(ComponentTest, NonFocusableAreNotFocused) {
   class NonFocusable : public ComponentBase {
-    bool Focusable() const override { return false; }
+  public:
+      bool Focusable() const override { return false; }
   };
   auto root = Make<NonFocusable>();
   REQUIRE_FALSE(root->Focused());

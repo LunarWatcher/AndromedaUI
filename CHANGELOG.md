@@ -11,4 +11,6 @@ First release.
   * I can't maintain non-CMake builds at this time, because I don't use anything other than CMake, so removing them avoids having to do renames in them that I cannot verify anyway
 * Moved tests to catch2
 * Dropped separate `include` folder
+* Bumped minimum C++ version to C++20
+* Silenced all the clang-tidy and `-Wall -Wextra` warnings
 

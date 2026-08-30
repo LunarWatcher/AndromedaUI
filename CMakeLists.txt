@@ -14,9 +14,11 @@ project(AndromedaUI
   DESCRIPTION "C++ Functional Terminal User Interface."
 )
 
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(ANDROMEDAUI_MICROSOFT_TERMINAL_FALLBACK_HELP_TEXT "On windows, assume the \
-terminal used will be one of Microsoft and use a set of reasonnable fallback \
+terminal used will be one of Microsoft and use a set of reasonable fallbacks \
 to counteract its implementations problems.")
 if (WIN32)
   option(ANDROMEDAUI_MICROSOFT_TERMINAL_FALLBACK

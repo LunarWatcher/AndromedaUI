@@ -19,6 +19,10 @@ Please note that this fork and upstream use two different versioning systems. v1
     });
 ```
 
+## Requirements
+
+AndromedaUI requires a C++20 compiler.
+
 ## Build using CMake
 
 It is **highly** recommended to use CMake FetchContent to depend on FTXUI so you may specify which commit you would like to depend on.
