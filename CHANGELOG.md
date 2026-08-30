@@ -1,8 +1,8 @@
 # Changelog
 
-## v1.0.0 (TBA)
+## v1.0.0 (2026-08-30)
 
-First release.
+First post-fork release.
 
 * Renamed to AndromedaUI
 * Removed all commits after https://codeberg.org/LunarWatcher/AndromedaUI/commit/3367c3a005ac3d8659effb0858526931f68fc434 (upstream link: https://github.com/ArthurSonzogni/FTXUI/commit/3367c3a005ac3d8659effb0858526931f68fc434) due to AI slop
